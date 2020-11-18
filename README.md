@@ -8,6 +8,6 @@ This project was born out of a personal necessity. In 2020, I would spend hours 
 Enter, Ubike (no relation to any other apps). Ubike offers a way to allow users to check in/out of bike parking shelters throughout New York City (all five boroughs). It also allows riders to filter for shelters depending on the borough and for riders to leave comments and reviews. 
 
 ### API
-This app was made possible by the NYC Open Data API. 
+This app was made possible by the NYC Open Data API. I specifically used the Bike Shelters information.
 
 ## Capstone Project as a Flatiron School Student
