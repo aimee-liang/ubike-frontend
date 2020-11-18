@@ -1,6 +1,6 @@
 ### ubike [oo-bike]
 
-![Alt text](https://tenor.com/wYxh.gif)
+![Alt text](https://media.giphy.com/media/SsBEjki7QYC1OG3W0N/giphy.gif)
 
 #### Origins
 This project was born out of a personal necessity. In 2020, I would spend hours on Google Maps trying to figure out the best routes to bike in New York City, as well as available bike racks near where I'd be heading. That was pretty frustrating, especially when I would arrive not knowing if they would all be occupied and I'd be forced to walk a few blocks over to find another bike rack. Even then, I was nervous about leaving my bike out for too long because I didn't want my bike to get stolen and end up in a chopshop. Then I realized how other riders might feel the same way. People are hesistant to ride the subway in a COVID world, but biking offers its own unique issues.
