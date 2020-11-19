@@ -6,6 +6,7 @@ class Home extends React.Component{
     render(){
         return(
             <>
+            <p> this is the home page</p>
                 <BikeStations />
                 <Map />
             </>

@@ -9,9 +9,8 @@ import thunk from "redux-thunk"
 import { Provider } from "react-redux"
 
 const rootReducer = (currentState = { bike_stations: [] }, action ) => {
-  if (action.type === "fetch bikes"){
-    console.log("bikes fetched")
-    return {...currentState, bike_stations: [...currentState.bike_stations, action.payload]}
+  if (action.type === "add_bikes_from_fetch"){
+    return {...currentState, bike_stations: action.payload}
   } else {
     return currentState
   }

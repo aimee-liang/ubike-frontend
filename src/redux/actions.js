@@ -1,9 +1,9 @@
-export const fetchBikes = () => {
+export const getBikes = () => {
     return function (dispatch){
 
         fetch(`http://localhost:3000/api/v1/bike_stations`)
             .then(resp => resp.json())
-            .then(console.log)
+            .then(data => dispatch({type : "add_bikes_from_fetch", payload: data}))
             .catch(error => console.log(error))
     }
 }
