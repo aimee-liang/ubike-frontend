@@ -8,8 +8,15 @@ import { createStore, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
 import { Provider } from "react-redux"
 
-const rootReducer = () => { return { bike_station: [] } }
-const store = createStore(rootReducer)
+const rootReducer = (currentState = { bike_stations: [] }, action ) => {
+  if (action.type === "fetch bikes"){
+    console.log("bikes fetched")
+    return {...currentState, bike_stations: [...currentState.bike_stations, action.payload]}
+  } else {
+    return currentState
+  }
+}
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
