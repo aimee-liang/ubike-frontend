@@ -7,6 +7,12 @@ import SideBar from "./Containers/SideBar"
 
 class App extends React.Component{  
   
+  //reminder to set state for favorites here
+  state={
+    favorites: [],
+    currentBikeStation: []
+  }
+
   render(){
     return (
       <>
