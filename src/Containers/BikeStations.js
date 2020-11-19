@@ -1,8 +1,9 @@
 import React from "react"
 import FilterBoroughs from "../Components/FilterBoroughs"
 import BikeStation from "../Components/BikeStation"
+import {connect} from "react-redux"
 
-export default class BikeStations extends React.Component{
+class BikeStations extends React.Component{
     render(){
         return(
             <>
@@ -12,3 +13,9 @@ export default class BikeStations extends React.Component{
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {bike_stations: state.bike_stations}
+}
+
+export default connect(mapStateToProps, null)(BikeStations)

@@ -11,7 +11,7 @@ class App extends React.Component{
     return (
       <>
       <SideBar />
-      
+
       <Switch>
         <Route path ="/home" render={()=> <Home /> } />
         <Route path="/profile" render={() => <ProfilePage /> } />
