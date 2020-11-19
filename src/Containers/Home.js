@@ -6,7 +6,8 @@ class Home extends React.Component{
 
     state={
         bikesAPI: [],
-        searchValue: "All"
+        searchValue: "All",
+        favorites: []
     }
 
     componentDidMount(){
@@ -26,7 +27,6 @@ class Home extends React.Component{
             searchValue: boroughObj
         }))
     }
-
 
     sortByBorough = () => {
         if (this.state.searchValue === "All"){

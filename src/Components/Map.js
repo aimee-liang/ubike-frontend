@@ -1,11 +1,11 @@
 import React from "react"
 
-function Map(){
+class Map extends React.Component{
+    render(){
     return(
         <>
-        <p>{/* work on maps API */}</p>
         </>
-    )
+    )}
 }
 
 export default Map
