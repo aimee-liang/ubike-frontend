@@ -38,8 +38,8 @@ class BikeStation extends React.Component{
                         <br>
                         </br>
                         <button onClick={this.clickHandler}>Check In</button> 
-                            {this.state.clicked ? this.localCheckIn(): null} 
                         <button onClick={this.favoriteHandler}>Star Feature Here</button>
+                        {this.state.clicked ? this.localCheckIn(): null} 
                     </li>
                 </ul>
             {/* </div> */}
