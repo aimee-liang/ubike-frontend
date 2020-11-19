@@ -38,7 +38,7 @@ class BikeStation extends React.Component{
                         Borough: {this.props.bike.borough}
                         <br>
                         </br>
-                        <button onClick={this.clickHandler ? this.localCheckIn() : this.localCheckOut()}>Check In</button>
+                        <button onClick={this.state.clicked ? this.localCheckIn() : this.localCheckOut()}>Check In</button>
                         <button onClick={this.favoriteHandler}>Star Feature Here</button>
                     </li>
                 </ul>
