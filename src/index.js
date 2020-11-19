@@ -5,16 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import { BrowserRouter } from "react-router-dom"
 import { createStore, applyMiddleware } from "redux"
+import {rootReducer} from "./redux/rootReducer"
 import thunk from "redux-thunk"
 import { Provider } from "react-redux"
 
-const rootReducer = (currentState = { bike_stations: [] }, action ) => {
-  if (action.type === "add_bikes_from_fetch"){
-    return {...currentState, bike_stations: action.payload}
-  } else {
-    return currentState
-  }
-}
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
