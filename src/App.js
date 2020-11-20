@@ -28,8 +28,8 @@ class App extends React.Component{
       <SideBar />
 
       <Switch>
-        <Home favoriteStations={this.state.favoriteStations} />
-        {/* <Route path ="/home" render={()=> <Home /> } /> */}
+        {/* <Home favoriteStations={this.state.favoriteStations} /> */}
+        <Route path ="/home" render={()=> <Home favoriteStations={this.state.favoriteStations}/> } />
         <Route path="/profile" render={() => <ProfilePage /> } /> 
       </Switch> 
       </>
