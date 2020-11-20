@@ -26,8 +26,9 @@ class BikeStation extends React.Component{
         console.log("click")
     }
 
-    favoriteHandler = () => {
-        console.log("eat veggies")
+    favoriteHandler = (bikeStationObj) => {
+        // console.log("eat veggies")
+        
     }
 
     render(){

@@ -6,6 +6,7 @@ export default class ProfilePage extends React.Component{
         return(
             <>
                 <div className="about-me">
+                    <p> About Me</p>
                     {/* <img src/> */}
                     {/* username */}
                 </div>

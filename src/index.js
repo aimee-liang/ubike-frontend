@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 // import { createStore, applyMiddleware } from "redux"
 // import rootReducer from "./redux/rootReducer"
 // import thunk from "redux-thunk"
@@ -14,9 +14,9 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     {/* <Provider store={store}> */}
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <App />
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById('root')

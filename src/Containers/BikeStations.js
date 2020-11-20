@@ -38,7 +38,7 @@ class BikeStations extends React.Component{
     // }
 
     renderBikes = () => this.props.bikes.map((bike) => {
-        return <BikeStation id={bike.id} bike={bike}/>
+        return <BikeStation id={bike.id} bike={bike} favoriteStations={this.props.favoriteStations} />
     })
 
     render(){
