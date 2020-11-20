@@ -9,6 +9,7 @@ export default class ProfilePage extends React.Component{
                     <p> About Me</p>
                     {/* <img src/> */}
                     {/* username */}
+                    
                 </div>
 
                 <div className="currently-checked-status">
