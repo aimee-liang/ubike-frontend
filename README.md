@@ -10,4 +10,6 @@ Enter, Ubike (no relation to any other apps). Ubike offers a way to allow users 
 ### API
 This app was made possible by the NYC Open Data API. I specifically used the Bike Shelters information.
 
+### Map
+This map was made possible by React Map GL. You can access their documentation [here](https://docs.mapbox.com/mapbox-gl-js/api/). I would also like to thank [Dallas Bille](https://medium.com/swlh/getting-started-with-react-and-mapbox-gl-js-daa96477dd2c) and their super helpful Medium article on how to implement a responsive map feature. 
 ## Capstone Project as a Flatiron School Student
