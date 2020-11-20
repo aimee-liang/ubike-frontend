@@ -1,4 +1,5 @@
 import React from "react"
+// import { useHistory } from "react-router-dom"
 
 // const BikeStation = (props) => {
 class BikeStation extends React.Component{
@@ -21,6 +22,10 @@ class BikeStation extends React.Component{
         // this.props.checkedOut(bikeShelterObj)
     }
 
+    rerouteToBikeShowPage = () => {
+        console.log("click")
+    }
+
     favoriteHandler = () => {
         console.log("eat veggies")
     }
@@ -30,7 +35,7 @@ class BikeStation extends React.Component{
             <>
             {/* <div key={props.id}> */}
                 <ul>
-                    <li key={this.props.id}>
+                    <li key={this.props.id} onClick={this.rerouteToBikeShowPage}>
                         Address: {this.props.bike.location} 
                         <br>
                         </br>
