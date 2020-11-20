@@ -1,7 +1,5 @@
 import React from "react"
-// import { useHistory } from "react-router-dom"
 
-// const BikeStation = (props) => {
 class BikeStation extends React.Component{
     state={
         clicked: false
@@ -13,42 +11,39 @@ class BikeStation extends React.Component{
         }))
     }
 
-    localCheckIn = () => {
-        // this.props.checkedIn(bikeShelterObj)
+    displayCheckInMessage = () => {
         return <p>You're checked in!</p>
     }
 
+/* stretch feature - how to check out 
     localCheckOut = () => {
-        // this.props.checkedOut(bikeShelterObj)
+    }
+*/
+
+    rerouteToBikeShowPage = (e) => {
+        this.props.history.push(`/bikestation/${this.props.bike.id}`)
     }
 
-    rerouteToBikeShowPage = () => {
-        console.log("click")
-    }
-
-    favoriteHandler = (bikeStationObj) => {
-        // console.log("eat veggies")
-        
+    favoriteHandler = (e) => {
+        this.props.favoriteStations(this.props.bike)
     }
 
     render(){
         return (
             <>
-            {/* <div key={props.id}> */}
                 <ul>
-                    <li key={this.props.id} onClick={this.rerouteToBikeShowPage}>
-                        Address: {this.props.bike.location} 
+                    <li key={this.props.bike.id}>
+                        <h4 onClick={this.rerouteToBikeShowPage}>Address: {this.props.bike.location}  </h4>
                         <br>
                         </br>
                         Borough: {this.props.bike.borough}
                         <br>
                         </br>
                         <button onClick={this.clickHandler}>Check In</button> 
-                        <button onClick={this.favoriteHandler}>Star Feature Here</button>
-                        {this.state.clicked ? this.localCheckIn(): null} 
+                        <button onClick={this.favoriteHandler}>Favorite</button>
+                        {this.state.clicked ? this.displayCheckInMessage(): null} 
                     </li>
                 </ul>
-            {/* </div> */}
             </>
         )
     }

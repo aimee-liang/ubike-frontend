@@ -9,14 +9,16 @@ export default class ProfilePage extends React.Component{
                     <p> About Me</p>
                     {/* <img src/> */}
                     {/* username */}
-                    
+
                 </div>
 
                 <div className="currently-checked-status">
                     {/* is User checked in? */}
+                    
                 </div>
 
-                <FavoriteStationsContainer />
+                <FavoriteStationsContainer favoriteStations={this.props.favoriteStations} />
+
             </>
         )
     }

@@ -6,46 +6,45 @@ import BikeStation from "../Components/BikeStation"
 
 class BikeStations extends React.Component{
 
-    // state={
-    //     bikesAPI: [],
-    //     searchValue: "All"
-    // }
+    state={
+        bikesAPI: [],
+        searchValue: "All"
+    }
 
-    // componentDidMount(){
-    //     // this.props.fetchBikes()
-    //     fetch(`http://localhost:3000/api/v1/bike_stations`)
-    //         .then(resp => resp.json())
-    //         .then(data => {
-    //             this.setState(()=> ({
-    //                 bikesAPI: data
-    //             }))
-    //         })
-    //         .catch(error => console.log(error))
-    // }
+    componentDidMount(){
+        // this.props.fetchBikes()
+        fetch(`http://localhost:3000/api/v1/bike_stations`)
+            .then(resp => resp.json())
+            .then(data => {
+                this.setState(()=> ({
+                    bikesAPI: data
+                }))
+            })
+            .catch(error => console.log(error))
+    }
 
-    // searchBorough = (boroughObj) => {
-    //     this.setState(() => ({
-    //         searchValue: boroughObj
-    //     }))
-    // }
+    searchBorough = (boroughObj) => {
+        this.setState(() => ({
+            searchValue: boroughObj
+        }))
+    }
 
-    // sortByBorough = () => {
-    //     if (this.state.searchValue === "All"){
-    //         return this.state.bikesAPI
-    //     } else {
-    //         return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
-    //     }
-    // }
+    sortByBorough = () => {
+        if (this.state.searchValue === "All"){
+            return this.state.bikesAPI
+        } else {
+            return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
+        }
+    }
 
     renderBikes = () => this.props.bikes.map((bike) => {
-        return <BikeStation id={bike.id} bike={bike} favoriteStations={this.props.favoriteStations} />
+        return <BikeStation key={bike.id} bike={bike} favoriteStations={this.props.favoriteStations} {...this.props} />
     })
 
     render(){
         return(
             <>
                 <FilterBoroughs searchBorough={this.props.searchBorough} searchValue={this.props.searchValue} />
-                {/* <BikeStation bikes={this.props.bikesAPI}/> */}
                 {this.renderBikes()}
             </>
         )

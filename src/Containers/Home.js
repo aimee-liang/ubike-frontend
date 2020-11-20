@@ -41,7 +41,7 @@ class Home extends React.Component{
         return(
             <>
             <p> This is the home page</p>
-                <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} favoriteStations={this.props.favoriteStations}/>
+                <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} favoriteStations={this.props.favoriteStations} {...this.props} />
                 <Map />
             </>
         )

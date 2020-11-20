@@ -1,11 +1,12 @@
 import React from "react"
 import FavoriteStation from "../Components/FavoriteStation"
 
-function FavoriteStationsContainer(){
+const FavoriteStationsContainer = props => {
+
+    // renderFavoriteStations = () => this.props.favoriteStations.map((station, index) => <FavoriteStation key={index} station={station}/ > )
+    
     return(
-        <>
-        <FavoriteStation />
-        </>
+        <p>hello from the container</p>
     )
 }
 
