@@ -12,11 +12,6 @@ const BikeStation = props => {
 
     const clickHandler = (e) => {
         setClicked(!clicked)
-        setStation({
-            id: props.bike.id,
-            location: props.bike.location,
-            borough: props.bike.borough
-        })
     }
 
     // const displayCheckInMessage = () => {
@@ -33,7 +28,11 @@ const BikeStation = props => {
     }
 
     const favoriteHandler = (e) => {
-        props.favoriteStations(props.bike)
+        setStation({
+            id: props.bike.id,
+            location: props.bike.location,
+            borough: props.bike.borough
+        })
     }
 
     // render(){

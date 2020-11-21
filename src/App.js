@@ -11,7 +11,8 @@ class App extends React.Component{
   
   state={
     user: null,
-    favoriteStations: []
+    favoriteStations: [],
+    currentStation: []
   }
 
   componentDidMount(){
@@ -86,10 +87,10 @@ class App extends React.Component{
     })
   }
 
-/* validate only checked in one place  && POST method to check in 
+/* validate only checked in one place  && POST method to check in */
   currentCheckStatus = (checkedInObj) => {
     fetch(`http://localhost:3000/api/v1/check_ins`, {
-      method: "PUT",
+      method: "POST",
       headers: {
         "content-type": "application/json",
         accepts: "application/json"
@@ -98,11 +99,13 @@ class App extends React.Component{
     })
     .then(resp => resp.json())
     .then(status => {
-
+      let checkedInto = [...this.state.currentStation, status]
+      this.setState(() => ({
+        currentStation: checkedInto
+      }))
     })
   }
-  
-*/
+
 
   render(){
     return (
@@ -112,7 +115,7 @@ class App extends React.Component{
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
-          <Route path ="/home" render={()=> <Home favoriteStations={this.favoriteStationsUpdate} addFaves={this.favoriteStationsUpdate}/> } />
+          <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate}/> } />
           <Route path ="/profile" render={() => <ProfilePage favoriteStations={this.state.favoriteStations} /> } /> 
         </Switch> 
       </>
