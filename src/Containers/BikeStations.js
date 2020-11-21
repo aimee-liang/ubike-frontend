@@ -4,52 +4,17 @@ import BikeStation from "../Components/BikeStation"
 // import { connect } from "react-redux"
 // import { fetchBikes } from "../redux/actions"
 
-class BikeStations extends React.Component{
+const BikeStations = (props) => {
 
-    state={
-        bikesAPI: [],
-        searchValue: "All"
-    }
-
-    componentDidMount(){
-        // this.props.fetchBikes()
-        fetch(`http://localhost:3000/api/v1/bike_stations`)
-            .then(resp => resp.json())
-            .then(data => {
-                this.setState(()=> ({
-                    bikesAPI: data
-                }))
-            })
-            .catch(error => console.log(error))
-    }
-
-    searchBorough = (boroughObj) => {
-        this.setState(() => ({
-            searchValue: boroughObj
-        }))
-    }
-
-    sortByBorough = () => {
-        if (this.state.searchValue === "All"){
-            return this.state.bikesAPI
-        } else {
-            return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
-        }
-    }
-
-    renderBikes = () => this.props.bikes.map((bike) => {
-        return <BikeStation key={bike.id} bike={bike} favoriteStations={this.props.favoriteStations} {...this.props} />
-    })
-
-    render(){
+    let renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} favoriteStations={props.favoriteStations} {...props} />)
         return(
             <>
-                <FilterBoroughs searchBorough={this.props.searchBorough} searchValue={this.props.searchValue} />
-                {this.renderBikes()}
+                <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
+                {renderBikes}
             </>
         )
     }
-}
+
 
 // const mapStateToProps = (state) => {
 //     return {bike_stations: state.bike_stations}

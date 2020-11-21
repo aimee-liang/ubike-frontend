@@ -1,6 +1,8 @@
 import React from "react"
 
 class BikeStation extends React.Component{
+
+/* stretch - use react hooks to make this a functional component */
     state={
         clicked: false
     }
@@ -26,6 +28,7 @@ class BikeStation extends React.Component{
 
     favoriteHandler = (e) => {
         this.props.favoriteStations(this.props.bike)
+        // console.log("click")
     }
 
     render(){
