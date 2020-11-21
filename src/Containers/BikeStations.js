@@ -6,7 +6,8 @@ import BikeStation from "../Components/BikeStation"
 
 const BikeStations = (props) => {
 
-    let renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} favoriteStations={props.addFaves}/>)
+    let renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} />)
+
         return(
             <>
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />

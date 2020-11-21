@@ -1,6 +1,6 @@
 import React from "react"
 
-function BikeStationShowPage(){
+function BikeShelter(){
     return(
         <>
         <p>test</p>
@@ -8,4 +8,4 @@ function BikeStationShowPage(){
     )
 }
 
-export default BikeStationShowPage
+export default BikeShelter
