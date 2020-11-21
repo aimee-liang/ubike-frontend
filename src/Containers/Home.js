@@ -2,7 +2,6 @@ import React from "react"
 import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
 
-
 class Home extends React.Component{
 
     state={
@@ -41,7 +40,7 @@ class Home extends React.Component{
         return(
             <>
             <p> This is the home page</p>
-                <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} favoriteStations={this.props.favoriteStations} {...this.props} />
+                <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} favoriteStations={this.props.favoriteStations} />
                 <Map />
             </>
         )

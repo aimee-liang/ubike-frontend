@@ -62,14 +62,20 @@ class App extends React.Component{
       )
     }
 
-  favoriteStationsUpdate = (bikeStationObj) => {
+  favoriteStationsUpdate = (favBikeStation) => {
     fetch(`http://localhost:3000/api/v1/favorite_stations/`,{
       method: "POST",
       headers: {
           "content-type": "application/json",
           accepts: "application/json"
       },
-      body: JSON.stringify(bikeStationObj)
+      body: JSON.stringify({
+        favorite_station: {
+          user_id: 1,
+          bike_station_id: favBikeStation.id,
+          location: favBikeStation.location,
+          borough: favBikeStation.borough
+        }})
     })
     .then(resp => resp.json())
     .then(data => {
@@ -106,7 +112,7 @@ class App extends React.Component{
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
-          <Route path ="/home" render={()=> <Home favoriteStations={this.favoriteStationsUpdate} addFaves={this.favoriteStationsUpdate} {...this.props}/> } />
+          <Route path ="/home" render={()=> <Home favoriteStations={this.favoriteStationsUpdate} addFaves={this.favoriteStationsUpdate}/> } />
           <Route path ="/profile" render={() => <ProfilePage favoriteStations={this.state.favoriteStations} /> } /> 
         </Switch> 
       </>

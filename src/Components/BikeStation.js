@@ -1,55 +1,61 @@
-import React from "react"
+import React, {useState, useHistory} from "react"
 
-class BikeStation extends React.Component{
 
-/* stretch - use react hooks to make this a functional component */
-    state={
-        clicked: false
+const BikeStation = props => {
+
+    const [clicked, setClicked] = useState(false)
+    const [station, setStation] = useState({
+        id: 0,
+        location: "",
+        borough: ""
+    })
+
+    const clickHandler = (e) => {
+        setClicked(!clicked)
+        setStation({
+            id: props.bike.id,
+            location: props.bike.location,
+            borough: props.bike.borough
+        })
     }
 
-    clickHandler = () => {
-        this.setState((previousState)=> ({
-            clicked: !previousState.clicked
-        }))
-    }
-
-    displayCheckInMessage = () => {
-        return <p>You're checked in!</p>
-    }
+    // const displayCheckInMessage = () => {
+    //     return <p>You're checked in!</p>
+    // }
 
 /* stretch feature - how to check out 
     localCheckOut = () => {
     }
 */
 
-    rerouteToBikeShowPage = (e) => {
-        this.props.history.push(`/bikestation/${this.props.bike.id}`)
+    const rerouteToBikeShowPage = (e) => {
+        props.history.push(`/bikestation/${props.bike.id}`)
     }
 
-    favoriteHandler = (e) => {
-        this.props.favoriteStations(this.props.bike)
-        // console.log("click")
+    const favoriteHandler = (e) => {
+        props.favoriteStations(props.bike)
     }
 
-    render(){
+    // render(){
         return (
             <>
                 <ul>
-                    <li key={this.props.bike.id}>
-                        <h4 onClick={this.rerouteToBikeShowPage}>Address: {this.props.bike.location}  </h4>
+                    <li key={props.bike.id}>
+                        <h4 onClick={rerouteToBikeShowPage}>Address: {props.bike.location}  </h4>
                         <br>
                         </br>
-                        Borough: {this.props.bike.borough}
+                        Borough: {props.bike.borough}
                         <br>
                         </br>
-                        <button onClick={this.clickHandler}>Check In</button> 
-                        <button onClick={this.favoriteHandler}>Favorite</button>
-                        {this.state.clicked ? this.displayCheckInMessage(): null} 
+                        <button onClick={clickHandler}>  {/* ternary here */}
+                                Check In
+                        </button> 
+                        <button onClick={favoriteHandler}>Favorite</button>
                     </li>
                 </ul>
             </>
         )
     }
-}
+// }
 
 export default BikeStation
