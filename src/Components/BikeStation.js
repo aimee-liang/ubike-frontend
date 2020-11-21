@@ -32,9 +32,9 @@ const BikeStation = props => {
         props.addFaves(station)
     }
 
-    // const displayCheckInMessage = () => {
-    //     return <p>You're checked in!</p>
-    // }
+    const displayCheckInMessage = () => {
+        return <p>You're checked in!</p>
+    }
 
     /* stretch feature - how to check out 
         localCheckOut = () => {
@@ -56,9 +56,7 @@ const BikeStation = props => {
                     <br></br>
                     Borough: {props.bike.borough}
                     <br></br>
-                    <button onClick={clickHandler}>  {/* ternary here */}
-                        Check In
-                    </button> 
+                    <button onClick={clickHandler}> { clicked ? displayCheckInMessage() : "Check In" }</button> 
                     <button onClick={favoriteHandler}>Favorite</button>
                     {/* {ViewBikeStation} */}
                 </li>
