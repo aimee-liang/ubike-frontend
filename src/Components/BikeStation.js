@@ -32,33 +32,31 @@ const BikeStation = props => {
         props.addFaves(station)
     }
 
-    const displayCheckInMessage = () => {
-        return <p>You're checked in!</p>
-    }
+    // const displayCheckInMessage = () => {
+    //     return <p>You're checked in!</p>
+    // }
 
     /* stretch feature - how to check out 
         localCheckOut = () => {
         }
     */
 
-    const ViewBikeStation = () => {
-        let history = useHistory();
-        return (
-            <button type="button" onClick={()=> history.push(`/bike_station/${props.bike.id}`)}>See More</button>
-        )
+    let history = useHistory();
+
+    function redirectToBikeShowPage(){
+        history.push(`/bike_station/${props.bike.id}`)
     }
 
     return (
         <>
             <ul>
                 <li key={props.bike.id}>
-                    Address: {props.bike.location}
+                    <h4 onClick={redirectToBikeShowPage}>Address: {props.bike.location}</h4>
                     <br></br>
                     Borough: {props.bike.borough}
                     <br></br>
-                    <button onClick={clickHandler}> { clicked ? displayCheckInMessage() : "Check In" }</button> 
+                    <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>
-                    {/* {ViewBikeStation} */}
                 </li>
             </ul>
         </>
