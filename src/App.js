@@ -6,7 +6,6 @@ import Home from "./Containers/Home"
 import SideBar from "./Containers/SideBar"
 import Login from "./Components/Login"
 import Signup from "./Components/Signup"
-import BikeShelter from './Components/BikeShelter';
 
 class App extends React.Component{  
   
@@ -122,7 +121,6 @@ class App extends React.Component{
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} /> } />
-          {/* <Route path ="/bikeshelter/:bike_shelter_id" render={() => <BikeShelter/>} /> */}
           <Route path ="/profile" render={() => <ProfilePage favoriteStations={this.state.favoriteStations} /> } currentStation={this.state.currentStation} /> 
         </Switch> 
       </>

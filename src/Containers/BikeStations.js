@@ -1,5 +1,5 @@
 import React from "react"
-import { Route, Switch } from "react-router-dom"
+// import { Route, Switch } from "react-router-dom"
 import FilterBoroughs from "../Components/FilterBoroughs"
 import BikeStation from "../Components/BikeStation"
 // import { connect } from "react-redux"
@@ -11,16 +11,8 @@ const BikeStations = (props) => {
 
         return(
             <>
-            {/* <Switch> */}
-                {/* <Route path="/bike_stations/:id" render={({ match }) => {
-                    let id = parseInt(match.params.id)
-                    let bike_station = props.bike.find((bike_station) => bike_station.id === id)
-                }} /> */}
-
-
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
                 {renderBikes}
-            {/* </Switch> */}
             </>
         )
     }
