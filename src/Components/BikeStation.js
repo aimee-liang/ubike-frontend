@@ -52,9 +52,7 @@ const BikeStation = props => {
             <ul>
                 <li key={props.bike.id}>
                     <h4 onClick={redirectToBikeShowPage}>Address: {props.bike.location}</h4>
-                    <br></br>
-                    Borough: {props.bike.borough}
-                    <br></br>
+                    <p>Borough: {props.bike.borough}</p>
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>
                 </li>

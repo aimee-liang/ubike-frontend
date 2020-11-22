@@ -88,7 +88,7 @@ class App extends React.Component{
     })
   }
 
-/* validate only checked in one place  && POST ? method to check in */
+/* validate only checked in one place*/
   currentCheckStatus = (checkedInObj) => {
     fetch(`http://localhost:3000/api/v1/check_ins`, {
       method: "POST",
@@ -123,7 +123,7 @@ class App extends React.Component{
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} /> } />
           <Route path ="/bikeshelter/{bikeshelter}" render={() => <BikeShelter/>} />
-          <Route path ="/profile" render={() => <ProfilePage favoriteStations={this.state.favoriteStations} /> } /> 
+          <Route path ="/profile" render={() => <ProfilePage favoriteStations={this.state.favoriteStations} /> } currentStation={this.state.currentStation} /> 
         </Switch> 
       </>
     );
