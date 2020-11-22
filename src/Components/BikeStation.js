@@ -43,7 +43,7 @@ const BikeStation = props => {
 
     let history = useHistory();
 
-    function redirectToBikeShowPage(){
+    const redirectToBikeShowPage = () => {
         history.push(`/bike_station/${props.bike.id}`)
     }
 
