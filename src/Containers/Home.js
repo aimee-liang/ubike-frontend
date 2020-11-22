@@ -8,8 +8,6 @@ class Home extends React.Component{
         bikesAPI: [],
         searchValue: "All",
         favorites: [],
-        reviews: [],
-        filteredReviews: []
     }
 
     componentDidMount(){
@@ -38,18 +36,12 @@ class Home extends React.Component{
         }
     }
 
-/* function to grab review from the backend and send down as props to Bike Station? - just for testing */
-    fetchReviews = (bikeStationObj) => {
-        fetch(`http://localhost:3000/api/v1/reviews/{$bikeStationObj.id}`, {
-
-        })
-    }
-
     render(){
+        // console.log("In home ", this.state.bikesAPI)
         return(
             <>
             <p> This is the home page</p>
-                <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} />
+                <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} fetchSpecificReviews={this.fetchSpecificReviews} />
                 <Map />
             </>
         )

@@ -23,13 +23,13 @@ class Login extends React.Component{
     render(){
         return(
             <>
-            <p className="welcome-back">Login</p>
+            <p>Login</p>
 
-            <form className="login-form" onSubmit={this.localLoginHandler}>
+            <form onSubmit={this.localLoginHandler}>
                 
                 <input type="text" name="username" placeholder="Enter Username" value={this.state.username} onChange={this.changeHandler} />
                 <input type="password" name="password" placeholder="Enter Password" value={this.state.password} onChange={this.changeHandler} />
-                <button input type="submit" value="Log In"> Login </button>
+                <button input="submit" value="Log In"> Login </button>
             
             </form>
 

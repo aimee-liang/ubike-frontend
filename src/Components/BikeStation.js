@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { useHistory } from "react-router-dom";
-import BikeShelter from "./BikeShelter"
+import { NavLink, useHistory } from "react-router-dom";
 
 const BikeStation = props => {
 
@@ -37,18 +36,25 @@ const BikeStation = props => {
     //     return <p>You're checked in!</p>
     // }
 
-    /* stretch feature - how to check out 
+    /* stretch feature - check out 
         localCheckOut = () => {
+            props.checkOut(props.bike.id)
         }
     */
 
     let history = useHistory();
 
-    const redirectToBikeShowPage = () => {
-        history.push(`/bike_station/${props.bike.id}` )
+    const redirectToBikeShowPage = (e) => {
+        console.log("In bike station ",props.bike)
+        props.fetchSpecificReviews(props.bike.id)
+        history.push(`/bike_station/${props.bike.id}`)
+        // <NavLink to=`/bike_station/${props.bike.id}`></NavLink>
     }
 
+    // console.log("in bike station", props.bike)
+
     return (
+        
         <>
             <ul>
                 <li key={props.bike.id}>
