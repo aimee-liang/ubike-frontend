@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom";
+import BikeShelter from "./BikeShelter"
 
 const BikeStation = props => {
 
@@ -44,7 +45,7 @@ const BikeStation = props => {
     let history = useHistory();
 
     const redirectToBikeShowPage = () => {
-        history.push(`/bike_station/${props.bike.id}`)
+        history.push(`/bike_station/${props.bike.id}` )
     }
 
     return (
