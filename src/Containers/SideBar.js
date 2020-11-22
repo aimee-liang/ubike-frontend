@@ -13,9 +13,9 @@ export default class SideBar extends React.Component{
                 Profile
             </NavLink>
 
-            {/* <NavLink to="/signout">
+            <NavLink to="/login">
                 Sign out
-            </NavLink> */}
+            </NavLink>
             </>
         )
     }

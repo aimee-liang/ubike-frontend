@@ -45,20 +45,18 @@ const BikeStation = props => {
     let history = useHistory();
 
     const redirectToBikeShowPage = (e) => {
-        console.log("In bike station ",props.bike)
-        props.fetchSpecificReviews(props.bike.id)
-        history.push(`/bike_station/${props.bike.id}`)
-        // <NavLink to=`/bike_station/${props.bike.id}`></NavLink>
+        // console.log(props.bike.id)
+        // props.fetchSpecificReviews(props.bike.id)
+        // history.push(`/bike_station/${props.bike.id}`)
+        console.log("this is the bike station")
     }
 
-    // console.log("in bike station", props.bike)
-
     return (
-        
         <>
             <ul>
                 <li key={props.bike.id}>
-                    <h4 onClick={redirectToBikeShowPage}>Address: {props.bike.location}</h4>
+                    {/* <NavLink to="/bike_stations/:id"><h4>Address: {props.bike.location}</h4></NavLink> */}
+                    <h4 onClick={redirectToBikeShowPage}>{props.bike.location}</h4>
                     <p>Borough: {props.bike.borough}</p>
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>

@@ -7,19 +7,22 @@ class Home extends React.Component{
     state={
         bikesAPI: [],
         searchValue: "All",
-        favorites: [],
+        reviews: []
+        // favorites: [],
     }
 
     componentDidMount(){
         // this.props.fetchBikes()
-        fetch(`http://localhost:3000/api/v1/bike_stations`)
-            .then(resp => resp.json())
-            .then(data => {
-                this.setState(()=> ({
-                    bikesAPI: data
+        Promise.all([
+            fetch(`http://localhost:3000/api/v1/bike_stations`),
+            fetch(`http://localhost:3000/api/v1/reviews/`)
+        ])
+            .then(([resp1, resp2]) => Promise.all([resp1.json(), resp2.json()]))
+            .then(([data1, data2]) => 
+                this.setState({
+                    bikesAPI: data1,
+                    reviews: data2
                 }))
-            })
-            .catch(error => console.log(error))
     }
 
     searchBorough = (boroughObj) => {
@@ -36,8 +39,12 @@ class Home extends React.Component{
         }
     }
 
+    showMeReviews = () => {
+        console.log(this.state.reviews)
+    }
+
     render(){
-        // console.log("In home ", this.state.bikesAPI)
+        this.showMeReviews()
         return(
             <>
             <p> This is the home page</p>

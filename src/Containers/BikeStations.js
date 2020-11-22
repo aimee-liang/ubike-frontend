@@ -1,28 +1,37 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 // import { Route, Switch } from "react-router-dom"
 import FilterBoroughs from "../Components/FilterBoroughs"
 import BikeStation from "../Components/BikeStation"
 // import { connect } from "react-redux"
 // import { fetchBikes } from "../redux/actions"
 
-// class BikeStations extends React.Component{
 const BikeStations = (props) => {
 
-    // state={
-    //     filteredReviews:[]
-    // }
+    // const [reviews, setReviews] = useState([])
+    // const [errors, setErrors] = useState(false)
+
+//     useEffect(() => {
+//         fetch(`http://localhost:3000/api/v1/reviews/specificBikeStationId`)
+//             .then(resp => setReviews(resp.data))
+//             .catch(error => setErrors(true))
+// }, [])
 
 /* function grabs review from the backend and used to set state, then send down as props to Bike Station? - just for testing */
-    // fetchSpecificReviews = (specificBikeStationId) => {
-    //     fetch(`http://localhost:3000/api/v1/reviews/specificBikeStationId`)
+    // fetchSpecificReviews = () => {
+    //     fetch(`http://localhost:3000/api/v1/reviews/`)
     //         .then(resp => resp.json())
-    //         .then(reviews => {
-    //             this.setState(()=> ({
-    //                 filteredReviews: [...this.state.reviews, reviews]
-    //         }))
-    //     })
+    //         .then("reviews", console.log)
+        //     .then(reviews => {
+        //         this.setState(()=> ({
+        //             filteredReviews: [...this.state.reviews, reviews]
+        //     }))
+        // })
     // }
-    
+
+    // const filterReviews = (specificBikeStationId) => {
+    //     return setReviews.filter(review => review.bikeStationId === specificBikeStationId)
+    // }
+
     const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} fetchSpecificReviews={props.fetchSpecificReviews} />)
 
         return(
@@ -30,8 +39,8 @@ const BikeStations = (props) => {
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
                 {renderBikes}
             </>
-        )
-}
+        )}
+// }
 
 
 // const mapStateToProps = (state) => {
