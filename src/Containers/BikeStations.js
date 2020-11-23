@@ -52,7 +52,7 @@ const BikeStations = (props) => {
     //     return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
     // }
 
-    // const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} filterReviews={props.filterReviews} />)
+    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} filterReviews={props.filterReviews} />)
 
     
     // render(){
@@ -68,8 +68,8 @@ const BikeStations = (props) => {
                         return <BikeStationShowPage bikeStation={foundBikeStation} filterReviews={props.filterReviews}/>
                         
                     }}/>
-                    <Route path="/bike_stations/" render={() => {
-                    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn}/>)
+                    <Route path="/home/" render={() => {
+                    // const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn}/>)
                         return( 
                             <>
                                 {renderBikes}
