@@ -14,8 +14,8 @@ class App extends React.Component{
     user: null,
     favoriteStations: [],
     currentStation: [],
-    reviews: [],
-    filteredReviews: [],
+    // reviews: [],
+    // filteredReviews: [],
     bikeStationId: 0,
   }
 
@@ -31,7 +31,7 @@ class App extends React.Component{
     } else {
       this.props.history.push("/login")
     }
-    this.fetchReviews()
+    // this.fetchReviews()
   }
 
   signUpHandler = (userObj) => {
@@ -116,18 +116,18 @@ class App extends React.Component{
     })
   }
 
-  fetchReviews = () => {
-    fetch(`http://localhost:3000/api/v1/reviews/`)
-      .then(resp => resp.json())
-      .then(reviewsData => {
-        let allReviews = [...this.state.reviews, reviewsData]
-        console.log("allReviews:", allReviews)
-        this.setState(() => ({
-          reviews: allReviews
-    }))
-  })
-      .catch(errors => console.log(errors))
-}
+//   fetchReviews = () => {
+//     fetch(`http://localhost:3000/api/v1/reviews/`)
+//       .then(resp => resp.json())
+//       .then(reviewsData => {
+//         let allReviews = [...this.state.reviews, reviewsData]
+//         console.log("allReviews:", allReviews)
+//         this.setState(() => ({
+//           reviews: allReviews
+//     }))
+//   })
+//       .catch(errors => console.log(errors))
+// }
 
 /* fn grabs the bike station ID from BikeStation Component, sets state with it in App */
   setStationIdForFilteringReviews = (clickedBikeStationId) => {
@@ -138,9 +138,9 @@ class App extends React.Component{
 
 /* fn grabs the id of the bike station and filters for all reviews matching that station */
   /* updated: should this fn go through all reviews in state, and then return only the ones that match the ones I setState using setStationIdForFilteringReviews? */
-  filterReviews = () => {
-    return this.state.reviews.filter(review => review.bikeStationId === this.state.bikeStationId)
-  }
+  // filterReviews = () => {
+  //   return this.state.reviews.filter(review => review.bikeStationId === this.state.bikeStationId)
+  // }
 
 /* passed down to the bike station show page route, will post new comment to backend */
   submitComments = (commentObj) => {
@@ -169,7 +169,6 @@ class App extends React.Component{
   }
 
   render(){
-    // console.log("BikestationID in the app:", this.state.bikeStationId)
     return (
       <>
         <SideBar />
@@ -178,7 +177,8 @@ class App extends React.Component{
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} /> } />
-          <Route path ="/bike_stations" render={()=> <BikeStationShowPage filterReviews={this.filterReviews} submitComments={this.submitComments} bikeId={this.state.bikeStationId} />} />
+          {/* <Route path ="/bike_stations" render={()=> <BikeStationShowPage filterReviews={this.filterReviews} submitComments={this.submitComments} bikeId={this.state.bikeStationId} />} /> */}
+          <Route path ="/bike_stations" render={()=> <BikeStationShowPage submitComments={this.submitComments} bikeId={this.state.bikeStationId} />} />
           <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
         </Switch> 
 

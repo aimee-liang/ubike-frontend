@@ -1,8 +1,7 @@
 import React from "react"
-import { Route, Switch } from "react-router-dom"
+// import { Route, Switch } from "react-router-dom"
 import FilterBoroughs from "../Components/FilterBoroughs"
 import BikeStation from "../Components/BikeStation"
-import BikeStationShowPage from "../Components/BikeStationShowPage"
 
 // import { connect } from "react-redux"
 // import { fetchBikes } from "../redux/actions"
@@ -54,7 +53,6 @@ const BikeStations = (props) => {
 /* renders all bike stations */
     const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} filterReviews={props.filterReviews} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews}/>)
 
-    // render(){
         return(
             <>
             <h4>This is the bike station container</h4>
@@ -72,8 +70,8 @@ const BikeStations = (props) => {
                             <> */}
                                 {renderBikes}
                             {/* </> */}
-                        )
-                    // }} />
+                        {/* ) */}
+                    {/* // }} /> */}
                 {/* </Switch> */}
 
             </>
