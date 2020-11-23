@@ -52,7 +52,7 @@ const BikeStations = (props) => {
     // }
 
 /* renders all bike stations */
-    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} filterReviews={props.filterReviews} />)
+    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} filterReviews={props.filterReviews} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews}/>)
 
     // render(){
         return(

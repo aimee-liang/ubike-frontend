@@ -41,7 +41,8 @@ const BikeStation = props => {
 
 /* this function to grab id of clicked station, then pass it up to the filterReviews fn in App*/
     const localFilter = (e) => {
-        props.filterReviews(props.bike.id)
+        props.setStationIdForFilteringReviews(props.bike.id)
+        // console.log(props.bike.id)
     }
 
     return (
@@ -50,7 +51,7 @@ const BikeStation = props => {
             <ul>
                 <li key={props.bike.id}>
                     <NavLink to={`/bike_stations/${props.bike.id}`}>
-                        <h4>Address: {props.bike.location}</h4>
+                        <h4 onClick={localFilter}>Address: {props.bike.location}</h4>
                     </NavLink>
 
                     <p>Borough: {props.bike.borough}</p>

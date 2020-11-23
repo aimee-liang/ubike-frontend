@@ -15,7 +15,8 @@ class App extends React.Component{
     favoriteStations: [],
     currentStation: [],
     reviews: [],
-    filteredReviews: []
+    filteredReviews: [],
+    bikeStationId: 0,
   }
 
   componentDidMount(){
@@ -126,6 +127,14 @@ class App extends React.Component{
       .catch(errors => console.log(errors))
 }
 
+/* fn grabs the bike station ID from BikeStation Component, sets state with it in App */
+  setStationIdForFilteringReviews = (clickedBikeStationId) => {
+    this.setState(()=> ({
+      bikeStationId: clickedBikeStationId
+    }))
+    // console.log("bike station ID in app to setState with:", clickedBikeStationId)
+  }
+
 /* fn grabs the id of the bike station and filters for all reviews matching that station */
   filterReviews = (specificBikeStationId) => {
     return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
@@ -165,7 +174,7 @@ class App extends React.Component{
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
-          <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} /> } />
+          <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} /> } />
           <Route path ="/bike_stations" render={()=> <BikeStationShowPage  filterReviews={this.filterReviews} submitComments={this.submitComments} />} />
           <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
         </Switch> 
