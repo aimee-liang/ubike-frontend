@@ -49,7 +49,7 @@ class BikeStationShowPage extends React.Component {
                 </form>
 
                 <div>
-                    Reviews Container
+                    Below is the Reviews Container
                     <p><ReviewsContainer /></p>
                 </div>
             </>
