@@ -13,7 +13,9 @@ class App extends React.Component{
   state={
     user: null,
     favoriteStations: [],
-    currentStation: []
+    currentStation: [],
+    reviews: [],
+    filteredReviews: []
   }
 
   componentDidMount(){
@@ -112,15 +114,51 @@ class App extends React.Component{
     })
   }
 
-  /* delete checked into station on backend */
+  fetchReviews = () => {
+    fetch(`http://localhost:3000/api/v1/reviews/`)
+      .then(resp => resp.json())
+      .then(reviewsData => {
+        let allReviews = [...this.state.reviews, reviewsData]
+        this.setState(() => ({
+          reviews: allReviews
+    }))
+  })
+      .catch(errors => console.log(errors))
+}
+
+/* fn grabs the id of the bike station and filters for all reviews matching that station */
+  filterReviews = (specificBikeStationId) => {
+    return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
+  }
+
+/* passed down to the bike station show page route, will post new comment to backend */
+  submitComments = (commentObj) => {
+    fetch(`http://localhost:3000/api/v1/reviews`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json"
+      },
+      body: JSON.stringify(commentObj)
+    }
+    .then(resp => resp.json())
+    .then(includingNewReview => {
+      let updatedReviews = [...this.state.reviews, includingNewReview]
+      this.setState(() => ({
+        reviews: updatedReviews
+      }))
+    }))}
+
+
+/* passed down to the user profile page, will delete checked into station on backend */
   checkOutHandler = (checkedInObjId) => {
     fetch(`http://localhost:3000/api/v1/check_ins${checkedInObjId}`,{
       method: "DELETE"
     })
   }
 
-
   render(){
+    console.log("Reviews in the app:", this.state.reviews)
     return (
       <>
         <SideBar />
@@ -129,9 +167,10 @@ class App extends React.Component{
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} /> } />
-          <Route path ="/bike_stations" render={()=> <BikeStationShowPage/>} />
+          <Route path ="/bike_stations" render={()=> <BikeStationShowPage  filterReviews={this.filterReviews} submitComments={this.submitComments} />} />
           <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
         </Switch> 
+
       </>
     );
   }

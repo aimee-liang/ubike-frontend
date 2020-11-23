@@ -33,16 +33,13 @@ const BikeStation = props => {
         props.addFaves(station)
     }
 
-    // const displayCheckInMessage = () => {
-    //     return <p>You're checked in!</p>
-    // }
-
     /* stretch feature - check out 
         localCheckOut = () => {
             props.checkOut(props.bike.id)
         }
     */
 
+/* this function to grab id of clicked station, then pass it up to the filterReviews fn in App*/
     const localFilter = (e) => {
         props.filterReviews(props.bike.id)
     }

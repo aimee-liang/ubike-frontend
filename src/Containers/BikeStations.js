@@ -51,9 +51,9 @@ const BikeStations = (props) => {
     //     return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
     // }
 
+/* renders all bike stations */
     const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} filterReviews={props.filterReviews} />)
 
-    
     // render(){
         return(
             <>

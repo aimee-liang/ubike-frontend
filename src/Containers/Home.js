@@ -8,7 +8,6 @@ class Home extends React.Component{
         bikesAPI: [],
         searchValue: "All",
         reviews: []
-        // favorites: [],
     }
 
     componentDidMount(){
@@ -39,9 +38,9 @@ class Home extends React.Component{
         }
     }
 
-    showMeReviews = () => {
-        console.log("Reviews:", this.state.reviews)
-    }
+    // showMeReviews = () => {
+    //     console.log("Reviews:", this.state.reviews)
+    // }
 
     filterReviews = (specificBikeStationId) => {
         return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
