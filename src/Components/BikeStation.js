@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { useHistory } from "react-router-dom";
-// import {Redirect} from "react-router"
+import { NavLink } from "react-router-dom";
 
 const BikeStation = props => {
 
@@ -43,34 +42,24 @@ const BikeStation = props => {
         }
     */
 
-    // let history = useHistory();
-
     const redirectToBikeShowPage = (e) => {
         props.filterReviews(props.bike.id)
-        // history.push(`/bike_station/${props.bike.id}`)
     }
 
     return (
         <>
-        {/* <Switch> */}
 
             <ul>
                 <li key={props.bike.id}>
-                    {/* <Route path="/bike_stations/:id" render={({ match }) => {
-                        let id = parseInt(match.params.id)
-                    }}>
-                        <h4>Address:{props.bike.location}</h4>
-                    </Route> */}
-                    {/* <NavLink to="/bike_stations/:id"><h4>Address: {props.bike.location}</h4></NavLink> */}
-                        
-                    {/* <h4 onClick={redirectToBikeShowPage}>{props.bike.location}</h4> */}
+                    <NavLink to={`/bike_stations/${props.bike.id}`}>
+                        <h4 onClick={redirectToBikeShowPage}>Address: {props.bike.location}</h4>
+                    </NavLink>
                     <p>Borough: {props.bike.borough}</p>
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>
                 </li>
             </ul>
 
-        {/* </Switch> */}
         </>
     )
 }

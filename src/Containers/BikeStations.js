@@ -36,12 +36,12 @@ const BikeStations = (props) => {
 
         return(
             <>
-            <Switch>
+            {/* <Switch> */}
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
-                <Route path="/bike_stations/:id" render={(props.filterReviews) => renderBikes} />
+                {/* <Route path="/bike_stations/:id" render={(props.filterReviews) => renderBikes} /> */}
                 {/* <Route path="/bike_stations" component={renderBikes} /> */}
                 {renderBikes}
-            </Switch>
+            {/* </Switch> */}
             </>
         )}
 
