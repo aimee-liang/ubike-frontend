@@ -16,7 +16,7 @@ class BikeStationShowPage extends React.Component {
                     reviews: allReviews
                 }))
             })
-                .catch(errors => console.log(errors))
+            .catch(errors => console.log(errors))
     }
     
     changeHandler = (e) => {
@@ -26,7 +26,7 @@ class BikeStationShowPage extends React.Component {
     localSubmitComments = (e) => {
         e.preventDefault()
         // this.props.submitComments(this.state.comment)
-        console.log("Submitting comment in bike show page", e)
+        // console.log("Submitting comment in bike show page", e)
 
         this.setState(()=> ({
             comment: ""
@@ -35,7 +35,7 @@ class BikeStationShowPage extends React.Component {
 
     render(){
         console.log("Bike Station Show Page has these props:", this.props)
-        console.log("Reviews:", this.state.reviews)
+        console.log("Reviews info:", this.state.reviews)
         return(
             <>
             <h4>You've reached the bike show page</h4>
