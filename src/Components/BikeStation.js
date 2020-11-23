@@ -54,7 +54,7 @@ const BikeStation = props => {
             <ul>
                 <li key={props.bike.id}>
                     <NavLink to={`/bike_stations/${props.bike.id}`}>
-                        <h4 onClick={localFilter}>Address: {props.bike.location}</h4>
+                        <h4>Address: {props.bike.location}</h4>
                     </NavLink>
 
                     <p>Borough: {props.bike.borough}</p>

@@ -56,12 +56,11 @@ const BikeStations = (props) => {
 
     
     // render(){
-        // console.log("bike API", props.bikes)
         return(
             <>
             <h4>This is the bike station container</h4>
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
-                
+                {/* {renderBikes} */}
                 <Switch>
                     <Route path="/bike_stations/:id" render={({ match }) => {
                         let id = parseInt(match.params.id)
