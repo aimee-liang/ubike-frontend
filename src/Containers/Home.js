@@ -40,15 +40,19 @@ class Home extends React.Component{
     }
 
     showMeReviews = () => {
-        console.log(this.state.reviews)
+        console.log("Reviews:", this.state.reviews)
+    }
+
+    filterReviews = (specificBikeStationId) => {
+        return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
     }
 
     render(){
-        this.showMeReviews()
+        // this.showMeReviews()
         return(
             <>
             <p> This is the home page</p>
-                <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} fetchSpecificReviews={this.fetchSpecificReviews} />
+                <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} filterReviews={this.filterReviews} />
                 <Map />
             </>
         )

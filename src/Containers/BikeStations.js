@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-// import { Route, Switch } from "react-router-dom"
+import React, { useState } from "react"
+import { Route, Switch } from "react-router-dom"
 import FilterBoroughs from "../Components/FilterBoroughs"
 import BikeStation from "../Components/BikeStation"
 // import { connect } from "react-redux"
@@ -32,15 +32,18 @@ const BikeStations = (props) => {
     //     return setReviews.filter(review => review.bikeStationId === specificBikeStationId)
     // }
 
-    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} fetchSpecificReviews={props.fetchSpecificReviews} />)
+    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} filterReviews={props.filterReviews} />)
 
         return(
             <>
+            <Switch>
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
+                <Route path="/bike_stations/:id" render={(props.filterReviews) => renderBikes} />
+                {/* <Route path="/bike_stations" component={renderBikes} /> */}
                 {renderBikes}
+            </Switch>
             </>
         )}
-// }
 
 
 // const mapStateToProps = (state) => {

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+// import {Redirect} from "react-router"
 
 const BikeStation = props => {
 
@@ -42,26 +43,34 @@ const BikeStation = props => {
         }
     */
 
-    let history = useHistory();
+    // let history = useHistory();
 
     const redirectToBikeShowPage = (e) => {
-        // console.log(props.bike.id)
-        // props.fetchSpecificReviews(props.bike.id)
+        props.filterReviews(props.bike.id)
         // history.push(`/bike_station/${props.bike.id}`)
-        console.log("this is the bike station")
     }
 
     return (
         <>
+        {/* <Switch> */}
+
             <ul>
                 <li key={props.bike.id}>
+                    {/* <Route path="/bike_stations/:id" render={({ match }) => {
+                        let id = parseInt(match.params.id)
+                    }}>
+                        <h4>Address:{props.bike.location}</h4>
+                    </Route> */}
                     {/* <NavLink to="/bike_stations/:id"><h4>Address: {props.bike.location}</h4></NavLink> */}
-                    <h4 onClick={redirectToBikeShowPage}>{props.bike.location}</h4>
+                        
+                    {/* <h4 onClick={redirectToBikeShowPage}>{props.bike.location}</h4> */}
                     <p>Borough: {props.bike.borough}</p>
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>
                 </li>
             </ul>
+
+        {/* </Switch> */}
         </>
     )
 }
