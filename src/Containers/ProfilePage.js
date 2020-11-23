@@ -1,8 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
 
-export default class ProfilePage extends React.Component{
-    render(){
+const ProfilePage = (props) => {
+
+    const deleteHandler = (e) => {
+        console.log(e.target.value)
+        // props.checkOut(e.target.value)
+    }
+
         return(
             <>
                 <div className="about-me">
@@ -14,12 +19,16 @@ export default class ProfilePage extends React.Component{
 
                 <div className="currently-checked-status">
                     {/* is User checked in? */}
+
+
+                    <button onClick={deleteHandler}> Check Out </button>
                     
                 </div>
 
-                <FavoriteStationsContainer favoriteStations={this.props.favoriteStations} />
+                <FavoriteStationsContainer favoriteStations={props.favoriteStations} />
 
             </>
         )
-    }
 }
+
+export default ProfilePage

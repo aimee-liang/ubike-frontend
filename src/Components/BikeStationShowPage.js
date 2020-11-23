@@ -23,14 +23,15 @@ class BikeStationShowPage extends React.Component {
     render(){
         return(
             <>
+            <h4>You've reached the bike show page</h4>
                 {/* <img>Bike Image */}
-                <h4>Bike Location</h4>
+                {/* <h4>Bike Location</h4>
                 <p>Bike Borough</p>
 
                 <form onSubmit={this.localSubmitComments}>
                     <input type="textarea" name="comment" value={this.state.comment} placeholder="Write a comment..." onChange={this.changeHandler} />
                     <button input="submit" value="Submit comment">Submit</button>
-                </form>
+                </form> */}
 
             </>
         )

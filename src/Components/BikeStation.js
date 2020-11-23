@@ -47,7 +47,6 @@ const BikeStation = props => {
         props.filterReviews(props.bike.id)
     }
 
-    
     return (
         <>
 

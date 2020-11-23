@@ -17,7 +17,6 @@ const BikeStations = (props) => {
     // }
 
     // componentDidMount(){
-    //     // this.props.fetchBikes()
     //     Promise.all([
     //         fetch(`http://localhost:3000/api/v1/bike_stations`),
     //         fetch(`http://localhost:3000/api/v1/reviews/`)
@@ -60,7 +59,6 @@ const BikeStations = (props) => {
             <>
             <h4>This is the bike station container</h4>
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
-                {/* {renderBikes} */}
                 <Switch>
                     <Route path="/bike_stations/:id" render={({ match }) => {
                         let id = parseInt(match.params.id)

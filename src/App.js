@@ -112,6 +112,13 @@ class App extends React.Component{
     })
   }
 
+  /* delete checked into station on backend */
+  checkOutHandler = (checkedInObjId) => {
+    fetch(`http://localhost:3000/api/v1/check_ins${checkedInObjId}`,{
+      method: "DELETE"
+    })
+  }
+
 
   render(){
     return (
@@ -123,7 +130,7 @@ class App extends React.Component{
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} /> } />
           <Route path ="bike_stations" render={()=> <BikeStationShowPage/>} />
-          <Route path ="/profile" render={() => <ProfilePage/> } />
+          <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
         </Switch> 
       </>
     );
