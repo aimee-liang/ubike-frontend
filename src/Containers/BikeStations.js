@@ -7,80 +7,81 @@ import BikeStationShowPage from "../Components/BikeStationShowPage"
 // import { connect } from "react-redux"
 // import { fetchBikes } from "../redux/actions"
 
-// const BikeStations = (props) => {
-class BikeStations extends React.Component{
+const BikeStations = (props) => {
+// class BikeStations extends React.Component{
 
-    state={
-        bikesAPI: [],
-        searchValue: "All",
-        reviews: []
-    }
+    // state={
+    //     bikesAPI: [],
+    //     searchValue: "All",
+    //     reviews: []
+    // }
 
-    componentDidMount(){
-        // this.props.fetchBikes()
-        Promise.all([
-            fetch(`http://localhost:3000/api/v1/bike_stations`),
-            fetch(`http://localhost:3000/api/v1/reviews/`)
-        ])
-            .then(([resp1, resp2]) => Promise.all([resp1.json(), resp2.json()]))
-            .then(([data1, data2]) => 
-                this.setState({
-                    bikesAPI: data1,
-                    reviews: data2
-                }))
-    }
+    // componentDidMount(){
+    //     // this.props.fetchBikes()
+    //     Promise.all([
+    //         fetch(`http://localhost:3000/api/v1/bike_stations`),
+    //         fetch(`http://localhost:3000/api/v1/reviews/`)
+    //     ])
+    //         .then(([resp1, resp2]) => Promise.all([resp1.json(), resp2.json()]))
+    //         .then(([data1, data2]) => 
+    //             this.setState({
+    //                 bikesAPI: data1,
+    //                 reviews: data2
+    //             }))
+    // }
 
-    searchBorough = (boroughObj) => {
-        this.setState(() => ({
-            searchValue: boroughObj
-        }))
-    }
+    // searchBorough = (boroughObj) => {
+    //     this.setState(() => ({
+    //         searchValue: boroughObj
+    //     }))
+    // }
 
-    sortByBorough = () => {
-        if (this.state.searchValue === "All"){
-            return this.state.bikesAPI
-        } else {
-            return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
-        }
-    }
+    // sortByBorough = () => {
+    //     if (this.state.searchValue === "All"){
+    //         return this.state.bikesAPI
+    //     } else {
+    //         return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
+    //     }
+    // }
 
-    showMeReviews = () => {
-        console.log("Reviews:", this.state.reviews)
-    }
+    // showMeReviews = () => {
+    //     console.log("Reviews:", this.state.reviews)
+    // }
 
-    filterReviews = (specificBikeStationId) => {
-        return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
-    }
+    // filterReviews = (specificBikeStationId) => {
+    //     return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
+    // }
 
     // const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} filterReviews={props.filterReviews} />)
 
-    renderBikes = this.state.bikesAPI.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} filterReviews={this.filterReviews} />)
-
-    render(){
-        console.log("bike API", this.state.bikesAPI)
+    
+    // render(){
+        // console.log("bike API", props.bikes)
         return(
             <>
             <h4>This is the bike station container</h4>
-                <FilterBoroughs searchBorough={this.searchBorough} searchValue={this.state.searchValue} />
+                <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
                 
-                {/* <Switch>
+                <Switch>
                     <Route path="/bike_stations/:id" render={({ match }) => {
                         let id = parseInt(match.params.id)
-                        let bikeStation = this.state.bikesAPI.find((bikeStation) => bikeStation.id === id)
-                        return <BikeStation bikestation={bikeStation} key={bikeStation.id} />
+                        let foundBikeStation = props.bikes.find((bikeStation) => bikeStation.id === id)
+                        return <BikeStationShowPage bikeStation={foundBikeStation} filterReviews={props.filterReviews}/>
                         
-                    }}/> */}
-                    {/* <Route path="/bike_stations/" render={() => {
+                    }}/>
+                    <Route path="/bike_stations/" render={() => {
+                    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn}/>)
                         return( 
-                            <> */}
-                                {this.renderBikes}
-                            {/* </>
+                            <>
+                                {renderBikes}
+                            </>
                         )
                     }} />
-                </Switch> */}
+                </Switch>
 
             </>
-        )}
+        )
+    // }
     }
 
 

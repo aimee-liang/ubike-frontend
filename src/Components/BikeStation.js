@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { NavLink } from "react-router-dom";
 
+
 const BikeStation = props => {
 
     const [clicked, setClicked] = useState(false)
@@ -42,7 +43,7 @@ const BikeStation = props => {
         }
     */
 
-    const redirectToBikeShowPage = (e) => {
+    const localFilter = (e) => {
         props.filterReviews(props.bike.id)
     }
 
@@ -53,7 +54,7 @@ const BikeStation = props => {
             <ul>
                 <li key={props.bike.id}>
                     <NavLink to={`/bike_stations/${props.bike.id}`}>
-                        <h4 onClick={redirectToBikeShowPage}>Address: {props.bike.location}</h4>
+                        <h4 onClick={localFilter}>Address: {props.bike.location}</h4>
                     </NavLink>
 
                     <p>Borough: {props.bike.borough}</p>
