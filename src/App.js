@@ -31,6 +31,7 @@ class App extends React.Component{
     } else {
       this.props.history.push("/login")
     }
+    this.fetchReviews()
   }
 
   signUpHandler = (userObj) => {
@@ -120,6 +121,7 @@ class App extends React.Component{
       .then(resp => resp.json())
       .then(reviewsData => {
         let allReviews = [...this.state.reviews, reviewsData]
+        console.log("allReviews:", allReviews)
         this.setState(() => ({
           reviews: allReviews
     }))
@@ -132,12 +134,12 @@ class App extends React.Component{
     this.setState(()=> ({
       bikeStationId: clickedBikeStationId
     }))
-    // console.log("bike station ID in app to setState with:", clickedBikeStationId)
   }
 
 /* fn grabs the id of the bike station and filters for all reviews matching that station */
-  filterReviews = (specificBikeStationId) => {
-    return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
+  /* updated: should this fn go through all reviews in state, and then return only the ones that match the ones I setState using setStationIdForFilteringReviews? */
+  filterReviews = () => {
+    return this.state.reviews.filter(review => review.bikeStationId === this.state.bikeStationId)
   }
 
 /* passed down to the bike station show page route, will post new comment to backend */
@@ -159,14 +161,15 @@ class App extends React.Component{
     }))}
 
 /* passed down to the user profile page, will delete checked into station on backend */
-  // checkOutHandler = (checkedInObjId) => {
-  //   fetch(`http://localhost:3000/api/v1/check_ins${checkedInObjId}`,{
-  //     method: "DELETE"
-  //   })
-  // }
+  checkOutHandler = (checkedInObjId) => {
+    // fetch(`http://localhost:3000/api/v1/check_ins${checkedInObjId}`,{
+    //   method: "DELETE"
+    // })
+    console.log("this is the checkOutHandler")
+  }
 
   render(){
-    console.log("Reviews in the app:", this.state.reviews)
+    // console.log("BikestationID in the app:", this.state.bikeStationId)
     return (
       <>
         <SideBar />
@@ -175,7 +178,7 @@ class App extends React.Component{
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} /> } />
-          <Route path ="/bike_stations" render={()=> <BikeStationShowPage  filterReviews={this.filterReviews} submitComments={this.submitComments} />} />
+          <Route path ="/bike_stations" render={()=> <BikeStationShowPage filterReviews={this.filterReviews} submitComments={this.submitComments} bikeId={this.state.bikeStationId} />} />
           <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
         </Switch> 
 

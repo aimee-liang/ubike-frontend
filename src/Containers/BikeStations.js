@@ -59,22 +59,22 @@ const BikeStations = (props) => {
             <>
             <h4>This is the bike station container</h4>
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
-                <Switch>
+                {/* <Switch>
                     <Route path="/bike_stations/:id" render={({ match }) => {
                         let id = parseInt(match.params.id)
                         let foundBikeStation = props.bikes.find((bikeStation) => bikeStation.id === id)
-                        return <BikeStationShowPage bikeStation={foundBikeStation} filterReviews={props.filterReviews}/>
+                        return <BikeStationShowPage bikeId={id} bikeStation={foundBikeStation} filterReviews={props.filterReviews}/>
                         
                     }}/>
                     <Route path="/home/" render={() => {
                     // const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn}/>)
                         return( 
-                            <>
+                            <> */}
                                 {renderBikes}
-                            </>
+                            {/* </> */}
                         )
-                    }} />
-                </Switch>
+                    // }} />
+                {/* </Switch> */}
 
             </>
         )
