@@ -149,7 +149,6 @@ class App extends React.Component{
       }))
     }))}
 
-
 /* passed down to the user profile page, will delete checked into station on backend */
   checkOutHandler = (checkedInObjId) => {
     fetch(`http://localhost:3000/api/v1/check_ins${checkedInObjId}`,{
