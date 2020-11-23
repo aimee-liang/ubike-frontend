@@ -42,7 +42,6 @@ const BikeStation = props => {
 /* this function to grab id of clicked station, then pass it up to the filterReviews fn in App*/
     const localFilter = (e) => {
         props.setStationIdForFilteringReviews(props.bike.id)
-        // console.log(props.bike.id)
     }
 
     return (
