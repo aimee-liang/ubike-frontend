@@ -129,7 +129,7 @@ class App extends React.Component{
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} /> } />
-          <Route path ="bike_stations" render={()=> <BikeStationShowPage/>} />
+          <Route path ="/bike_stations" render={()=> <BikeStationShowPage/>} />
           <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
         </Switch> 
       </>
