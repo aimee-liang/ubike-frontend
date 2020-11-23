@@ -46,6 +46,7 @@ const BikeStation = props => {
         props.filterReviews(props.bike.id)
     }
 
+    
     return (
         <>
 
@@ -54,6 +55,7 @@ const BikeStation = props => {
                     <NavLink to={`/bike_stations/${props.bike.id}`}>
                         <h4 onClick={redirectToBikeShowPage}>Address: {props.bike.location}</h4>
                     </NavLink>
+
                     <p>Borough: {props.bike.borough}</p>
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>
