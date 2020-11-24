@@ -4,7 +4,8 @@ class BikeStationShowPage extends React.Component {
 
     state={
         reviews: [],
-        comment:""
+        filteredReviews: [],
+        comment: ""
     }
 
     componentDidMount(){
@@ -26,16 +27,24 @@ class BikeStationShowPage extends React.Component {
     localSubmitComments = (e) => {
         e.preventDefault()
         // this.props.submitComments(this.state.comment)
-        // console.log("Submitting comment in bike show page", e)
+        console.log("Submitting comment in bike show page", e)
 
         this.setState(()=> ({
             comment: ""
         }))
     }
 
-    render(){
-        console.log("Bike Station Show Page has these props:", this.props)
+    filterReviews = () => {
         console.log("Reviews info:", this.state.reviews)
+        let filterReviews = this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
+        this.setState(() => ({
+            filteredReviews: [...this.state.filteredReviews, filterReviews]
+        }))
+    }
+
+    render(){
+        console.log("The Show Page has these props:", this.props)
+        console.log("filtered", this.state.filteredReviews)
         return(
             <>
             <h4>You've reached the bike show page</h4>
@@ -50,7 +59,7 @@ class BikeStationShowPage extends React.Component {
 
                 <div>
                     Below is the Reviews Container
-                    <p><ReviewsContainer /></p>
+                    <ReviewsContainer filterReviews={this.filterReviews}/>
                 </div>
             </>
         )

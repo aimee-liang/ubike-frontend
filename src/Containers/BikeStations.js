@@ -1,5 +1,4 @@
 import React from "react"
-// import { Route, Switch } from "react-router-dom"
 import FilterBoroughs from "../Components/FilterBoroughs"
 import BikeStation from "../Components/BikeStation"
 
@@ -40,10 +39,6 @@ const BikeStations = (props) => {
     //     } else {
     //         return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
     //     }
-    // }
-
-    // showMeReviews = () => {
-    //     console.log("Reviews:", this.state.reviews)
     // }
 
     // filterReviews = (specificBikeStationId) => {

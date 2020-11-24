@@ -1,10 +1,11 @@
 import React from "react"
 import {NavLink} from "react-router-dom"
 
-export default class SideBar extends React.Component{
-    render(){
-        return(
-            <>
+const SideBar = props => {
+    return(
+        <>
+        {props.user ? 
+        <>
             <NavLink to="/Home">
                 Home
             </NavLink>
@@ -13,10 +14,19 @@ export default class SideBar extends React.Component{
                 Profile
             </NavLink>
 
-            <NavLink to="/login">
-                Sign out
+            <NavLink to="/logout" onClick={props.logOut()}>
+                Log out
             </NavLink>
-            </>
-        )
-    }
+
+        </>
+        :
+        <>
+            <NavLink to="/signup">Create an account</NavLink>
+            <NavLink to="/login">Sign in</NavLink>
+        </>
+        }
+    </>
+    )
 }
+
+export default SideBar

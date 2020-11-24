@@ -68,6 +68,12 @@ class App extends React.Component{
       )
     }
 
+  logOut = () => {
+    localStorage.removeItem("token")
+    this.setState({user: null})
+    this.props.history.push("/login")
+  }
+
   favoriteStationsUpdate = (favBikeStation) => {
     fetch(`http://localhost:3000/api/v1/favorite_stations/`,{
       method: "POST",
@@ -169,9 +175,10 @@ class App extends React.Component{
   }
 
   render(){
+    console.log("User:", this.user)
     return (
       <>
-        <SideBar />
+        <SideBar user={this.state.user} logOut={this.logOut} />
 
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
@@ -180,6 +187,7 @@ class App extends React.Component{
           {/* <Route path ="/bike_stations" render={()=> <BikeStationShowPage filterReviews={this.filterReviews} submitComments={this.submitComments} bikeId={this.state.bikeStationId} />} /> */}
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage submitComments={this.submitComments} bikeId={this.state.bikeStationId} />} />
           <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
+          <Route path ="/logout" render={()=> <Login loginHandler={this.loginHandler} />} />
         </Switch> 
 
       </>
