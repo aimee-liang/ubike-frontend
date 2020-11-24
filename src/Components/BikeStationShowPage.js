@@ -25,8 +25,7 @@ class BikeStationShowPage extends React.Component {
 
     localSubmitComments = (e) => {
         e.preventDefault()
-        this.props.submitComments(this.state.comment)
-
+        this.submitComments(this.state.comment)
         this.setState(()=> ({
             comment: ""
         }))
@@ -35,6 +34,29 @@ class BikeStationShowPage extends React.Component {
     filterReviews = () => {
         return this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
     }
+
+    submitComments = (commentObj) => {
+        fetch(`http://localhost:3000/api/v1/reviews`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                accepts: "application/json"
+            },
+            body: JSON.stringify({
+                review: {
+                    user_id: 1, /* need to update */
+                    bike_station_id: this.state.bikeStationId,
+                    comment: commentObj
+                }
+            })
+            }
+        .then(resp => resp.json())
+        .then(includingNewReview => {
+        let updatedReviews = [...this.state.reviews, includingNewReview]
+        this.setState(() => ({
+            reviews: updatedReviews
+        }))
+    }))}
 
     render(){
         return(

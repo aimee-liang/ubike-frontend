@@ -122,55 +122,12 @@ class App extends React.Component{
     })
   }
 
-//   fetchReviews = () => {
-//     fetch(`http://localhost:3000/api/v1/reviews/`)
-//       .then(resp => resp.json())
-//       .then(reviewsData => {
-//         let allReviews = [...this.state.reviews, reviewsData]
-//         console.log("allReviews:", allReviews)
-//         this.setState(() => ({
-//           reviews: allReviews
-//     }))
-//   })
-//       .catch(errors => console.log(errors))
-// }
-
 /* fn grabs the bike station ID from BikeStation Component, sets state with it in App */
   setStationIdForFilteringReviews = (clickedBikeStationId) => {
     this.setState(()=> ({
       bikeStationId: clickedBikeStationId
     }))
   }
-
-/* fn grabs the id of the bike station and filters for all reviews matching that station */
-  /* updated: should this fn go through all reviews in state, and then return only the ones that match the ones I setState using setStationIdForFilteringReviews? */
-  // filterReviews = () => {
-  //   return this.state.reviews.filter(review => review.bikeStationId === this.state.bikeStationId)
-  // }
-
-/* passed down to the bike station show page route, will post new comment to backend */
-  submitComments = (commentObj) => {
-    fetch(`http://localhost:3000/api/v1/reviews`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        accepts: "application/json"
-      },
-      body: JSON.stringify({
-        review: {
-            user_id: 1, /* need to update */
-            bike_station_id: this.state.bikeStationId,
-            comment: commentObj
-        }
-      })
-    }
-    .then(resp => resp.json())
-    .then(includingNewReview => {
-      let updatedReviews = [...this.state.reviews, includingNewReview]
-      this.setState(() => ({
-        reviews: updatedReviews
-      }))
-  }))}
 
 /* passed down to the user profile page, will delete checked into station on backend */
   checkOutHandler = (checkedInObjId) => {
