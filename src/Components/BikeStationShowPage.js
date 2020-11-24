@@ -12,9 +12,8 @@ class BikeStationShowPage extends React.Component {
         fetch(`http://localhost:3000/api/v1/reviews/`)
             .then(resp => resp.json())
             .then(reviewsData => {
-                let allReviews = [...this.state.reviews, reviewsData]
                 this.setState(() => ({
-                    reviews: allReviews
+                    reviews: reviewsData
                 }))
             })
             .catch(errors => console.log(errors))
@@ -35,16 +34,18 @@ class BikeStationShowPage extends React.Component {
     }
 
     filterReviews = () => {
-        console.log("Reviews info:", this.state.reviews)
-        let filterReviews = this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
-        this.setState(() => ({
-            filteredReviews: [...this.state.filteredReviews, filterReviews]
-        }))
+        // let filterReviews = this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
+        // this.setState(() => ({
+        //     filteredReviews: [...this.state.filteredReviews, filterReviews]
+        // }))
+
+        return this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
     }
 
     render(){
-        console.log("The Show Page has these props:", this.props)
-        console.log("filtered", this.state.filteredReviews)
+        console.log("all reviews", this.state.reviews)
+        console.log("props bike ID", this.props.bikeId)
+        console.log("this is the filterReviews", this.filterReviews())
         return(
             <>
             <h4>You've reached the bike show page</h4>
@@ -52,6 +53,7 @@ class BikeStationShowPage extends React.Component {
                 {/* <h4>Bike Location</h4>
                 <p>Bike Borough</p> */}
 
+                <p>Write a comment below</p>
                 <form onSubmit={this.localSubmitComments}>
                     <input type="textarea" name="comment" value={this.state.comment} placeholder="Write a comment..." onChange={this.changeHandler} />
                     <button input="submit" value="Submit comment">Submit</button>
@@ -59,7 +61,7 @@ class BikeStationShowPage extends React.Component {
 
                 <div>
                     Below is the Reviews Container
-                    <ReviewsContainer filterReviews={this.filterReviews}/>
+                    <ReviewsContainer filterReviews={this.filterReviews()}/>
                 </div>
             </>
         )

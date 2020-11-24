@@ -68,11 +68,11 @@ class App extends React.Component{
       )
     }
 
-  logOut = () => {
-    localStorage.removeItem("token")
-    this.setState({user: null})
-    this.props.history.push("/login")
-  }
+  // logOut = () => {
+  //   localStorage.removeItem("token")
+  //   this.setState({user: null})
+  //   this.props.history.push("/login")
+  // }
 
   favoriteStationsUpdate = (favBikeStation) => {
     fetch(`http://localhost:3000/api/v1/favorite_stations/`,{
@@ -175,7 +175,6 @@ class App extends React.Component{
   }
 
   render(){
-    console.log("User:", this.user)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
