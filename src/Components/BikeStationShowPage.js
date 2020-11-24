@@ -38,9 +38,6 @@ class BikeStationShowPage extends React.Component {
     }
 
     render(){
-        console.log("all reviews", this.state.reviews)
-        console.log("props bike ID", this.props.bikeId)
-        console.log("this is the filterReviews", this.filterReviews())
         return(
             <>
             <h4>You've reached the bike show page</h4>

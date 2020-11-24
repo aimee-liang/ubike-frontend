@@ -3,8 +3,7 @@ import Review from "../Components/Review"
 
 const ReviewsContainer = props => {
 
-    // render through all reviews
-    let renderReviews = props.filterReviews.map(filteredReview => <Review review={filteredReview} /> )
+    let renderReviews = props.filterReviews.map((filteredReview, index) => <Review key={index} review={filteredReview} /> )
     
     return(
         <>
