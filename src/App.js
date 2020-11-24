@@ -29,7 +29,6 @@ class App extends React.Component{
     } else {
       this.props.history.push("/login")
     }
-    // this.fetchReviews()
   }
 
   signUpHandler = (userObj) => {
@@ -100,7 +99,7 @@ class App extends React.Component{
   currentCheckStatus = (checkedInObj) => {
     fetch(`http://localhost:3000/api/v1/check_ins`, {
       method: "POST",
-      headers: {
+      headers: { /* token */
         "content-type": "application/json",
         accepts: "application/json"
       },

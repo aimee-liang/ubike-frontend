@@ -26,6 +26,7 @@ class BikeStationShowPage extends React.Component {
     localSubmitComments = (e) => {
         e.preventDefault()
         this.submitComments(this.state.comment)
+
         this.setState(()=> ({
             comment: ""
         }))
@@ -38,7 +39,7 @@ class BikeStationShowPage extends React.Component {
     submitComments = (commentObj) => {
         fetch(`http://localhost:3000/api/v1/reviews`, {
             method: "POST",
-            headers: {
+            headers: { /* need to update to jwt to deal with Auth */
                 "content-type": "application/json",
                 accepts: "application/json"
             },
@@ -49,14 +50,14 @@ class BikeStationShowPage extends React.Component {
                     comment: commentObj
                 }
             })
-            }
+        })
         .then(resp => resp.json())
         .then(includingNewReview => {
         let updatedReviews = [...this.state.reviews, includingNewReview]
         this.setState(() => ({
             reviews: updatedReviews
         }))
-    }))}
+    })}
 
     render(){
         return(
@@ -68,7 +69,7 @@ class BikeStationShowPage extends React.Component {
 
                 <p>Write a comment below</p>
                 <form onSubmit={this.localSubmitComments}>
-                    <input type="textarea" name="comment" value={this.state.comment} placeholder="Write a comment..." onChange={this.changeHandler} />
+                    <input type="textarea" name="comment" value={this.state.comment} placeholder="Write a comment" onChange={this.changeHandler} />
                     <button input="submit" value="Submit comment">Submit</button>
                 </form>
 
