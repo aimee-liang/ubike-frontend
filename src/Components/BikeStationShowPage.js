@@ -34,11 +34,6 @@ class BikeStationShowPage extends React.Component {
     }
 
     filterReviews = () => {
-        // let filterReviews = this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
-        // this.setState(() => ({
-        //     filteredReviews: [...this.state.filteredReviews, filterReviews]
-        // }))
-
         return this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
     }
 
@@ -60,7 +55,7 @@ class BikeStationShowPage extends React.Component {
                 </form>
 
                 <div>
-                    Below is the Reviews Container
+                    <h4>Below is the Reviews Container</h4>
                     <ReviewsContainer filterReviews={this.filterReviews()}/>
                 </div>
             </>
