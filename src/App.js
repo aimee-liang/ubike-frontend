@@ -108,7 +108,7 @@ class App extends React.Component{
       },
       body: JSON.stringify({
         check_in: {
-          user_id: 1,
+          user_id: 1, /* need to update */
           bike_station_id: checkedInObj.id
         }
       })
@@ -156,7 +156,13 @@ class App extends React.Component{
         "content-type": "application/json",
         accepts: "application/json"
       },
-      body: JSON.stringify(commentObj)
+      body: JSON.stringify({
+        review: {
+            user_id: 1, /* need to update */
+            bike_station_id: this.state.bikeStationId,
+            comment: commentObj
+        }
+      })
     }
     .then(resp => resp.json())
     .then(includingNewReview => {
@@ -164,7 +170,7 @@ class App extends React.Component{
       this.setState(() => ({
         reviews: updatedReviews
       }))
-    }))}
+  }))}
 
 /* passed down to the user profile page, will delete checked into station on backend */
   checkOutHandler = (checkedInObjId) => {

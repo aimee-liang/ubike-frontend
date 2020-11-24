@@ -25,8 +25,7 @@ class BikeStationShowPage extends React.Component {
 
     localSubmitComments = (e) => {
         e.preventDefault()
-        // this.props.submitComments(this.state.comment)
-        console.log("Submitting comment in bike show page", e)
+        this.props.submitComments(this.state.comment)
 
         this.setState(()=> ({
             comment: ""
@@ -42,8 +41,8 @@ class BikeStationShowPage extends React.Component {
             <>
             <h4>You've reached the bike show page</h4>
                 {/* <img>Bike Image */}
-                {/* <h4>Bike Location</h4>
-                <p>Bike Borough</p> */}
+                <h4>Bike Location Here</h4>
+                <h4>Bike Borough Here</h4>
 
                 <p>Write a comment below</p>
                 <form onSubmit={this.localSubmitComments}>
