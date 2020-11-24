@@ -35,6 +35,7 @@ class BikeStationShowPage extends React.Component {
         return this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
     }
 
+/* function tries to do what? */
     filterBikeInfo = () => {
         
     }
@@ -63,6 +64,7 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
+        console.log("bike obj", this.props)
         return(
             <>
                 {/* <img>Bike Image */}

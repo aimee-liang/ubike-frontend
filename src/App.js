@@ -45,8 +45,7 @@ class App extends React.Component{
       .then(data => {
         localStorage.setItem("token", data.jwt)
         this.setState({user: data.user}, () => this.props.history.push(`/home`) )
-      },
-    )
+      })
   }
 
   loginHandler = (userInfo) => {
@@ -60,17 +59,18 @@ class App extends React.Component{
       })
       .then(resp => resp.json())
       .then(data => {
+        console.log("token:", data.jwt)
         localStorage.setItem("token", data.jwt)
         this.setState({user: data.user}, () => this.props.history.push(`/home`) )
-      },
+      }
       )
     }
 
-  // logOut = () => {
-  //   localStorage.removeItem("token")
-  //   this.setState({user: null})
-  //   this.props.history.push("/login")
-  // }
+  logOut = () => {
+    localStorage.removeItem("token")
+    this.setState({user: null})
+    this.props.history.push("/login")
+  }
 
   favoriteStationsUpdate = (favBikeStation) => {
     fetch(`http://localhost:3000/api/v1/favorite_stations/`,{
@@ -135,6 +135,7 @@ class App extends React.Component{
   }
 
 
+
 /* passed down to the user profile page, will delete checked into station on backend */
   checkOutHandler = (checkedInObjId) => {
     // fetch(`http://localhost:3000/api/v1/check_ins${checkedInObjId}`,{
@@ -144,6 +145,7 @@ class App extends React.Component{
   }
 
   render(){
+    console.log("User:", this.state.user)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />

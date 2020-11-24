@@ -3,7 +3,6 @@ import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
 
 class Home extends React.Component{
-// const Home = props => {
     state={
         bikesAPI: [],
         searchValue: "All",
@@ -27,11 +26,13 @@ class Home extends React.Component{
     }
 
     sortByBorough = () => {
-        if (this.state.searchValue === "All"){
-            return this.state.bikesAPI
-        } else {
-            return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
-        }
+        let arrayOfBikeStations = this.state.bikesAPI
+        if (this.state.searchValue !== "All"){
+            arrayOfBikeStations = this.state.bikesAPI.filter((bikeStation) => {
+                return bikeStation.borough === this.state.searchValue
+            })
+        } 
+        return arrayOfBikeStations
     }
 
     render(){
@@ -39,7 +40,6 @@ class Home extends React.Component{
             <>
             <h3> This is the home page</h3>
                 <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} setStationIdForFilteringReviews={this.props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.props.setBikeObjToDisplayInShowPage} />
-                {/* <BikeStations addFaves={props.addFaves} checkedIn={props.checkedIn} /> */}
                 <Map />
             </>
         )

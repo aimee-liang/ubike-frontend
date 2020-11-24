@@ -1,11 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
 
 const ProfilePage = (props) => {
 
     const deleteHandler = (e) => {
         console.log(e.target.value)
-        // props.checkOut(e.target.value)
+/* stretch feature - check out 
+        localCheckOut = () => {
+            props.checkOut(props.bike.id)
+        }
+    */
     }
 
         return(

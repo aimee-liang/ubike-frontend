@@ -33,12 +33,6 @@ const BikeStation = props => {
         props.addFaves(station)
     }
 
-    /* stretch feature - check out 
-        localCheckOut = () => {
-            props.checkOut(props.bike.id)
-        }
-    */
-
     const localFilter = (e) => {
         props.setStationIdForFilteringReviews(props.bike.id)
         props.setBikeObjToDisplayInShowPage(props.bike)
