@@ -39,9 +39,9 @@ const BikeStation = props => {
         }
     */
 
-/* this function to grab id of clicked station, then pass it up to the filterReviews fn in App*/
     const localFilter = (e) => {
         props.setStationIdForFilteringReviews(props.bike.id)
+        props.setBikeObjToDisplayInShowPage(props.bike)
     }
 
     return (
@@ -53,7 +53,7 @@ const BikeStation = props => {
                         <h4 onClick={localFilter}>Address: {props.bike.location}</h4>
                     </NavLink>
 
-                    <p>Borough: {props.bike.borough}</p>
+                    <p>Borough: {props.bike.borough}</p> {/* may remove for styling */}
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>
                 </li>

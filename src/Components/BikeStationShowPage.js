@@ -4,7 +4,6 @@ class BikeStationShowPage extends React.Component {
 
     state={
         reviews: [],
-        filteredReviews: [],
         comment: ""
     }
 
@@ -36,6 +35,10 @@ class BikeStationShowPage extends React.Component {
         return this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
     }
 
+    filterBikeInfo = () => {
+        
+    }
+
     submitComments = (commentObj) => {
         fetch(`http://localhost:3000/api/v1/reviews`, {
             method: "POST",
@@ -62,10 +65,9 @@ class BikeStationShowPage extends React.Component {
     render(){
         return(
             <>
-            <h4>You've reached the bike show page</h4>
                 {/* <img>Bike Image */}
-                <h4>Bike Location Here</h4>
-                <h4>Bike Borough Here</h4>
+                <h3>{this.props.bikeObj.location}</h3>
+                <h4>{this.props.bikeObj.borough}</h4>
 
                 <p>Write a comment below</p>
                 <form onSubmit={this.localSubmitComments}>
