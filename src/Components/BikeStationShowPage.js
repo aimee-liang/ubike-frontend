@@ -45,7 +45,7 @@ class BikeStationShowPage extends React.Component {
             body: JSON.stringify({
                 review: {
                     user_id: 1, /* need to update */
-                    bike_station_id: this.state.bikeStationId,
+                    bike_station_id: this.props.bikeId,
                     comment: commentObj
                 }
             })

@@ -145,7 +145,7 @@ class App extends React.Component{
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} /> } />
           {/* <Route path ="/bike_stations" render={()=> <BikeStationShowPage filterReviews={this.filterReviews} submitComments={this.submitComments} bikeId={this.state.bikeStationId} />} /> */}
-          <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage submitComments={this.submitComments} bikeId={this.state.bikeStationId} />} />
+          <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} />} />
           <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
           <Route path ="/logout" render={()=> <Login loginHandler={this.loginHandler} />} />
         </Switch> 
