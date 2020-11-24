@@ -14,8 +14,6 @@ class App extends React.Component{
     user: null,
     favoriteStations: [],
     currentStation: [],
-    // reviews: [],
-    // filteredReviews: [],
     bikeStationId: 0,
   }
 
