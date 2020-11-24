@@ -7,7 +7,6 @@ class Home extends React.Component{
     state={
         bikesAPI: [],
         searchValue: "All",
-        // reviews: []
     }
 
     componentDidMount(){
@@ -34,11 +33,6 @@ class Home extends React.Component{
             return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
         }
     }
-
-
-    // filterReviews = (specificBikeStationId) => {
-    //     return this.state.reviews.filter(review => review.bikeStationId === specificBikeStationId)
-    // }
 
     render(){
         return(
