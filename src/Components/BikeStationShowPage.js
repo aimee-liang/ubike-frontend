@@ -76,7 +76,8 @@ class BikeStationShowPage extends React.Component {
                 </form>
 
                 <div>
-                    <h4>Below is the Reviews Container</h4>
+                    <h4>All Reviews </h4>
+                    <p>Please keep our community guidelines in mind when you write a review.</p>
                     <ReviewsContainer filterReviews={this.filterReviews()}/>
                 </div>
             </>

@@ -144,7 +144,6 @@ class App extends React.Component{
   }
 
   render(){
-    console.log("Specific bike station object in App:", this.state.specificBikeStationObj)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
