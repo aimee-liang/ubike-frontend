@@ -16,6 +16,10 @@ const BikeStation = props => {
         id: 0
     })
 
+    const [availableBikeRacks, setAvailableBikeRacks] = useState({
+        
+    })
+
     const clickHandler = (e) => {
         setClicked(!clicked)
         setCheckedIn({
@@ -38,8 +42,6 @@ const BikeStation = props => {
         props.setStationIdForFilteringReviews(props.bike.id)
         props.setBikeObjToDisplayInShowPage(props.bike)
     }
-
-    console.log(props.bike)
 
     return (
         <>
