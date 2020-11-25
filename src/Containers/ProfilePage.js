@@ -1,6 +1,6 @@
 import React from "react"
+import EditProfileForm from "../Components/EditProfileForm"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
-// import EditProfileForm from "../Components/EditProfileForm"
 
 class ProfilePage extends React.Component{
 
@@ -31,9 +31,7 @@ class ProfilePage extends React.Component{
 
 /* on click, a form span needs to appear*/
     clickToEditProfile = () => {
-        <span>
-            <p>test</p>
-        </span>
+        return <EditProfileForm />
     }
 
 /* on submit of the above form span, fetch the specific show page for this user and patch */
@@ -47,10 +45,9 @@ class ProfilePage extends React.Component{
     filterFavorites = () => {
         return this.state.favorites.filter(favorite => favorite.user_id === this.props.user.id)
     }
-    
-/* delete method - on click, check out*/
-    deleteHandler = (e) => {
-        console.log(e.target.value)
+
+    localCheckOut = (e) => {
+        console.log("this is the local check out")
         // props.checkOut(props.bike.id)
     }
 
@@ -70,7 +67,7 @@ render(){
                     {/* is User checked in? */}
 
 
-                    <button onClick={this.deleteHandler}> Check Out </button>
+                    <button onClick={this.localCheckOut}> Check Out </button>
                     
                 </div>
 
