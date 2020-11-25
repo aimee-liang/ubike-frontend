@@ -34,7 +34,6 @@ class ProfilePage extends React.Component{
 }
 
 render(){
-    console.log("Props:", this.props.user.id)
         return(
             <>
                 <div className="about-me">

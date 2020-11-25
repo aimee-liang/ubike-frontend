@@ -31,7 +31,7 @@ const BikeStation = props => {
             location: props.bike.location,
             borough: props.bike.borough
         })
-        props.addFaves(station)
+        props.addFaves(props.bike)
     }
 
     const localFilter = (e) => {

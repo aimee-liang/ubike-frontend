@@ -61,9 +61,6 @@ class App extends React.Component{
       .then(resp => resp.json())
       .then(data => {
         localStorage.setItem("secret", data.jwt)
-        // console.log("This is the token in the Login Handler:", data.jwt)
-        // // localStorage.setItem("token", data.jwt)
-        // console.log("Data:", data)
         this.setState({user: data.user}, () => this.props.history.push(`/home`) )
       }
       )
@@ -84,7 +81,7 @@ class App extends React.Component{
       },
       body: JSON.stringify({
         favorite_station: {
-          user_id: 1, /*need to change this to user's unique ID*/
+          user_id: this.state.user.id, /*need to change this to user's unique ID*/
           bike_station_id: favBikeStation.id,
           location: favBikeStation.location,
           borough: favBikeStation.borough
@@ -148,6 +145,7 @@ class App extends React.Component{
   }
 
   render(){
+    console.log("favorite stations:", this.state.favoriteStations)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
@@ -158,7 +156,6 @@ class App extends React.Component{
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} /> } />
           <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOutHandler} /> } />
-          {/* <Route path ="/logout" render={()=> <Login loginHandler={this.loginHandler} />} /> */}
         </Switch> 
 
       </>
