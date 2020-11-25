@@ -31,7 +31,6 @@ class ProfilePage extends React.Component{
 /* filter for check ins to pass down ? or validate on backend */
     filterCheckIns
 
-/* filter for favorite stations */
     filterFavorites = () => {
         return this.state.favorites.filter(favorite => favorite.user_id === this.props.user.id)
     }
@@ -47,7 +46,7 @@ render(){
             <>
                 <div className="about-me">
                     <h4>@{this.props.user.username}</h4>
-                    {/* <img src/> */}
+                    <img alt="" src={this.props.user.avatar ? this.props.user.avatar : null} />
                     <p>{this.props.user.name}</p>
                     <p>{this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                     <button onClick={this.editProfile}>Edit Profile</button>
