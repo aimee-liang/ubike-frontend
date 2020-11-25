@@ -11,7 +11,13 @@ class ProfilePage extends React.Component{
 
 /* fetch all check_ins  */
     componentDidMount(){
-        fetch(``)
+        fetch(`http://localhost:3000/api/v1/check_ins`)
+            .then(resp => resp.json())
+            .then((checkInData => 
+                this.setState({
+                    check_ins: checkInData
+                })))
+            .catch(errors => console.log(errors))
     }
 
 /* filter for check ins to pass down ? or validate on backend */
