@@ -6,16 +6,18 @@ class ProfilePage extends React.Component{
 /* need to validate only one check in on backend */
     state={
         check_ins: [],
-        filteredForUserCheckIns: []
+        filteredForUserCheckIns: [],
+        favorites: []
     }
 
     componentDidMount(){
         fetch(`http://localhost:3000/api/v1/check_ins`)
             .then(resp => resp.json())
-            .then((checkInData => 
-                this.setState({
-                    check_ins: checkInData
-                })))
+            // .then((checkInData => 
+            //     this.setState({
+            //         check_ins: checkInData
+            //     })))
+            .then(console.log)
             .catch(errors => console.log(errors))
     }
 
@@ -24,6 +26,9 @@ class ProfilePage extends React.Component{
     }
 /* filter for check ins to pass down ? or validate on backend */
     filterCheckIns
+
+/* filter for favorite stations */
+    filterFavorites
     
     deleteHandler = (e) => {
         console.log(e.target.value)

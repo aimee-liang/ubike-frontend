@@ -81,7 +81,7 @@ class App extends React.Component{
       },
       body: JSON.stringify({
         favorite_station: {
-          user_id: this.state.user.id, /*need to change this to user's unique ID*/
+          user_id: this.state.user.id,
           bike_station_id: favBikeStation.id,
           location: favBikeStation.location,
           borough: favBikeStation.borough
@@ -138,7 +138,6 @@ class App extends React.Component{
   }
 
   render(){
-    console.log("favorite stations:", this.state.favoriteStations)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
@@ -147,7 +146,7 @@ class App extends React.Component{
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
-          <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} /> } />
+          <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} user={this.state.user} /> } />
           <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOutHandler} /> } />
         </Switch> 
 
