@@ -7,21 +7,6 @@ import BikeStation from "../Components/BikeStation"
 
 const BikeStations = (props) => {
 
-    // searchBorough = (boroughObj) => {
-    //     this.setState(() => ({
-    //         searchValue: boroughObj
-    //     }))
-    // }
-
-    // sortByBorough = () => {
-    //     if (this.state.searchValue === "All"){
-    //         return this.state.bikesAPI
-    //     } else {
-    //         return this.state.bikesAPI.filter(bikeShelter => bikeShelter.borough === this.state.searchValue)
-    //     }
-    // }
-
-
     const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={props.setBikeObjToDisplayInShowPage} />)
 
         return(

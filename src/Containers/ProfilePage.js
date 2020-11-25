@@ -5,11 +5,10 @@ class ProfilePage extends React.Component{
 
 /* need to validate only one check in on backend */
     state={
-        check_ins: [], /* set state after fetching */
+        check_ins: [],
         filteredForUserCheckIns: []
     }
 
-/* fetch all check_ins  */
     componentDidMount(){
         fetch(`http://localhost:3000/api/v1/check_ins`)
             .then(resp => resp.json())
@@ -40,7 +39,7 @@ render(){
                     {/* <img src/> */}
                     <p>{this.props.user.name}</p>
                     <p>{this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
-                    <button onClick>Edit Profile</button>
+                    <button onClick={}>Edit Profile</button>
                 </div>
 
                 <div className="currently-checked-status">

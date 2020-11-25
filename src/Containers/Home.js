@@ -9,7 +9,6 @@ class Home extends React.Component{
     }
 
     componentDidMount(){
-        // this.props.fetchBikes()
         fetch(`http://localhost:3000/api/v1/bike_stations`)
         .then(resp => resp.json())
         .then((bikesData) => 
