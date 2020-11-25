@@ -1,9 +1,21 @@
 import React from "react"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
 
-// const ProfilePage = (props) => {
 class ProfilePage extends React.Component{
 
+/* need to validate only one check in on backend */
+    state={
+        check_ins: [], /* set state after fetching */
+        filteredForUserCheckIns: []
+    }
+
+/* fetch all check_ins  */
+    componentDidMount(){
+        fetch(``)
+    }
+
+/* filter for check ins to pass down ? or validate on backend */
+    filterCheckIns
     
     deleteHandler = (e) => {
         console.log(e.target.value)
@@ -18,17 +30,16 @@ render(){
         return(
             <>
                 <div className="about-me">
-                    <p> About Me</p>
-                    @{this.props.user.username}
+                    <h4>@{this.props.user.username}</h4>
                     {/* <img src/> */}
                     <p>{this.props.user.name}</p>
-                    <p>{this.props.user.bio}</p>
+                    <p>{this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                     <button onClick>Edit Profile</button>
                 </div>
 
                 <div className="currently-checked-status">
                     {/* is User checked in? */}
-                
+
 
                     <button onClick={this.deleteHandler}> Check Out </button>
                     
