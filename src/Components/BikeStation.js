@@ -22,6 +22,7 @@ const BikeStation = props => {
             id: props.bike.id
         })
         props.checkedIn(checkIn)
+        props.bike.available_bike_racks -= 1
     }
 
     const favoriteHandler = (e) => {
@@ -38,16 +39,20 @@ const BikeStation = props => {
         props.setBikeObjToDisplayInShowPage(props.bike)
     }
 
+    console.log(props.bike)
+
     return (
         <>
 
             <ul>
                 <li key={props.bike.id}>
                     <NavLink to={`/bike_stations/${props.bike.id}`}>
-                        <h4 onClick={localFilter}>Address: {props.bike.location}</h4>
+                        <h4 onClick={localFilter}>{props.bike.location}</h4>
                     </NavLink>
 
                     <p>Borough: {props.bike.borough}</p> {/* may remove for styling */}
+
+                    <p>Bikes Racks Available: {props.bike.available_bike_racks}</p>
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>
                 </li>

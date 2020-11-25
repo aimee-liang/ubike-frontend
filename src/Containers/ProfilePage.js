@@ -4,10 +4,10 @@ import FavoriteStationsContainer from "./FavoriteStationsContainer"
 const ProfilePage = (props) => {
 
     console.log("Props:", props)
+
     const deleteHandler = (e) => {
         console.log(e.target.value)
 /* stretch feature - check out 
-        localCheckOut = () => {
             props.checkOut(props.bike.id)
         }
     */

@@ -64,7 +64,7 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
-        console.log("bike obj", this.props)
+        // console.log("bike obj", this.props)
         return(
             <>
                 {/* <img>Bike Image */}
