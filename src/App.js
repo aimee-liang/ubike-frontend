@@ -99,18 +99,18 @@ class App extends React.Component{
       },
       body: JSON.stringify({
         check_in: {
-          user_id: 1, /* need to update */
+          user_id: this.state.user.id, /* need to update */
           bike_station_id: checkedInObj.id
         }
       })
     })
-    .then(resp => resp.json())
-    .then(status => {
-      let checkedInto = [...this.state.currentStation, status]
-      this.setState(() => ({
-        currentStation: checkedInto
-      }))
-    })
+    // .then(resp => resp.json())
+    // .then(status => {
+    //   let checkedInto = [...this.state.currentStation, status]
+    //   this.setState(() => ({
+    //     currentStation: checkedInto
+    //   }))
+    // })
   }
 
 /* fn grabs the bike station ID from BikeStation Component, sets state with it in App */
