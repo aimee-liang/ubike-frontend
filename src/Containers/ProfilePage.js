@@ -3,7 +3,7 @@ import FavoriteStationsContainer from "./FavoriteStationsContainer"
 
 const ProfilePage = (props) => {
 
-    console.log("Props:", props)
+    console.log("Props:", props.user)
 
     const deleteHandler = (e) => {
         console.log(e.target.value)
@@ -18,6 +18,7 @@ const ProfilePage = (props) => {
                 <div className="about-me">
                     <p> About Me</p>
                     {/* <img src/> */}
+                    <p>{props.user.name}</p>
                     username: {props.user.username}
 
 

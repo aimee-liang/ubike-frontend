@@ -16,10 +16,6 @@ const BikeStation = props => {
         id: 0
     })
 
-    const [availableBikeRacks, setAvailableBikeRacks] = useState({
-        
-    })
-
     const clickHandler = (e) => {
         setClicked(!clicked)
         setCheckedIn({
