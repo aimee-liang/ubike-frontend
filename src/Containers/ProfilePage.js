@@ -53,7 +53,7 @@ render(){
                 </div>
 
                 <div>
-                    <p>Here are some of @{this.props.user.username}'s favorite stations</p>
+                    <h4>@{this.props.user.username}'s favorite stations</h4>
                     <FavoriteStationsContainer favoriteStations={this.props.favoriteStations} />
                 </div>
 

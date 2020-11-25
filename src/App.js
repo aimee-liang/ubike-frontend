@@ -87,13 +87,6 @@ class App extends React.Component{
           borough: favBikeStation.borough
         }})
     })
-    .then(resp => resp.json())
-    .then(data => {
-      let allFavStations = [...this.state.favoriteStations, data]
-      this.setState(()=> ({
-        favoriteStations: allFavStations
-      }))
-    })
   }
 
 /* validate checked in one place - backend */
