@@ -1,41 +1,44 @@
 import React from "react"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
 
-const ProfilePage = (props) => {
+// const ProfilePage = (props) => {
+class ProfilePage extends React.Component{
 
-    console.log("Props:", props.user)
-
-    const deleteHandler = (e) => {
+    
+    deleteHandler = (e) => {
         console.log(e.target.value)
 /* stretch feature - check out 
-            props.checkOut(props.bike.id)
-        }
-    */
+        props.checkOut(props.bike.id)
     }
+*/
+}
 
+render(){
+    console.log("Props:", this.props.user)
         return(
             <>
                 <div className="about-me">
                     <p> About Me</p>
+                    @{this.props.user.username}
                     {/* <img src/> */}
-                    <p>{props.user.name}</p>
-                    username: {props.user.username}
-
-
+                    <p>{this.props.user.name}</p>
+                    <p>{this.props.user.bio}</p>
+                    <button onClick>Edit Profile</button>
                 </div>
 
                 <div className="currently-checked-status">
                     {/* is User checked in? */}
+                
 
-
-                    <button onClick={deleteHandler}> Check Out </button>
+                    <button onClick={this.deleteHandler}> Check Out </button>
                     
                 </div>
 
-                <FavoriteStationsContainer favoriteStations={props.favoriteStations} />
+                <FavoriteStationsContainer favoriteStations={this.props.favoriteStations} />
 
             </>
         )
+    }
 }
 
 export default ProfilePage
