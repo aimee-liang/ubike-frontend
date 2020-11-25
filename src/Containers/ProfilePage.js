@@ -3,6 +3,7 @@ import FavoriteStationsContainer from "./FavoriteStationsContainer"
 
 const ProfilePage = (props) => {
 
+    console.log("Props:", props)
     const deleteHandler = (e) => {
         console.log(e.target.value)
 /* stretch feature - check out 
@@ -17,7 +18,8 @@ const ProfilePage = (props) => {
                 <div className="about-me">
                     <p> About Me</p>
                     {/* <img src/> */}
-                    {/* username */}
+                    username: {props.user.username}
+
 
                 </div>
 

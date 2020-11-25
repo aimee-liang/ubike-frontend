@@ -148,7 +148,6 @@ class App extends React.Component{
   }
 
   render(){
-    console.log("User:", this.state.user)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
@@ -158,7 +157,7 @@ class App extends React.Component{
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} /> } />
-          <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
+          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOutHandler} /> } />
           {/* <Route path ="/logout" render={()=> <Login loginHandler={this.loginHandler} />} /> */}
         </Switch> 
 
