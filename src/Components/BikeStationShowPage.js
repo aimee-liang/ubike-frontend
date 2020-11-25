@@ -70,7 +70,7 @@ class BikeStationShowPage extends React.Component {
                 <h3>{this.props.bikeObj.location}</h3>
                 <h4>{this.props.bikeObj.borough}</h4>
 
-                <p>Write a comment below</p>
+                <p>Write a comment below. Please keep our community guidelines in mind when you write a review.</p>
                 <form onSubmit={this.localSubmitComments}>
                     <input type="textarea" name="comment" value={this.state.comment} placeholder="Write a comment" onChange={this.changeHandler} />
                     <button input="submit" value="Submit comment">Submit</button>
@@ -78,7 +78,6 @@ class BikeStationShowPage extends React.Component {
 
                 <div>
                     <h4>All Reviews </h4>
-                    <p>Please keep our community guidelines in mind when you write a review.</p>
                     <ReviewsContainer filterReviews={this.filterReviews()}/>
                 </div>
             </>

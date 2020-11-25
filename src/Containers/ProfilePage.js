@@ -11,13 +11,15 @@ class ProfilePage extends React.Component{
     }
 
     componentDidMount(){
-        fetch(`http://localhost:3000/api/v1/check_ins`)
-            .then(resp => resp.json())
-            // .then((checkInData => 
-            //     this.setState({
-            //         check_ins: checkInData
-            //     })))
-            .then(console.log)
+        Promise.all([
+                fetch(`http://localhost:3000/api/v1/check_ins`),
+                fetch(`http://localhost:3000/api/v1/favorite_stations`)
+        ])
+            .then(([resp1, resp2]) => Promise.all([resp1.json(), resp2.json()]))
+            .then(([checkInData, favoritesData]) => this.setState({
+                    check_ins: checkInData,
+                    favorites: favoritesData
+                }))
             .catch(errors => console.log(errors))
     }
 
