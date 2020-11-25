@@ -12,33 +12,35 @@ class ProfilePage extends React.Component{
 
     componentDidMount(){
         Promise.all([
-                fetch(`http://localhost:3000/api/v1/check_ins`),
-                fetch(`http://localhost:3000/api/v1/favorite_stations`)
+            fetch(`http://localhost:3000/api/v1/check_ins`),
+            fetch(`http://localhost:3000/api/v1/favorite_stations`)
         ])
             .then(([resp1, resp2]) => Promise.all([resp1.json(), resp2.json()]))
             .then(([checkInData, favoritesData]) => this.setState({
-                    check_ins: checkInData,
-                    favorites: favoritesData
-                }))
+                check_ins: checkInData,
+                favorites: favoritesData
+            }))
             .catch(errors => console.log(errors))
     }
 
+/* patch method */
     editProfile = () => {
         console.log("hello")
     }
+
 /* filter for check ins to pass down ? or validate on backend */
     filterCheckIns
 
 /* filter for favorite stations */
-    filterFavorites
+    filterFavorites = () => {
+        return this.state.favorites.filter(favorite => favorite.user_id === this.props.user.id)
+    }
     
+/* stretch feature - check out*/
     deleteHandler = (e) => {
         console.log(e.target.value)
-/* stretch feature - check out 
-        props.checkOut(props.bike.id)
+        // props.checkOut(props.bike.id)
     }
-*/
-}
 
 render(){
         return(
@@ -61,7 +63,7 @@ render(){
 
                 <div>
                     <h4>@{this.props.user.username}'s favorite stations</h4>
-                    <FavoriteStationsContainer favoriteStations={this.props.favoriteStations} />
+                    <FavoriteStationsContainer filterFavorites={this.filterFavorites()} />
                 </div>
 
             </>
