@@ -43,7 +43,7 @@ class BikeStationShowPage extends React.Component {
     submitComments = (commentObj) => {
         fetch(`http://localhost:3000/api/v1/reviews`, {
             method: "POST",
-            headers: { /* need to update to jwt to deal with Auth */
+            headers: { 
                 "content-type": "application/json",
                 accepts: "application/json"
             },
@@ -64,7 +64,6 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
-        // console.log("bike obj", this.props)
         return(
             <>
                 {/* <img>Bike Image */}
