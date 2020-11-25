@@ -19,6 +19,9 @@ class ProfilePage extends React.Component{
             .catch(errors => console.log(errors))
     }
 
+    editProfile = () => {
+        console.log("hello")
+    }
 /* filter for check ins to pass down ? or validate on backend */
     filterCheckIns
     
@@ -31,7 +34,7 @@ class ProfilePage extends React.Component{
 }
 
 render(){
-    console.log("Props:", this.props.user)
+    console.log("Props:", this.props.user.id)
         return(
             <>
                 <div className="about-me">
@@ -39,7 +42,7 @@ render(){
                     {/* <img src/> */}
                     <p>{this.props.user.name}</p>
                     <p>{this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
-                    <button onClick={}>Edit Profile</button>
+                    <button onClick={this.editProfile}>Edit Profile</button>
                 </div>
 
                 <div className="currently-checked-status">
