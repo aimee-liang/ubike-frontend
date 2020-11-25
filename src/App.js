@@ -19,7 +19,8 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    const token = localStorage.getItem("token")
+    // localStorage.setItem("token", data.jwt)
+    const token = localStorage.getItem("secret")
     if (token){
       fetch("http://localhost:3000/api/v1/profile", {
         method: "GET",
@@ -43,7 +44,7 @@ class App extends React.Component{
     })
       .then(resp => resp.json())
       .then(data => {
-        localStorage.setItem("token", data.jwt)
+        localStorage.setItem("secret", data.jwt)
         this.setState({user: data.user}, () => this.props.history.push(`/home`) )
       })
   }
@@ -59,15 +60,17 @@ class App extends React.Component{
       })
       .then(resp => resp.json())
       .then(data => {
-        console.log("token:", data.jwt)
-        localStorage.setItem("token", data.jwt)
+        localStorage.setItem("secret", data.jwt)
+        // console.log("This is the token in the Login Handler:", data.jwt)
+        // // localStorage.setItem("token", data.jwt)
+        // console.log("Data:", data)
         this.setState({user: data.user}, () => this.props.history.push(`/home`) )
       }
       )
-    }
+  }
 
   logOut = () => {
-    localStorage.removeItem("token")
+    localStorage.removeItem("secret")
     this.setState({user: null})
     this.props.history.push("/login")
   }
@@ -156,7 +159,7 @@ class App extends React.Component{
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} /> } />
           <Route path ="/profile" render={() => <ProfilePage checkOut={this.checkOutHandler} /> } />
-          <Route path ="/logout" render={()=> <Login loginHandler={this.loginHandler} />} />
+          {/* <Route path ="/logout" render={()=> <Login loginHandler={this.loginHandler} />} /> */}
         </Switch> 
 
       </>

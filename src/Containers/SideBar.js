@@ -14,7 +14,7 @@ const SideBar = props => {
                 Profile
             </NavLink>
 
-            <NavLink to="/logout" onClick={props.logOut()}>
+            <NavLink to="/login" onClick={props.logOut}>
                 Log out
             </NavLink>
 
