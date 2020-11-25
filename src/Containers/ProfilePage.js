@@ -9,10 +9,11 @@ class ProfilePage extends React.Component{
         check_ins: [],
         filteredForUserCheckIns: [],
         favorites: [],
-        username: "",
-        email: "",
-        bike: "",
-        bio: "",
+        // username: "",
+        // email: "",
+        // bike: "",
+        // bio: "",
+        updatedUserInfo: {}, /* may need to have this saved as obj, pass up to App to patch  */
         profile: false
     }
 
@@ -29,14 +30,8 @@ class ProfilePage extends React.Component{
             .catch(errors => console.log(errors))
     }
 
-/* on click, a form span needs to appear*/
     clickToEditProfile = () => {
         return <EditProfileForm />
-    }
-
-/* on submit of the above form span, fetch the specific show page for this user and patch */
-    submitEditedProfile = (userId) =>{
-        this.props.editProfile(userId)
     }
 
 /* filter for check ins to pass down ? or validate on backend */
@@ -59,7 +54,7 @@ render(){
                     <img alt="" src={this.props.user.avatar ? this.props.user.avatar : null} />
                     <p>{this.props.user.name}</p>
                     <p>{this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
-                    <button onClick={() => /* console.log("click")*/ this.setState({profile: true}) }>Edit Profile</button>
+                    <button onClick={() => this.setState({profile: true}) }>Edit Profile</button>
                     {this.state.profile ? this.clickToEditProfile() : null }
                 </div>
 
