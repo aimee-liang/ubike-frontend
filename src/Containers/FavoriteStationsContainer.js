@@ -7,7 +7,6 @@ const FavoriteStationsContainer = props => {
 
     return(
         <>
-            <p>hello from the container</p>
             {renderFavoriteStations}
         </>
     )
