@@ -15,7 +15,7 @@ export default class EditProfileForm extends React.Component{
 
     submitHandler = (e) =>{
         e.preventDefault()
-        console.log("clickity")
+        this.props.editProfile(this.state)
     }
 
     render(){

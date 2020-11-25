@@ -9,10 +9,6 @@ class ProfilePage extends React.Component{
         check_ins: [],
         filteredForUserCheckIns: [],
         favorites: [],
-        // username: "",
-        // email: "",
-        // bike: "",
-        // bio: "",
         updatedUserInfo: {}, /* may need to have this saved as obj, pass up to App to patch  */
         profile: false
     }
@@ -31,7 +27,11 @@ class ProfilePage extends React.Component{
     }
 
     clickToEditProfile = () => {
-        return <EditProfileForm />
+        return <EditProfileForm editProfile={this.props.editProfile}/>
+    }
+
+    submitProfileToBackend = (userObj) => {
+        this.props.editProfile(userObj)
     }
 
 /* filter for check ins to pass down ? or validate on backend */

@@ -121,26 +121,27 @@ class App extends React.Component{
   }
 
 /* need to test this out - does it actually update? */
-  editProfile = (userId) => {
-    fetch(`http://localhost:3000/api/v1/users/${userId}`, {
-      method: "PATCH",
-      headers: {
-          "content-type": "application/json",
-          accepts: "application/json"
-      },
-      body: JSON.stringify({
-          user: {
-              id: this.props.user.id,
-              username: "",
-              avatar: "",
-              email: "",
-              bike: "",
-              bio: ""
-          }
-      })
-  })
-    .then(resp => resp.json())
-    .then(userData => this.setState({user: userData}))
+  editProfile = (userObj) => {
+  //   fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //         "content-type": "application/json",
+  //         accepts: "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //         user: {
+  //             id: this.stte.user.id,
+  //             username: "",
+  //             avatar: "",
+  //             email: "",
+  //             bike: "",
+  //             bio: ""
+  //         }
+  //     })
+  // })
+  //   .then(resp => resp.json())
+  //   .then(userData => this.setState({user: userData}))
+  console.log("editProfile in App:", userObj)
   }
 
 
