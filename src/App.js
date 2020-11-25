@@ -120,11 +120,34 @@ class App extends React.Component{
     }))
   }
 
+/* need to test this out - does it actually update? */
+  editProfile = (userId) => {
+    fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+      method: "PATCH",
+      headers: {
+          "content-type": "application/json",
+          accepts: "application/json"
+      },
+      body: JSON.stringify({
+          user: {
+              id: this.props.user.id,
+              username: "",
+              avatar: "",
+              email: "",
+              bike: "",
+              bio: ""
+          }
+      })
+  })
+    .then(resp => resp.json())
+    .then(userData => this.setState({user: userData}))
+  }
+
 
 
 /* passed down to the user profile page, will delete checked into station on backend */
   checkOutHandler = (checkedInObjId) => {
-    // fetch(`http://localhost:3000/api/v1/check_ins${checkedInObjId}`,{
+    // fetch(`http://localhost:3000/api/v1/check_ins/${checkedInObjId}`,{
     //   method: "DELETE"
     // })
     console.log("this is the checkOutHandler")
@@ -140,7 +163,7 @@ class App extends React.Component{
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} user={this.state.user} /> } />
-          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOutHandler} /> } />
+          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOutHandler} editProfile={this.editProfile} /> } />
         </Switch> 
 
       </>

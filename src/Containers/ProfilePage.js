@@ -1,5 +1,6 @@
 import React from "react"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
+// import EditProfileForm from "../Components/EditProfileForm"
 
 class ProfilePage extends React.Component{
 
@@ -7,7 +8,12 @@ class ProfilePage extends React.Component{
     state={
         check_ins: [],
         filteredForUserCheckIns: [],
-        favorites: []
+        favorites: [],
+        username: "",
+        email: "",
+        bike: "",
+        bio: "",
+        profile: false
     }
 
     componentDidMount(){
@@ -23,9 +29,16 @@ class ProfilePage extends React.Component{
             .catch(errors => console.log(errors))
     }
 
-/* patch method */
-    editProfile = () => {
-        console.log("hello")
+/* on click, a form span needs to appear*/
+    clickToEditProfile = () => {
+        <span>
+            <p>test</p>
+        </span>
+    }
+
+/* on submit of the above form span, fetch the specific show page for this user and patch */
+    submitEditedProfile = (userId) =>{
+        this.props.editProfile(userId)
     }
 
 /* filter for check ins to pass down ? or validate on backend */
@@ -35,7 +48,7 @@ class ProfilePage extends React.Component{
         return this.state.favorites.filter(favorite => favorite.user_id === this.props.user.id)
     }
     
-/* stretch feature - check out*/
+/* delete method - on click, check out*/
     deleteHandler = (e) => {
         console.log(e.target.value)
         // props.checkOut(props.bike.id)
@@ -49,7 +62,8 @@ render(){
                     <img alt="" src={this.props.user.avatar ? this.props.user.avatar : null} />
                     <p>{this.props.user.name}</p>
                     <p>{this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
-                    <button onClick={this.editProfile}>Edit Profile</button>
+                    <button onClick={() => /* console.log("click")*/ this.setState({profile: true}) }>Edit Profile</button>
+                    {this.state.profile ? this.clickToEditProfile() : null }
                 </div>
 
                 <div className="currently-checked-status">
