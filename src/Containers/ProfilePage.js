@@ -9,7 +9,7 @@ class ProfilePage extends React.Component{
         check_ins: [],
         filteredForUserCheckIns: [],
         favorites: [],
-        updatedUserInfo: {}, /* may need to have this saved as obj, pass up to App to patch  */
+        // updatedUserInfo: {}, /* may need to have this saved as obj, pass up to App to patch  */
         profile: false
     }
 
@@ -30,9 +30,10 @@ class ProfilePage extends React.Component{
         return <EditProfileForm editProfile={this.props.editProfile}/>
     }
 
-    submitProfileToBackend = (userObj) => {
-        this.props.editProfile(userObj)
-    }
+/* do I still need this? */
+//     submitProfileToBackend = (userObj) => {
+//         this.props.editProfile(userObj)
+//     }
 
 /* filter for check ins to pass down ? or validate on backend */
     filterCheckIns
