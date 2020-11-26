@@ -22,7 +22,7 @@ export default class EditProfileForm extends React.Component{
         return(
             <span>
                 <form onSubmit={this.submitHandler}>
-                    <input type="text" name="username" value={this.state.username} placeholder="Update" onChange={this.changeHandler} />
+                    <input type="text" name="username" value={this.state.username} placeholder="Update username" onChange={this.changeHandler} />
                     <input type="text" name="email" value={this.state.email} placeholder="Update email" onChange={this.changeHandler} />
                     <input type="text" name="bike" value={this.state.bike} placeholder="Update bike" onChange={this.changeHandler} />
                     <input type="textarea" name="bio" value={this.state.bio} placeholder="Update bio" onChange={this.changeHandler} />

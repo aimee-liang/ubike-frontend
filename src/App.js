@@ -122,7 +122,7 @@ class App extends React.Component{
 
 /* need to test this out - does it actually update? */
   editProfile = (userObj) => {
-    fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+    fetch(`http://localhost:3000/api/v1/users/${this.state.user.id}`, {
       method: "PATCH",
       headers: {
           "content-type": "application/json",
