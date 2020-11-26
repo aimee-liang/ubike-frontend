@@ -29,7 +29,7 @@ class ProfilePage extends React.Component{
     clickToEditProfile = () => {
         return <EditProfileForm editProfile={this.props.editProfile}/>
     }
-    
+
 /* filter for check ins to pass down ? or validate on backend */
     filterCheckIns
 
@@ -43,13 +43,14 @@ class ProfilePage extends React.Component{
     }
 
 render(){
+    console.log(this.props)
         return(
             <>
                 <div className="about-me">
                     <h4>@{this.props.user.username}</h4>
                     <img alt="" src={this.props.user.avatar ? this.props.user.avatar : null} />
-                    <p>{this.props.user.name}</p>
-                    <p>{this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
+                    <p>Name: {this.props.user.name}</p>
+                    <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                     <button onClick={() => this.setState({profile: true}) }>Edit Profile</button>
                     {this.state.profile ? this.clickToEditProfile() : null }
                 </div>
