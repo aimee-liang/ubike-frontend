@@ -29,12 +29,7 @@ class ProfilePage extends React.Component{
     clickToEditProfile = () => {
         return <EditProfileForm editProfile={this.props.editProfile}/>
     }
-
-/* do I still need this? */
-//     submitProfileToBackend = (userObj) => {
-//         this.props.editProfile(userObj)
-//     }
-
+    
 /* filter for check ins to pass down ? or validate on backend */
     filterCheckIns
 
