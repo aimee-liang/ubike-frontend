@@ -120,7 +120,6 @@ class App extends React.Component{
     }))
   }
 
-/* need to test this out - does it actually update? */
   editProfile = (userObj) => {
     fetch(`http://localhost:3000/api/v1/users/${this.state.user.id}`, {
       method: "PATCH",
@@ -141,10 +140,7 @@ class App extends React.Component{
   })
     .then(resp => resp.json())
     .then(userData => this.setState({user: userData}))
-  // console.log("editProfile in App:", userObj)
   }
-
-
 
 /* passed down to the user profile page, will delete checked into station on backend */
   checkOutHandler = (checkedInObjId) => {
