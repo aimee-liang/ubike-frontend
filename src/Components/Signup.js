@@ -7,6 +7,7 @@ class Signup extends React.Component{
         username: "",
         email: "",
         password: "",
+        bio: ""
     }
 
     changeHandler = (e) => {
@@ -23,6 +24,7 @@ class Signup extends React.Component{
             username: "",
             email: "",
             password: "",
+            bio:""
         }))
     }
     
@@ -33,7 +35,8 @@ class Signup extends React.Component{
             <h4 className="create-account">Join ubike</h4>
             <form onSubmit={this.localSignupHandler}>
                 <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.changeHandler} />
-                <input type="text" name="bike" placeholder="Bicycle Color, Brand, Model, etc." value={this.state.bicycle} onChange={this.changeHandler} />
+                <input type="text" name="bike" placeholder="Enter some deets about your bike!" value={this.state.bicycle} onChange={this.changeHandler} />
+                <input type="text" name="bio" placeholder="Tell us a bit about yourself" value={this.state.bio} onChange={this.changeHandler} />
                 <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeHandler} />
                 <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.changeHandler} />
                 <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.changeHandler} />

@@ -16,6 +16,12 @@ export default class EditProfileForm extends React.Component{
     submitHandler = (e) =>{
         e.preventDefault()
         this.props.editProfile(this.state)
+        this.setState(()=>({
+            username: "",
+            email: "",
+            bike: "",
+            bio: ""
+        }))
     }
 
     render(){
