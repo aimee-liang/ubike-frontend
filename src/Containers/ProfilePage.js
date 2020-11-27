@@ -51,6 +51,7 @@ render(){
                     <img alt="" src={this.props.user.avatar ? this.props.user.avatar : null} />
                     <p>Name: {this.props.user.name}</p>
                     <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
+                    <p>Bike Info: {this.props.user.bike}</p>
                     <button onClick={() => this.setState({profile: true}) }>Edit Profile</button>
                     {this.state.profile ? this.clickToEditProfile() : null }
                 </div>
