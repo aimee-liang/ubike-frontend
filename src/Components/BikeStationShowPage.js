@@ -10,12 +10,12 @@ class BikeStationShowPage extends React.Component {
     componentDidMount(){
         fetch(`http://localhost:3000/api/v1/reviews/`)
             .then(resp => resp.json())
-            // .then(reviewsData => {
-            //     this.setState(() => ({
-            //         reviews: reviewsData
-            //     }))
-            // })
-            .then(console.log)
+            .then(reviewsData => {
+                this.setState(() => ({
+                    reviews: reviewsData
+                }))
+            })
+            // .then(console.log)
             .catch(errors => console.log(errors))
     }
     
