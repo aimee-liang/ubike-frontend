@@ -14,7 +14,7 @@ class ProfilePage extends React.Component{
         return <EditProfileForm editProfile={this.props.editProfile}/>
     }
 
-    displayCheckInStyling = () => {
+    displayCheckedIn = () => {
         return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username}/>
     }
 
@@ -54,7 +54,7 @@ render(){
 
                 <div className="currently-checked-status">
                     <h4>Status</h4>
-                    {this.props.user.check_ins ? this.displayCheckInStyling() : this.displayNotCheckedIn()}
+                    {this.props.user.check_ins ? this.displayCheckedIn() : this.displayNotCheckedIn()}
                     <button onClick={this.localCheckOut}> Check Out </button>
                 </div>
 
