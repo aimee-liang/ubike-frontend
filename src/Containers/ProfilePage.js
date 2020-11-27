@@ -30,7 +30,10 @@ class ProfilePage extends React.Component{
     }
 
     displayCheckInStyling = () => {
-        return <CheckInSpan checkIn={this.state.check_ins} user={this.props.user}/>
+        // return <CheckInSpan checkIn={this.state.check_ins} user={this.props.user}/>
+        return(
+            <p>This user is checked in!</p>
+        )
     }
 
     displayNotCheckedIn = () => {
@@ -56,6 +59,7 @@ class ProfilePage extends React.Component{
     }
 
 render(){
+    console.log("User:", this.props.user)
         return(
             <>
                 <div className="about-me">
@@ -65,13 +69,12 @@ render(){
                     <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                     <p>Bike Info: {this.props.user.bike}</p>
                     <button onClick={() => this.setState({profile: true}) }>Edit Profile</button>
-                    {this.state.profile ? this.clickToEditProfile() : this.displayNotCheckedIn() }
+                    {this.state.profile ? this.clickToEditProfile() : null }
                 </div>
 
                 <div className="currently-checked-status">
                     {/* is User checked in? */}
-                    {this.state.user.check_ins ? this.displayCheckInStyling() : "Not Checked in"}
-
+                    {this.props.user.check_ins ? this.displayCheckInStyling() : "Not Checked in"}
                     <button onClick={this.localCheckOut}> Check Out </button>
                     
                 </div>
