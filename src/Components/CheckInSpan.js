@@ -4,7 +4,7 @@ const CheckInSpan = (props) => {
 
     return(
         <span>
-            <p>@{this.props.user.username} is currently checked in at this location: {props.checkIn}</p>
+            <p>@{props.username} is currently checked in</p>
         </span>
     )
 }

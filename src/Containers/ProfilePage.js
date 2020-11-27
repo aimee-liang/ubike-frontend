@@ -30,10 +30,7 @@ class ProfilePage extends React.Component{
     }
 
     displayCheckInStyling = () => {
-        // return <CheckInSpan checkIn={this.state.check_ins} user={this.props.user}/>
-        return(
-            <p>This user is checked in!</p>
-        )
+        return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username}/>
     }
 
     displayNotCheckedIn = () => {
@@ -46,7 +43,8 @@ class ProfilePage extends React.Component{
 
 /* filter for check ins to pass down && validate on backend */
     filterCheckIns = () => {
-        return this.state.check_ins.filter(check_in => check_in.user_ud === this.props.user.id)
+        let filteredForUser = new Set(this.props.user.check_ins)
+        console.log("filteredForUser:", filteredForUser)
     }
 
     filterFavorites = () => {
@@ -60,6 +58,7 @@ class ProfilePage extends React.Component{
 
 render(){
     console.log("User:", this.props.user)
+    console.log("Filtered:", this.filterCheckIns())
         return(
             <>
                 <div className="about-me">
@@ -73,13 +72,12 @@ render(){
                 </div>
 
                 <div className="currently-checked-status">
-                    {/* is User checked in? */}
-                    {this.props.user.check_ins ? this.displayCheckInStyling() : "Not Checked in"}
+                    <h4>Status</h4>
+                    {this.props.user.check_ins ? this.displayCheckInStyling() : this.displayNotCheckedIn()}
                     <button onClick={this.localCheckOut}> Check Out </button>
-                    
                 </div>
 
-                <div>
+                <div className="fav-stations-div">
                     <h4>@{this.props.user.username}'s favorite stations</h4>
                     <FavoriteStationsContainer filterFavorites={this.filterFavorites()} />
                 </div>
