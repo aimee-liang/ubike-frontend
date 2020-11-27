@@ -10,11 +10,12 @@ class BikeStationShowPage extends React.Component {
     componentDidMount(){
         fetch(`http://localhost:3000/api/v1/reviews/`)
             .then(resp => resp.json())
-            .then(reviewsData => {
-                this.setState(() => ({
-                    reviews: reviewsData
-                }))
-            })
+            // .then(reviewsData => {
+            //     this.setState(() => ({
+            //         reviews: reviewsData
+            //     }))
+            // })
+            .then(console.log)
             .catch(errors => console.log(errors))
     }
     
@@ -59,6 +60,7 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
+        console.log(this.props)
         return(
             <>
                 {/* <img>Bike Image */}
@@ -73,7 +75,7 @@ class BikeStationShowPage extends React.Component {
 
                 <div>
                     <h4>All Reviews </h4>
-                    <ReviewsContainer filterReviews={this.filterReviews()} user={this.props.user} />
+                    <ReviewsContainer filterReviews={this.filterReviews()} />
                 </div>
             </>
         )
