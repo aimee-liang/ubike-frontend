@@ -1,15 +1,14 @@
 import React from "react"
 import EditProfileForm from "../Components/EditProfileForm"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
+import CheckInSpan from "../Components/CheckInSpan"
 
 class ProfilePage extends React.Component{
 
-/* need to validate only one check in on backend */
     state={
         check_ins: [],
         filteredForUserCheckIns: [],
         favorites: [],
-        // updatedUserInfo: {}, /* may need to have this saved as obj, pass up to App to patch  */
         profile: false
     }
 
@@ -28,6 +27,18 @@ class ProfilePage extends React.Component{
 
     clickToEditProfile = () => {
         return <EditProfileForm editProfile={this.props.editProfile}/>
+    }
+
+    displayCheckInStyling = () => {
+        return <CheckInSpan checkIn={this.state.check_ins} user={this.props.user}/>
+    }
+
+    displayNotCheckedIn = () => {
+        return(
+            <span>
+                This user is not checked in anywhere!
+            </span>
+        )
     }
 
 /* filter for check ins to pass down && validate on backend */
@@ -54,12 +65,12 @@ render(){
                     <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                     <p>Bike Info: {this.props.user.bike}</p>
                     <button onClick={() => this.setState({profile: true}) }>Edit Profile</button>
-                    {this.state.profile ? this.clickToEditProfile() : null }
+                    {this.state.profile ? this.clickToEditProfile() : this.displayNotCheckedIn() }
                 </div>
 
                 <div className="currently-checked-status">
                     {/* is User checked in? */}
-
+                    {this.state.user.check_ins ? this.displayCheckInStyling() : "Not Checked in"}
 
                     <button onClick={this.localCheckOut}> Check Out </button>
                     

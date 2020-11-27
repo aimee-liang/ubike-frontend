@@ -22,7 +22,7 @@ const BikeStation = props => {
             id: props.bike.id
         })
         props.checkedIn(checkIn)
-        props.bike.available_bike_racks -= 1
+        props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
     const favoriteHandler = (e) => {
