@@ -142,15 +142,16 @@ class App extends React.Component{
   }
 
   checkOut= (userId) => {
-    // fetch(`http://localhost:3000/api/v1/check_ins/${userId}`,{
-    //   method: "DELETE",
-    //   headers: {
-    //     "content-type": "application/json",
-    //     accepts: "application/json"
-    //   }
-    // })
-    // .then(resp => resp.json())
-    // .then(console.log)
+    fetch(`http://localhost:3000/api/v1/check_ins/${userId}`,{
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json"
+      }
+    })
+    .then(resp => resp.json())
+    .then(userData => this.setState({user: userData}))
+    .catch(errors => console.log(errors))
   }
 
   render(){
