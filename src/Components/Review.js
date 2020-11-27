@@ -3,7 +3,7 @@ import React from "react"
 const Review = props => {
     return (
         <>
-        <p>{props.review.comment}</p>
+        <p>@{props.user.username}: {props.review.comment}</p>
         </>
     )
 }

@@ -65,7 +65,7 @@ class ProfilePage extends React.Component{
                 </div>
 
                 <div className="fav-stations-div">
-                    <h4>@{this.props.user.username}'s favorite stations</h4>
+                    <h4>@{this.props.user.username}'s Favorite Stations</h4>
                     <FavoriteStationsContainer filterFavorites={this.props.user.favorite_stations} unlike={this.props.unlike}/>
                 </div>
 
