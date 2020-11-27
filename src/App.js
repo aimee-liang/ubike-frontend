@@ -19,7 +19,6 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    // localStorage.setItem("token", data.jwt)
     const token = localStorage.getItem("secret")
     if (token){
       fetch("http://localhost:3000/api/v1/profile", {
