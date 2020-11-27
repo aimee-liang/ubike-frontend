@@ -154,8 +154,16 @@ class App extends React.Component{
     .catch(errors => console.log(errors))
   }
 
-  unlike = (someObject) => {
-    console.log("Unliked!")
+  unlike = (stationId) => {
+    fetch(`http://localhost:3000/api/v1/favorite_stations/${stationId}`,{
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json"
+      }
+    })
+    .then(resp => resp.json())
+    .then(console.log)
   }
 
   render(){
