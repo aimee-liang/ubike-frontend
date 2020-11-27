@@ -6,24 +6,9 @@ import CheckInSpan from "../Components/CheckInSpan"
 class ProfilePage extends React.Component{
 
     state={
-        // check_ins: [],
         // filteredForUserCheckIns: [],
-        // favorites: [],
         profile: false
     }
-
-    // componentDidMount(){
-    //     Promise.all([
-    //         fetch(`http://localhost:3000/api/v1/check_ins`),
-    //         fetch(`http://localhost:3000/api/v1/favorite_stations`)
-    //     ])
-    //         .then(([resp1, resp2]) => Promise.all([resp1.json(), resp2.json()]))
-    //         .then(([checkInData, favoritesData]) => this.setState({
-    //             check_ins: checkInData,
-    //             favorites: favoritesData
-    //         }))
-    //         .catch(errors => console.log(errors))
-    // }
 
     clickToEditProfile = () => {
         return <EditProfileForm editProfile={this.props.editProfile}/>
@@ -44,7 +29,7 @@ class ProfilePage extends React.Component{
 /* filter for check ins to pass down && validate on backend */
     filterCheckIns = () => {
         let filteredForUser = new Set(this.props.user.check_ins)
-        console.log("filteredForUser:", filteredForUser)
+        console.log("filtered checkins:", filteredForUser)
     }
 
     localCheckOut = (e) => {
