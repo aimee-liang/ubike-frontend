@@ -30,8 +30,10 @@ class ProfilePage extends React.Component{
         return <EditProfileForm editProfile={this.props.editProfile}/>
     }
 
-/* filter for check ins to pass down ? or validate on backend */
-    filterCheckIns
+/* filter for check ins to pass down && validate on backend */
+    filterCheckIns = () => {
+        return this.state.check_ins.filter(check_in => check_in.user_ud === this.props.user.id)
+    }
 
     filterFavorites = () => {
         return this.state.favorites.filter(favorite => favorite.user_id === this.props.user.id)
@@ -43,7 +45,6 @@ class ProfilePage extends React.Component{
     }
 
 render(){
-    console.log(this.props)
         return(
             <>
                 <div className="about-me">
