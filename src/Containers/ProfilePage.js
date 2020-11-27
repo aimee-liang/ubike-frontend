@@ -6,24 +6,24 @@ import CheckInSpan from "../Components/CheckInSpan"
 class ProfilePage extends React.Component{
 
     state={
-        check_ins: [],
-        filteredForUserCheckIns: [],
-        favorites: [],
+        // check_ins: [],
+        // filteredForUserCheckIns: [],
+        // favorites: [],
         profile: false
     }
 
-    componentDidMount(){
-        Promise.all([
-            fetch(`http://localhost:3000/api/v1/check_ins`),
-            fetch(`http://localhost:3000/api/v1/favorite_stations`)
-        ])
-            .then(([resp1, resp2]) => Promise.all([resp1.json(), resp2.json()]))
-            .then(([checkInData, favoritesData]) => this.setState({
-                check_ins: checkInData,
-                favorites: favoritesData
-            }))
-            .catch(errors => console.log(errors))
-    }
+    // componentDidMount(){
+    //     Promise.all([
+    //         fetch(`http://localhost:3000/api/v1/check_ins`),
+    //         fetch(`http://localhost:3000/api/v1/favorite_stations`)
+    //     ])
+    //         .then(([resp1, resp2]) => Promise.all([resp1.json(), resp2.json()]))
+    //         .then(([checkInData, favoritesData]) => this.setState({
+    //             check_ins: checkInData,
+    //             favorites: favoritesData
+    //         }))
+    //         .catch(errors => console.log(errors))
+    // }
 
     clickToEditProfile = () => {
         return <EditProfileForm editProfile={this.props.editProfile}/>
@@ -45,10 +45,6 @@ class ProfilePage extends React.Component{
     filterCheckIns = () => {
         let filteredForUser = new Set(this.props.user.check_ins)
         console.log("filteredForUser:", filteredForUser)
-    }
-
-    filterFavorites = () => {
-        return this.state.favorites.filter(favorite => favorite.user_id === this.props.user.id)
     }
 
     localCheckOut = (e) => {
@@ -79,7 +75,7 @@ render(){
 
                 <div className="fav-stations-div">
                     <h4>@{this.props.user.username}'s favorite stations</h4>
-                    <FavoriteStationsContainer filterFavorites={this.filterFavorites()} />
+                    <FavoriteStationsContainer filterFavorites={this.props.user.favorite_stations} />
                 </div>
 
             </>
