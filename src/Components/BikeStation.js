@@ -48,7 +48,7 @@ const BikeStation = props => {
                         <h4 onClick={localFilter}>{props.bike.location}</h4>
                     </NavLink>
 
-                    <p>Borough: {props.bike.borough}</p> {/* may remove for styling */}
+                    {/* <p>Borough: {props.bike.borough}</p> may remove for styling */}
 
                     <p>Bikes Racks Available: {props.bike.available_bike_racks}</p>
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 

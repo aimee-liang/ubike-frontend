@@ -6,7 +6,6 @@ import CheckInSpan from "../Components/CheckInSpan"
 class ProfilePage extends React.Component{
 
     state={
-        // filteredForUserCheckIns: [],
         profile: false
     }
 
@@ -40,9 +39,8 @@ class ProfilePage extends React.Component{
     //     console.log("My check ins:", this.props.user.check_ins)
     // }
     
-    localCheckOut = (e) => {
-        console.log("this is the local check out")
-        // props.checkOut(props.bike.id)
+    localCheckOut = () => {
+        this.props.checkOut(this.props.user.id)
     }
     
     render(){

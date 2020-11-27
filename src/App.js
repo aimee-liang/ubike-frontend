@@ -141,12 +141,16 @@ class App extends React.Component{
     .then(userData => this.setState({user: userData}))
   }
 
-/* passed down to the user profile page, will delete checked into station on backend */
-  checkOutHandler = (checkedInObjId) => {
-    // fetch(`http://localhost:3000/api/v1/check_ins/${checkedInObjId}`,{
-    //   method: "DELETE"
+  checkOut= (userId) => {
+    // fetch(`http://localhost:3000/api/v1/check_ins/${userId}`,{
+    //   method: "DELETE",
+    //   headers: {
+    //     "content-type": "application/json",
+    //     accepts: "application/json"
+    //   }
     // })
-    console.log("this is the checkOutHandler")
+    // .then(resp => resp.json())
+    // .then(console.log)
   }
 
   render(){
@@ -159,7 +163,7 @@ class App extends React.Component{
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} user={this.state.user} /> } />
-          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOutHandler} editProfile={this.editProfile} /> } />
+          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} /> } />
         </Switch> 
 
       </>
