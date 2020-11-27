@@ -2,10 +2,11 @@ import React from "react"
 
 const FavoriteStation = props => {
 
+    console.log(props)
+
     return(
         <>
-        <p>{props.station.location}</p>
-        <p>{props.station.borough}</p>
+        <p>{props.station.location} in {props.station.borough}</p>
         </>
     )
 }

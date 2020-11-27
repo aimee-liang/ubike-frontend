@@ -3,6 +3,7 @@ import EditProfileForm from "../Components/EditProfileForm"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
 import CheckInSpan from "../Components/CheckInSpan"
 
+/* consider making this functional component later on */
 class ProfilePage extends React.Component{
 
     state={
@@ -65,7 +66,7 @@ class ProfilePage extends React.Component{
 
                 <div className="fav-stations-div">
                     <h4>@{this.props.user.username}'s favorite stations</h4>
-                    <FavoriteStationsContainer filterFavorites={this.props.user.favorite_stations} />
+                    <FavoriteStationsContainer filterFavorites={this.props.user.favorite_stations} unlike={this.props.unlike}/>
                 </div>
 
             </>
