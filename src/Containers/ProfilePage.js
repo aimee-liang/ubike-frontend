@@ -26,20 +26,27 @@ class ProfilePage extends React.Component{
         )
     }
 
+/* filter for duplicate just in case - does bike station id match the others? */
+    // inCaseOfFavoriteStationsDuplicate = () => {
+    //     let favStationsFiltered = new Set(this.props.user.favorite_stations)
+    //     let favStationsFilteredArray = [...favStationsFiltered]
+    //     return favStationsFilteredArray
+    // } 
+    
+    
 /* filter for check ins to pass down && validate on backend */
-    filterCheckIns = () => {
-        let filteredForUser = new Set(this.props.user.check_ins)
-        console.log("filtered checkins:", filteredForUser)
-    }
-
+    // filterCheckIns = () => {
+        // let filteredForUser = new Set(this.props.user.check_ins)
+    //     console.log("My check ins:", this.props.user.check_ins)
+    // }
+    
     localCheckOut = (e) => {
         console.log("this is the local check out")
         // props.checkOut(props.bike.id)
     }
-
-render(){
+    
+    render(){
     console.log("User:", this.props.user)
-    console.log("Filtered:", this.filterCheckIns())
         return(
             <>
                 <div className="about-me">
