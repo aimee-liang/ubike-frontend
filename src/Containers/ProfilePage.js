@@ -8,7 +8,6 @@ class ProfilePage extends React.Component{
 
     state={
         profile: false,
-        bikes: []
     }
 
     clickToEditProfile = () => {
@@ -16,7 +15,7 @@ class ProfilePage extends React.Component{
     }
 
     displayCheckedIn = () => {
-        return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username} checkedInAt={this.props.checkedInAt}/>
+        return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username} /* checkedInAt={this.props.checkedInAt}*/ />
     }
 
     displayNotCheckedIn = () => {
@@ -30,10 +29,6 @@ class ProfilePage extends React.Component{
     localCheckOut = () => {
         this.props.checkOut(this.props.user.id)
     }
-
-    // filterBikesInfoToDisplayInCheckIn = () => {
-    //     return this.state.bikes.filter(bike => this.state.bikes.id === this.props.user.check_ins.bike_station_id)
-    // }
     
     render(){
         return(

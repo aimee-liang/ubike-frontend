@@ -21,7 +21,7 @@ const BikeStation = props => {
         setCheckedIn({
             id: props.bike.id
         })
-        props.setBikeObjToCheckInStatus(props.bike)
+        // props.setBikeObjToCheckInStatus(props.bike)
         props.checkedIn(setCheckedIn)
         props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
