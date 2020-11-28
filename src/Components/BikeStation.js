@@ -7,7 +7,7 @@ class BikeStation extends React.Component{
 
     state={
         clicked: false,
-        favorite_station: {},
+        // favorite_station: {},
         checked_in: {}
     }
 
@@ -17,25 +17,18 @@ class BikeStation extends React.Component{
     //     borough: ""
     // })
 
-    // const [checkIn, setCheckedIn] = useState({
-    //     id: 0
-    // })
-
     clickHandler = (e) => {
-        // setClicked(!clicked)
+        this.setState(previousState => ({
+            clicked: !previousState.clicked
+        }))
         // setCheckedIn({
         //     id: this.props.bike.id
         // })
-        this.props.checkedIn(setCheckedIn)
+        // this.props.checkedIn(setCheckedIn)
         this.props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
     favoriteHandler = (e) => {
-        // setFavStation({
-        //     id: this.props.bike.id,
-        //     location: props.bike.location,
-        //     borough: props.bike.borough
-        // })
         this.props.addFaves(this.props.bike)
     }
 
