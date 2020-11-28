@@ -1,5 +1,5 @@
 import React from "react"
-import ReactMapGL from "react-map-gl"
+import ReactMapGL, {Marker} from "react-map-gl"
 
 class Map extends React.Component{
     state={

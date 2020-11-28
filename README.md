@@ -13,7 +13,7 @@ This app was made possible by the NYC Open Data API. I used the [Bike Shelters](
 ### Map API
 This map was made possible by React Map GL API. You can access their documentation [here](https://docs.mapbox.com/mapbox-gl-js/api/) to get an access token as well as learn more about how to implement styles. I would like to thank [Dallas Bille](https://medium.com/swlh/getting-started-with-react-and-mapbox-gl-js-daa96477dd2c) and their super helpful Medium article on how to implement a responsive map feature. [Celeste Layne](https://www.celestelayne.com/blog) has a three blog series on Mapbox which was very enlightening.
 
-## Chatbot
+### Chatbot
 All credits to Lucas Bassetti for the React Simple Chatbot feature. You can access their docs [here](https://lucasbassetti.com.br/react-simple-chatbot/#/). Himanshu Jaiswal wrote a very clear [Medium blog](https://medium.com/javascript-in-plain-english/may-i-help-you-build-a-chatbot-in-10-minutes-with-react-df19e940bbc8) on how to set up your own React Simple Chatbot.
 
 ### Stretch Goals
