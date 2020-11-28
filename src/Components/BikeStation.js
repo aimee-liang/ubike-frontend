@@ -1,4 +1,3 @@
-// import React, { useState } from "react"
 import React from "react"
 import { NavLink } from "react-router-dom";
 
@@ -14,8 +13,8 @@ class BikeStation extends React.Component{
         this.setState(previousState => ({
             clicked: !previousState.clicked
         }))
-        console.log(this.props.bike)
-        this.props.checkedIn(this.props.bike) /* do I need an id to post in check ins? */
+        // console.log(this.props.bike.id)
+        this.props.checkedIn(this.props.bike.id)
         this.props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
