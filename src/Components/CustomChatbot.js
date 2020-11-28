@@ -32,7 +32,7 @@ const steps = [
     },
     {
         id: "Ask help",
-        message: "Hi {previousValue}, how can I help you today? Please click on what you want to do.",
+        message: "Hi {previousValue}, how can I help you today? ",
         trigger: "Display options"
     },
     {
