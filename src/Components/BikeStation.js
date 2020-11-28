@@ -7,24 +7,15 @@ class BikeStation extends React.Component{
 
     state={
         clicked: false,
-        // favorite_station: {},
         checked_in: {}
     }
-
-    // const [station, setFavStation] = useState({
-    //     id: 0,
-    //     location: "",
-    //     borough: ""
-    // })
 
     clickHandler = (e) => {
         this.setState(previousState => ({
             clicked: !previousState.clicked
         }))
-        // setCheckedIn({
-        //     id: this.props.bike.id
-        // })
-        // this.props.checkedIn(setCheckedIn)
+        console.log(this.props.bike)
+        this.props.checkedIn(this.props.bike) /* do I need an id to post in check ins? */
         this.props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
