@@ -15,7 +15,8 @@ class App extends React.Component{
     favoriteStations: [],
     currentStation: [],
     bikeStationId: 0,
-    specificBikeStationObj: {} /* testing - grab object from BikeStation and put here in state. Then create a filter to find just that obj and pass down */
+    specificBikeStationObj: {},
+    checkedInAt: {}
   }
 
   componentDidMount(){
@@ -92,7 +93,7 @@ class App extends React.Component{
   currentCheckStatus = (checkedInObj) => {
     fetch(`http://localhost:3000/api/v1/check_ins`, {
       method: "POST",
-      headers: { /* token */
+      headers: {
         "content-type": "application/json",
         accepts: "application/json"
       },
@@ -112,10 +113,15 @@ class App extends React.Component{
     }))
   }
 
-/* test to see if this can grab specific bike station obj to state */
   setBikeObjToDisplayInShowPage = (clickedBikeStationObj) => {
     this.setState(() => ({
       specificBikeStationObj: clickedBikeStationObj
+    }))
+  }
+
+  setBikeObjToCheckInStatus = (stationObj) => {
+    this.setState(() => ({
+      checkedInAt: stationObj
     }))
   }
 
@@ -167,6 +173,7 @@ class App extends React.Component{
   }
 
   render(){
+    console.log(this.state.checkedInAt)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
@@ -174,9 +181,9 @@ class App extends React.Component{
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
-          <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
+          <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} setBikeObjToCheckInStatus={this.setBikeObjToCheckInStatus} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} user={this.state.user} /> } />
-          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} unlike={this.unlike} /> } />
+          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} unlike={this.unlike} checkedInAt={this.state.checkedInAt} /> } />
         </Switch> 
 
       </>

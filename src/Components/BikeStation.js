@@ -21,7 +21,8 @@ const BikeStation = props => {
         setCheckedIn({
             id: props.bike.id
         })
-        props.checkedIn(checkIn)
+        props.setBikeObjToCheckInStatus(props.bike)
+        props.checkedIn(setCheckedIn)
         props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
@@ -48,9 +49,7 @@ const BikeStation = props => {
                         <h4 onClick={localFilter}>{props.bike.location}</h4>
                     </NavLink>
 
-                    {/* <p>Borough: {props.bike.borough}</p> may remove for styling */}
-
-                    <p>Bikes Racks Available: {props.bike.available_bike_racks}</p>
+                    <p>Available Bike Racks: {props.bike.available_bike_racks}</p>
                     <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
                     <button onClick={favoriteHandler}>Favorite</button>
                 </li>

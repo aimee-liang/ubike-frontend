@@ -20,11 +20,12 @@ export default class EditProfileForm extends React.Component{
             username: "",
             email: "",
             bike: "",
-            bio: ""
+            bio: "",
         }))
     }
 
     render(){
+        console.log(this.props)
         return(
             <span>
                 <form onSubmit={this.submitHandler}>

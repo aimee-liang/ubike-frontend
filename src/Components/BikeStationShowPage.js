@@ -15,7 +15,6 @@ class BikeStationShowPage extends React.Component {
                     reviews: reviewsData
                 }))
             })
-            // .then(console.log)
             .catch(errors => console.log(errors))
     }
     
@@ -60,7 +59,6 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
-        console.log(this.props)
         return(
             <>
                 {/* <img>Bike Image */}

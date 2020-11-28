@@ -7,15 +7,16 @@ import CheckInSpan from "../Components/CheckInSpan"
 class ProfilePage extends React.Component{
 
     state={
-        profile: false
+        profile: false,
+        bikes: []
     }
 
     clickToEditProfile = () => {
-        return <EditProfileForm editProfile={this.props.editProfile}/>
+        return <EditProfileForm editProfile={this.props.editProfile} profile={this.state.profile}/>
     }
 
     displayCheckedIn = () => {
-        return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username}/>
+        return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username} checkedInAt={this.props.checkedInAt}/>
     }
 
     displayNotCheckedIn = () => {
@@ -25,27 +26,16 @@ class ProfilePage extends React.Component{
             </span>
         )
     }
-
-/* filter for duplicate just in case - does bike station id match the others? */
-    // inCaseOfFavoriteStationsDuplicate = () => {
-    //     let favStationsFiltered = new Set(this.props.user.favorite_stations)
-    //     let favStationsFilteredArray = [...favStationsFiltered]
-    //     return favStationsFilteredArray
-    // } 
-    
-    
-/* filter for check ins to pass down && validate on backend */
-    // filterCheckIns = () => {
-        // let filteredForUser = new Set(this.props.user.check_ins)
-    //     console.log("My check ins:", this.props.user.check_ins)
-    // }
     
     localCheckOut = () => {
         this.props.checkOut(this.props.user.id)
     }
+
+    // filterBikesInfoToDisplayInCheckIn = () => {
+    //     return this.state.bikes.filter(bike => this.state.bikes.id === this.props.user.check_ins.bike_station_id)
+    // }
     
     render(){
-    console.log("User:", this.props.user)
         return(
             <>
                 <div className="about-me">

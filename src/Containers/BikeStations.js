@@ -7,7 +7,7 @@ import BikeStation from "../Components/BikeStation"
 
 const BikeStations = (props) => {
 
-    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={props.setBikeObjToDisplayInShowPage} />)
+    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={props.setBikeObjToDisplayInShowPage} setBikeObjToCheckInStatus={props.setBikeObjToCheckInStatus} />)
 
         return(
             <>
