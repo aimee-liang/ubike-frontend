@@ -11,7 +11,7 @@ class FilterBoroughs extends React.Component{
         return(
             <>
             <p>Find Bike Parking Shelters in</p>
-                <select name="borough" onClick={this.clickHandler}>
+                <select name="borough" onChange={this.clickHandler}>
                     <option value="All">All Boroughs</option>
                     <option value="Brooklyn">Brooklyn</option>
                     <option value="Manhattan">Manhattan</option>

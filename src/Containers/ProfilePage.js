@@ -8,7 +8,20 @@ class ProfilePage extends React.Component{
 
     state={
         profile: false,
+        // check_ins: []
     }
+
+    /* fetch all check ins and then delete the one using checkout? */
+    // componentDidMount(){
+    //     fetch(`http://localhost:3000/api/v1/check_ins`)
+    //     .then(resp => resp.json())
+    //     .then((checkInData) => 
+    //         this.setState({
+    //             check_ins: checkInData
+    //         })
+    //     )
+    //     .catch(console.log)
+    // }
 
     clickToEditProfile = () => {
         return <EditProfileForm editProfile={this.props.editProfile} profile={this.state.profile}/>
@@ -27,11 +40,11 @@ class ProfilePage extends React.Component{
     }
     
     localCheckOut = () => {
-        this.props.checkOut(this.props.user.id)
+        this.props.checkOut(this.props.user.check_ins[0].id)
     }
     
     render(){
-        console.log(this.props)
+        // console.log(this.props.user.check_ins)
         return(
             <>
                 <div className="about-me">

@@ -16,6 +16,7 @@ class App extends React.Component{
     currentStation: [],
     bikeStationId: 0,
     specificBikeStationObj: {},
+    check_ins: []
   }
 
   componentDidMount(){
@@ -161,8 +162,14 @@ class App extends React.Component{
     .catch(errors => console.log(errors))
   }
 
-  checkOut = (userId) => {
-    fetch(`http://localhost:3000/api/v1/check_ins/${userId}`,{
+  helpFetchAndFindCheckIn = () => {
+    fetch(`http://localhost:3000/api/v1/check_ins`)
+      .then(resp => resp.json())
+      .then()
+  }
+
+  checkOut = (checkedInId) => {
+    fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -170,8 +177,12 @@ class App extends React.Component{
       }
     })
     .then(resp => resp.json())
-    .then(userData => this.setState({user: userData}))
-    .catch(errors => console.log(errors))
+    .then(checkedInData => (
+        this.setState({
+          user: {
+
+          }})))
+    // .catch(errors => console.log(errors))
   }
 
   unlike = (stationId) => {
