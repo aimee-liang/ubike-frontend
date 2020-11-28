@@ -16,7 +16,6 @@ class App extends React.Component{
     currentStation: [],
     bikeStationId: 0,
     specificBikeStationObj: {},
-    // checkedInAt: {}
   }
 
   componentDidMount(){
@@ -107,18 +106,18 @@ class App extends React.Component{
   }
 
 /* updated bike racks available - can this be combined with above method? */
-  // updateAvailableBikeRacks = (stationId) => {
-  //   fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
-  //     method: "PATCH",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       accepts: "application/json",
-  //     },
-  //     body: JSON.stringify({
+  updateAvailableBikeRacks = (stationId) => {
+    fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json",
+      },
+      body: JSON.stringify({
 
-  //     })
-  //   })
-  // }
+      })
+    })
+  }
 
 /* fn grabs the bike station ID from BikeStation Component, sets state with it in App */
   setStationIdForFilteringReviews = (clickedBikeStationId) => {
@@ -159,6 +158,7 @@ class App extends React.Component{
   })
     .then(resp => resp.json())
     .then(userData => this.setState({user: userData}))
+    .catch(errors => console.log(errors))
   }
 
   checkOut = (userId) => {

@@ -34,7 +34,7 @@ export default class EditProfileForm extends React.Component{
                     <input type="text" name="email" value={this.state.email} placeholder="Update email" onChange={this.changeHandler} />
                     <input type="text" name="bike" value={this.state.bike} placeholder="Update bike" onChange={this.changeHandler} />
                     <input type="textarea" name="bio" value={this.state.bio} placeholder="Update bio" onChange={this.changeHandler} />
-                    <input type="text" name="avatar" value={this.state.avatar} placeholder="New profile photo" onChange={this.changeHandler} />
+                    <input type="text" name="avatar" value={this.state.avatar} placeholder="Upload new profile photo" onChange={this.changeHandler} />
                     <button input="submit" value="Submit">Update</button>
                 </form>
             </span>

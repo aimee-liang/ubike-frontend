@@ -1,18 +1,25 @@
 import React from "react"
 
-const CheckInSpan = (props) => {
-    // console.log(props.checkIn.created_at)
-
+// const CheckInSpan = (props) => {
     // let dateTime = props.checkIn.createdAt
     // let dateOnly = 
+class CheckInSpan extends React.Component{
 
-    return(
-        <span>
-            <p>@{props.username} is currently checked in</p>
-            {/* <p>Checked In Since: {props.checkIn.}</p> */}
-            
-        </span>
-    )
+    state={
+        curTime: new Date().toLocaleString()
+    }
+
+    render(){
+
+        return(
+            <span>
+                <p>You checked into a bike station at </p> {/* </span>{props.user.check_ins.bike_station_id}</p> */}
+                <p>Checked In Since: </p> {/* {props.checkIn.}</p> */}
+                <p>Current time: {this.state.curTime}</p>
+            </span>
+        )
+
+    }
 }
 
 export default CheckInSpan
