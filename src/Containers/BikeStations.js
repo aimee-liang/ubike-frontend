@@ -14,7 +14,7 @@ const BikeStations = (props) => {
             <>
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
                 {renderBikes}
-                <CustomChatBot />
+                {/* <CustomChatBot /> */}
             </>
         )
 }

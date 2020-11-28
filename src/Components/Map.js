@@ -1,6 +1,11 @@
 import React from "react"
 import ReactMapGL, {Marker} from "react-map-gl"
 
+// creating list of bike shelters
+const shelters=[
+    
+]
+
 class Map extends React.Component{
     state={
         viewport:{

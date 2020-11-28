@@ -1,62 +1,68 @@
-import React, { useState } from "react"
+// import React, { useState } from "react"
+import React from "react"
 import { NavLink } from "react-router-dom";
 
+// const BikeStation = props => {
+class BikeStation extends React.Component{
 
-const BikeStation = props => {
-
-    const [clicked, setClicked] = useState(false)
-
-    const [station, setFavStation] = useState({
-        id: 0,
-        location: "",
-        borough: ""
-    })
-
-    const [checkIn, setCheckedIn] = useState({
-        id: 0
-    })
-
-    const clickHandler = (e) => {
-        setClicked(!clicked)
-        setCheckedIn({
-            id: props.bike.id
-        })
-        // props.setBikeObjToCheckInStatus(props.bike)
-        props.checkedIn(setCheckedIn)
-        props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
+    state={
+        clicked: false,
+        favorite_station: {},
+        checked_in: {}
     }
 
-    const favoriteHandler = (e) => {
-        setFavStation({
-            id: props.bike.id,
-            location: props.bike.location,
-            borough: props.bike.borough
-        })
-        props.addFaves(props.bike)
+    // const [station, setFavStation] = useState({
+    //     id: 0,
+    //     location: "",
+    //     borough: ""
+    // })
+
+    // const [checkIn, setCheckedIn] = useState({
+    //     id: 0
+    // })
+
+    clickHandler = (e) => {
+        // setClicked(!clicked)
+        // setCheckedIn({
+        //     id: this.props.bike.id
+        // })
+        this.props.checkedIn(setCheckedIn)
+        this.props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
-    const localFilter = (e) => {
-        props.setStationIdForFilteringReviews(props.bike.id)
-        props.setBikeObjToDisplayInShowPage(props.bike)
+    favoriteHandler = (e) => {
+        // setFavStation({
+        //     id: this.props.bike.id,
+        //     location: props.bike.location,
+        //     borough: props.bike.borough
+        // })
+        this.props.addFaves(this.props.bike)
     }
 
-    return (
-        <>
+    localFilter = (e) => {
+        this.props.setStationIdForFilteringReviews(this.props.bike.id)
+        this.props.setBikeObjToDisplayInShowPage(this.props.bike)
+    }
 
-            <ul>
-                <li key={props.bike.id}>
-                    <NavLink to={`/bike_stations/${props.bike.id}`}>
-                        <h4 onClick={localFilter}>{props.bike.location}</h4>
-                    </NavLink>
-
-                    <p>Available Bike Racks: {props.bike.available_bike_racks}</p>
-                    <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
-                    <button onClick={favoriteHandler}>Favorite</button>
-                </li>
-            </ul>
-
-        </>
-    )
+    render(){
+        return (
+            <>
+    
+                <ul>
+                    <li key={this.props.bike.id}>
+                        <NavLink to={`/bike_stations/${this.props.bike.id}`}>
+                            <h4 onClick={this.localFilter}>{this.props.bike.location}</h4>
+                        </NavLink>
+    
+                        <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p>
+                        <button onClick={this.clickHandler}> { this.state.clicked ? "Check Out" : "Check In" } </button> 
+                        <button onClick={this.favoriteHandler}>Favorite</button>
+                    </li>
+                </ul>
+    
+            </>
+        )
+    }
 }
 
 export default BikeStation
