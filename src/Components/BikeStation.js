@@ -5,6 +5,7 @@ const BikeStation = props => {
 
     const [clicked, setClicked] = useState(false)
 
+
     const clickHandler = (e) => {
         setClicked(true)
         props.checkedIn(props.bike.id)
@@ -30,7 +31,7 @@ const BikeStation = props => {
                         </NavLink>
     
                         <p>Available Bike Racks: {props.bike.available_bike_racks}</p>
-                        <button onClick={clickHandler}> { clicked ? "Check Out" : "Check In" } </button> 
+                        <button onClick={clickHandler}> { clicked ? "You've checked in!": "Check In" } </button> 
                         <button onClick={favoriteHandler}>Favorite</button>
                     </li>
                 </ul>

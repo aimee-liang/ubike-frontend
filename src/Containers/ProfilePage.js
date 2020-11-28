@@ -46,13 +46,18 @@ class ProfilePage extends React.Component{
 
                 <div className="currently-checked-status">
                     <h4>Status</h4>
-                    {this.props.user.check_ins.length ? this.displayCheckedIn() : this.displayNotCheckedIn()}
-                    {this.props.user.check_ins.length ? <button onClick={this.localCheckOut}> Check Out </button> : null}
+                    {this.props.user.check_ins ? this.displayCheckedIn() : this.displayNotCheckedIn()}
+                    {this.props.user.check_ins ? <button onClick={this.localCheckOut}> Check Out </button> : null}
                 </div>
 
                 <div className="fav-stations-div">
                     <h4>@{this.props.user.username}'s Favorite Stations</h4>
-                    <FavoriteStationsContainer filterFavorites={this.props.user.favorite_stations} unlike={this.props.unlike}/>
+                    {this.props.user.favorite_stations ?
+                        <FavoriteStationsContainer filterFavorites={this.props.user.favorite_stations} unlike={this.props.unlike}/> 
+                            :
+                        null
+                }
+                
                 </div>
 
             </>
