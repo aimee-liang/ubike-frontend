@@ -39,9 +39,56 @@ const steps = [
         id: "Display options",
         options: [
             {
-
+                value: "NYPD",
+                label: "Report an incident to NYPD",
+                trigger: "Report to NYPD"
+            },
+            {
+                value: "DoT",
+                label: "Report an incident to DoT",
+                trigger: "Report to DoT"
             }
         ]
+    },
+    {
+        id: "Report to NYPD",
+        message: "If this is a life threatening emergency, please exit this app and call 911.",
+        trigger: "What's your emergency?"
+    },
+    {
+        id: "What's your emergency?",
+        message: "Before we alert the NYPD, please provide additional information about this incident.",
+        trigger: "Waiting for user incident input"
+    },
+    {
+        id: "Waiting for user incident input",
+        user: true,
+        trigger: "NYPD Thanks"
+    },
+    {
+        id: "NYPD Thanks",
+        message: "Thank you for reporting this issue. We've sent an alert to the NYPD. Please hold while we connect you.",
+        trigger: "Goodbye"
+    },
+    {
+        id: "Report to DoT",
+        message: "Before we alert the DoT, can you provide any additional information about this bike shelter?",
+        trigger: "Waiting for user input for DoT"
+    },
+    {
+        id: "Waiting for user input for DoT",
+        user: true,
+        trigger: "Thank for input"
+    },
+    {
+        id: "Thank for input",
+        message: "Thank you for reporting this issue. We've sent an alert to the DoT.",
+        trigger: "Goodbye"
+    },
+    {
+        id: "Goodbye",
+        message: "We hope you enjoyed using our app! Please check out my Github @aimee-liang for more projects, and ride safe.",
+        end: true
     }
 ]
 
