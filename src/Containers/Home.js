@@ -5,7 +5,7 @@ import BikeStations from "./BikeStations"
 class Home extends React.Component{
     state={
         bikesAPI: [],
-        searchValue: "All",
+        searchValue: "All"
     }
 
     componentDidMount(){
@@ -24,6 +24,7 @@ class Home extends React.Component{
         }))
     }
 
+
     sortByBorough = () => {
         let arrayOfBikeStations = this.state.bikesAPI
         if (this.state.searchValue !== "All"){
@@ -38,7 +39,7 @@ class Home extends React.Component{
         return(
             <div className="home">
                 <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} setStationIdForFilteringReviews={this.props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.props.setBikeObjToDisplayInShowPage} />
-                <Map />
+                {/* <Map /> */}
             </div>
         )
     }
