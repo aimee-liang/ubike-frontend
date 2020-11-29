@@ -8,7 +8,7 @@ const BikeStation = props => {
 
     const clickHandler = (e) => {
         setClicked(true)
-        props.checkedIn(props.bike.id)
+        props.checkedIn(props.bike)
         props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 

@@ -90,7 +90,7 @@ class App extends React.Component{
   }
 
 /* validate checked in one place - backend AKA CheckIn() */
-  currentCheckStatus = (checkedInId) => {
+  currentCheckStatus = (checkedInObj) => {
     fetch(`http://localhost:3000/api/v1/check_ins`, {
       method: "POST",
       headers: {
@@ -100,7 +100,8 @@ class App extends React.Component{
       body: JSON.stringify({
         check_in: {
           user_id: this.state.user.id,
-          bike_station_id: checkedInId
+          bike_station_id: checkedInObj.id,
+          location: checkedInObj.location
         }
       })
     })
