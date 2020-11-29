@@ -26,7 +26,7 @@ class ProfilePage extends React.Component{
     }
     
     localCheckOut = () => {
-        this.props.checkOut(this.props.user.check_ins[0].id)
+        this.props.checkOut(this.props.user.check_in.id)
     }
 
     setProfileBackToFalse = () => {
@@ -36,6 +36,7 @@ class ProfilePage extends React.Component{
     }
     
     render(){
+        // console.log("ID:", this.props.user.check_in.id)
         return(
             <>
                 <div className="about-me">
@@ -59,7 +60,7 @@ class ProfilePage extends React.Component{
                     {this.props.user.favorite_stations ?
                         <FavoriteStationsContainer filterFavorites={this.props.user.favorite_stations} unlike={this.props.unlike}/> 
                             :
-                        null
+                        "This user did not favorite any stations."
                 }
                 
                 </div>

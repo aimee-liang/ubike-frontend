@@ -16,7 +16,7 @@ class App extends React.Component{
     currentStation: [],
     bikeStationId: 0,
     specificBikeStationObj: {},
-    check_ins: [],
+    check_in: [],
     timeAndDay: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
   }
 
@@ -64,11 +64,9 @@ class App extends React.Component{
       localStorage.setItem("secret", data.jwt)
       this.setState({
         user: data.user,
-        // check_ins: data.check_ins
       }, 
       () => this.props.history.push(`/home`) )
     })
-    // this.helpFetchAndFindCheckIn(this.state.user.id)
   }
 
   logOut = () => {
@@ -110,6 +108,9 @@ class App extends React.Component{
         }
       })
     })
+    this.setState(() => ({
+      check_ins: this.state.user.check_in
+    }))
   }
 
 /* updated bike racks available - how? */
@@ -175,17 +176,6 @@ class App extends React.Component{
   //     .catch(errors => console.log(errors))
   // }
 
-  helpFetchAndFindCheckIn = (userId) => {
-    fetch(`http://localhost:3000/api/v1/users/${userId}`)
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({
-          check_ins: data.check_in
-        })
-      })
-      .catch(errors => console.log(errors))
-  }
-
   // checkOut = (checkedInId) => {
   //   fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
   //     method: "DELETE",
@@ -203,7 +193,7 @@ class App extends React.Component{
   //  // .catch(errors => console.log(errors))
   // }
 
-/* find the one in state, delete it, then update userData with this? */
+/* find the one in state, delete it */
   checkOut = (checkedInId) => {
     // let deleteFromThisCheckInArray = this.state.check_ins.find(checkin)
     console.log(checkedInId)
