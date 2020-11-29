@@ -1,32 +1,56 @@
 import React from "react"
 import {NavLink} from "react-router-dom"
 
-const SideBar = props => {
-    return(
-        <>
-        {props.user ? 
-        <>
-            <NavLink to="/home">
-                Home
-            </NavLink>
+// const SideBar = props => {
+class SideBar extends React.Component{
+    
+    state={
+        show: false
+    }
 
-            <NavLink to="/profile">
-                Profile
-            </NavLink>
+    clickHandler=()=>{
+        this.setState(previousState => ({
+            show: !previousState.show
+        })
+    )}
 
-            <NavLink to="/login" onClick={props.logOut}>
-                Log out
-            </NavLink>
+    render(){
 
+        return(
+            <>
+            <button onClick={this.clickHandler}>BUTTON</button>
+    
+            <div className={
+                this.state.show ? "sidebar menu" : "off-screen menu"
+            }>
+
+            {this.props.user ? 
+            <>
+                <NavLink to="/home">
+                    Home
+                </NavLink>
+    
+                <NavLink to="/profile">
+                    Profile
+                </NavLink>
+    
+                <NavLink to="/login" onClick={this.props.logOut}>
+                    Log out
+                </NavLink>
+    
+            </>
+            :
+            <>
+                <NavLink to="/signup">Create an account</NavLink>
+                <NavLink to="/login">Sign in</NavLink>
+            </>
+            }
+        </div>
+    
         </>
-        :
-        <>
-            <NavLink to="/signup">Create an account</NavLink>
-            <NavLink to="/login">Sign in</NavLink>
-        </>
-        }
-    </>
-    )
+        )
+    }
+
 }
 
 export default SideBar

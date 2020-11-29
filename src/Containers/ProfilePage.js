@@ -24,7 +24,7 @@ class ProfilePage extends React.Component{
     // }
 
     clickToEditProfile = () => {
-        return <EditProfileForm editProfile={this.props.editProfile} profile={this.state.profile}/>
+        return <EditProfileForm editProfile={this.props.editProfile} profile={this.state.profile} hideProfileSpan={this.setProfileBackToFalse} />
     }
 
     displayCheckedIn = () => {
@@ -42,9 +42,15 @@ class ProfilePage extends React.Component{
     localCheckOut = () => {
         this.props.checkOut(this.props.user.check_ins[0].id)
     }
+
+    setProfileBackToFalse = () => {
+        this.setState(previousState => ({
+            profile: !previousState.profile
+        }))
+    }
     
     render(){
-        // console.log(this.props.user.check_ins)
+        console.log("Profile Page:", this.props.user)
         return(
             <>
                 <div className="about-me">
@@ -59,8 +65,8 @@ class ProfilePage extends React.Component{
 
                 <div className="currently-checked-status">
                     <h4>Status</h4>
-                    {this.props.user.check_ins ? this.displayCheckedIn() : this.displayNotCheckedIn()}
-                    {this.props.user.check_ins ? <button onClick={this.localCheckOut}> Check Out </button> : null}
+                    {this.props.user.check_ins.length ? this.displayCheckedIn() && <button onClick={this.localCheckOut}> Check Out </button> : this.displayNotCheckedIn()}
+                    {/* {this.props.user.check_ins ? <button onClick={this.localCheckOut}> Check Out </button> : null} */}
                 </div>
 
                 <div className="fav-stations-div">

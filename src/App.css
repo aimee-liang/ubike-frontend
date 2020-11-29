@@ -2,7 +2,7 @@
 .App {
   text-align: center;
 }
-
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,4 +36,28 @@
   to {
     transform: rotate(360deg);
   }
+}  */
+
+.off-screen {
+  position: absolute;
+  border: 1px solid black;
+  width: 25vw;
+  height: 50vh;
+  left: -50vw;
+  z-index: 100;
+}
+
+.sidebar {
+  position: absolute;
+  border: 1px solid black;
+  width: 25vw;
+  height: 50vh;
+  z-index: 100;
+  background-color: #ffffff;
+}
+
+.menu {
+  transition: 3s;
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
 }

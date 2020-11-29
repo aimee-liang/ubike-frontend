@@ -17,7 +17,7 @@ export default class EditProfileForm extends React.Component{
     submitHandler = (e) =>{
         e.preventDefault()
         this.props.editProfile(this.state)
-        // toggle function here
+        this.props.hideProfileSpan()
         this.setState(()=>({
             username: "",
             email: "",

@@ -106,7 +106,7 @@ class App extends React.Component{
     })
   }
 
-/* updated bike racks available - can this be combined with above method? */
+/* updated bike racks available */
   updateAvailableBikeRacks = (stationId) => {
     fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
       method: "PATCH",
