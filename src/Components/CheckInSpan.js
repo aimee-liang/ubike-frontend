@@ -6,7 +6,6 @@ class CheckInSpan extends React.Component{
     }
     
     render(){
-        // console.log("Props in check in span", this.props.checkIn[0].location)
 
         return(
             <span>

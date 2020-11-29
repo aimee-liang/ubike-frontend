@@ -16,7 +16,7 @@ class App extends React.Component{
     currentStation: [],
     bikeStationId: 0,
     specificBikeStationObj: {},
-    // check_ins: []
+    check_ins: []
   }
 
   componentDidMount(){
@@ -123,7 +123,6 @@ class App extends React.Component{
     })
   }
 
-/* fn grabs the bike station ID from BikeStation Component, sets state with it in App */
   setStationIdForFilteringReviews = (clickedBikeStationId) => {
     this.setState(()=> ({
       bikeStationId: clickedBikeStationId
@@ -159,10 +158,16 @@ class App extends React.Component{
     .catch(errors => console.log(errors))
   }
 
+/* fetches check ins, set in state */
   helpFetchAndFindCheckIn = () => {
     fetch(`http://localhost:3000/api/v1/check_ins`)
       .then(resp => resp.json())
-      .then()
+      .then(data => {
+        this.setState({
+          check_ins: data
+        })
+      })
+      .catch(errors => console.log(errors))
   }
 
   checkOut = (checkedInId) => {
@@ -195,6 +200,7 @@ class App extends React.Component{
   }
 
   render(){
+    this.helpFetchAndFindCheckIn()
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
