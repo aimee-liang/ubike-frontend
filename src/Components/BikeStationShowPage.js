@@ -5,7 +5,6 @@ class BikeStationShowPage extends React.Component {
 
     state={
         reviews: [],
-        // comment: ""
     }
 
     componentDidMount(){
@@ -18,19 +17,6 @@ class BikeStationShowPage extends React.Component {
             })
             .catch(errors => console.log(errors))
     }
-    
-    // changeHandler = (e) => {
-    //     this.setState({[e.target.name]: e.target.value})
-    // }
-
-    // localSubmitComments = (e) => {
-    //     e.preventDefault()
-    //     this.submitComments(this.state.comment)
-
-    //     this.setState(()=> ({
-    //         comment: ""
-    //     }))
-    // }
 
     filterReviews = () => {
         return this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
@@ -61,8 +47,6 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
-        console.log("Show page props", this.props)
-        console.log("Reviews", this.state.reviews)
         return(
             <>
                 {/* <img>Bike Image */}
@@ -70,10 +54,6 @@ class BikeStationShowPage extends React.Component {
                 <h4>{this.props.bikeObj.borough}</h4>
 
                 <p>Please keep our community guidelines in mind when you write a review.</p>
-                {/* <form onSubmit={this.localSubmitComments}>
-                    <input type="textarea" name="comment" value={this.state.comment} placeholder="Write a comment" onChange={this.changeHandler} />
-                    <button input="submit" value="Submit comment">Submit</button>
-                </form> */}
                 <ReviewsForm submitComments={this.submitComments} />
 
                 <div>
