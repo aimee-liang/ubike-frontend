@@ -16,7 +16,8 @@ class App extends React.Component{
     currentStation: [],
     bikeStationId: 0,
     specificBikeStationObj: {},
-    check_ins: []
+    check_ins: [],
+    timeAndDay: new Date().toLocaleString()
   }
 
   componentDidMount(){
@@ -31,7 +32,6 @@ class App extends React.Component{
     } else {
       this.props.history.push("/login")
     }
-    this.helpFetchAndFindCheckIn()
   }
 
   signUpHandler = (userObj) => {
@@ -62,8 +62,13 @@ class App extends React.Component{
     .then(resp => resp.json())
     .then(data => {
       localStorage.setItem("secret", data.jwt)
-      this.setState({user: data.user}, () => this.props.history.push(`/home`) )
+      this.setState({
+        user: data.user,
+        // check_ins: data.check_ins
+      }, 
+      () => this.props.history.push(`/home`) )
     })
+    this.helpFetchAndFindCheckIn(this.state.user.id)
   }
 
   logOut = () => {
@@ -100,7 +105,8 @@ class App extends React.Component{
         check_in: {
           user_id: this.state.user.id,
           bike_station_id: checkedInObj.id,
-          location: checkedInObj.location
+          location: checkedInObj.location,
+          datetime: this.state.timeAndDay
         }
       })
     })
@@ -158,12 +164,23 @@ class App extends React.Component{
   }
 
 /* fetches check ins, set in state */
-  helpFetchAndFindCheckIn = () => {
-    fetch(`http://localhost:3000/api/v1/check_ins`)
+  // helpFetchAndFindCheckIn = (userId) => {
+  //   fetch(`http://localhost:3000/api/v1/check_ins`)
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       this.setState({
+  //         check_ins: data
+  //       })
+  //     })
+  //     .catch(errors => console.log(errors))
+  // }
+
+  helpFetchAndFindCheckIn = (userId) => {
+    fetch(`http://localhost:3000/api/v1/users/${userId}`)
       .then(resp => resp.json())
       .then(data => {
         this.setState({
-          check_ins: data
+          check_ins: data.check_ins[0]
         })
       })
       .catch(errors => console.log(errors))
@@ -188,7 +205,8 @@ class App extends React.Component{
 
 /* find the one in state, delete it, then update userData with this? */
   checkOut = (checkedInId) => {
-    // this.state.check_ins.find()
+    // let deleteFromThisCheckInArray = this.state.check_ins.find(checkin)
+    console.log(checkedInId)
   }
 
   unlike = (stationId) => {
@@ -204,7 +222,8 @@ class App extends React.Component{
   }
 
   render(){
-    // console.log(this.state.check_ins)
+    console.log("User's check ins:", this.state.check_ins)
+    console.log("User", this.state.user)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />

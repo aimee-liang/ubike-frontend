@@ -6,7 +6,7 @@ import CustomChatBot from "../Components/CustomChatbot"
 class Home extends React.Component{
     state={
         bikesAPI: [],
-        searchValue: "All"
+        searchValue: "All",
     }
 
     componentDidMount(){

@@ -8,10 +8,6 @@ class BikeStation extends React.Component {
         clicked: false
     }
 
-    /* need to set date time? */
-    // const [currentTime, setCurrentTime] = useState()
-
-
     clickHandler = (e) => {
         this.setState(previousState => ({
             clicked: !previousState.clicked
