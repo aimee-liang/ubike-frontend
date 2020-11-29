@@ -68,7 +68,7 @@ const steps = [
     {
         id: "NYPD Thanks",
         message: "Thank you for reporting this issue. We've sent an alert to the NYPD. Please hold while we connect you.",
-        trigger: "Goodbye"
+        trigger: "Anything else?"
     },
     {
         id: "Report to DoT",
@@ -83,6 +83,31 @@ const steps = [
     {
         id: "Thank for input",
         message: "Thank you for reporting this issue. We've sent an alert to the DoT.",
+        trigger: "Anything else?"
+    },
+    {
+        id: "Anything else?",
+        message: "Is there anything else you'd like to do today?",
+        trigger: "Display last options"
+    },
+    {
+        id: "Display last options",
+        options: [
+            {
+                value: "Yes",
+                label: "Yes",
+                trigger: "Not built!"
+            },
+            {
+                value: "No",
+                label: "No",
+                trigger: "Goodbye"
+            }
+        ]
+    },
+    {
+        id: "Not built!",
+        message: "Unfortunately we haven't built more functionalities to ubike at this time. We will continue to optimize this app though.",
         trigger: "Goodbye"
     },
     {

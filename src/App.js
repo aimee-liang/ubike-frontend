@@ -188,7 +188,7 @@ class App extends React.Component{
 
 /* find the one in state, delete it, then update userData with this? */
   checkOut = (checkedInId) => {
-
+    // this.state.check_ins.find()
   }
 
   unlike = (stationId) => {
