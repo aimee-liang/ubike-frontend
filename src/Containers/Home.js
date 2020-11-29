@@ -36,10 +36,10 @@ class Home extends React.Component{
 
     render(){
         return(
-            <>
+            <div className="home">
                 <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} setStationIdForFilteringReviews={this.props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.props.setBikeObjToDisplayInShowPage} />
                 <Map />
-            </>
+            </div>
         )
     }
 }

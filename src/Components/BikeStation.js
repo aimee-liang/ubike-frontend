@@ -35,7 +35,7 @@ class BikeStation extends React.Component {
             <>
     
                 <ul>
-                    <li key={this.props.bike.id}>
+                    <li key={this.props.bike.id} className="individual-station">
                         <NavLink to={`/bike_stations/${this.props.bike.id}`}>
                             <h4 onClick={this.localFilter}>{this.props.bike.location}</h4>
                         </NavLink>

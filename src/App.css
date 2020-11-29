@@ -62,7 +62,18 @@
   transform: translate(100%, 0);
 }
 
+.home {
+  display: grid
+}
+
 .map {
   position: absolute;
   right: 0px
+}
+
+.individual-station {
+  /* position: absolute; */
+  /* left: 0px; */
+  /* width: 250px; */
+  /* height: 400px */
 }
