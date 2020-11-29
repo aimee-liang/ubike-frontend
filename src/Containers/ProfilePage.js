@@ -11,24 +11,12 @@ class ProfilePage extends React.Component{
         // check_ins: []
     }
 
-    /* fetch all check ins and then delete the one using checkout? */
-    // componentDidMount(){
-    //     fetch(`http://localhost:3000/api/v1/check_ins`)
-    //     .then(resp => resp.json())
-    //     .then((checkInData) => 
-    //         this.setState({
-    //             check_ins: checkInData
-    //         })
-    //     )
-    //     .catch(console.log)
-    // }
-
     clickToEditProfile = () => {
         return <EditProfileForm editProfile={this.props.editProfile} profile={this.state.profile} hideProfileSpan={this.setProfileBackToFalse} />
     }
 
     displayCheckedIn = () => {
-        return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username} /* checkedInAt={this.props.checkedInAt}*/ />
+        return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username} />
     }
 
     displayNotCheckedIn = () => {
@@ -65,8 +53,8 @@ class ProfilePage extends React.Component{
 
                 <div className="currently-checked-status">
                     <h4>Status</h4>
-                    {this.props.user.check_ins.length ? this.displayCheckedIn() && <button onClick={this.localCheckOut}> Check Out </button> : this.displayNotCheckedIn()}
-                    {/* {this.props.user.check_ins ? <button onClick={this.localCheckOut}> Check Out </button> : null} */}
+                    {this.props.user.check_ins.length >= 1 ? this.displayCheckedIn() : this.displayNotCheckedIn() }
+                    {this.props.user.check_ins.length >= 1 ? <button onClick={this.localCheckOut}> Check Out </button> : null}
                 </div>
 
                 <div className="fav-stations-div">
