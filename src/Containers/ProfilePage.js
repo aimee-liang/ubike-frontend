@@ -3,7 +3,6 @@ import EditProfileForm from "../Components/EditProfileForm"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
 import CheckInSpan from "../Components/CheckInSpan"
 
-/* consider making this functional component later on */
 class ProfilePage extends React.Component{
 
     state={

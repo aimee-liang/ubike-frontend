@@ -59,12 +59,11 @@ class App extends React.Component{
         },
         body: JSON.stringify({user: userInfo})
       })
-      .then(resp => resp.json())
-      .then(data => {
-        localStorage.setItem("secret", data.jwt)
-        this.setState({user: data.user}, () => this.props.history.push(`/home`) )
-      }
-      )
+    .then(resp => resp.json())
+    .then(data => {
+      localStorage.setItem("secret", data.jwt)
+      this.setState({user: data.user}, () => this.props.history.push(`/home`) )
+    })
   }
 
   logOut = () => {
@@ -90,7 +89,6 @@ class App extends React.Component{
     })
   }
 
-/* validate checked in one place - backend AKA CheckIn() */
   currentCheckStatus = (checkedInObj) => {
     fetch(`http://localhost:3000/api/v1/check_ins`, {
       method: "POST",
@@ -171,21 +169,26 @@ class App extends React.Component{
       .catch(errors => console.log(errors))
   }
 
-  checkOut = (checkedInId) => {
-    fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-        accepts: "application/json"
-      }
-    })
-    .then(resp => resp.json())
-    .then(checkedInData => (
-        this.setState({
-          user: {
+  // checkOut = (checkedInId) => {
+  //   fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
+  //     method: "DELETE",
+  //     headers: {
+  //       "content-type": "application/json",
+  //       accepts: "application/json"
+  //     }
+  //   })
+  //   .then(resp => resp.json())
+  //   .then(checkedInData => (
+  //       this.setState({
+  //         user: {
 
-          }})))
-    // .catch(errors => console.log(errors))
+  //         }})))
+  //  // .catch(errors => console.log(errors))
+  // }
+
+/* find the one in state, delete it, then update userData with this? */
+  checkOut = (checkedInId) => {
+
   }
 
   unlike = (stationId) => {
