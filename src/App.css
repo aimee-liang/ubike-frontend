@@ -61,3 +61,8 @@
   transform-origin: 0% 0%;
   transform: translate(100%, 0);
 }
+
+.map {
+  position: absolute;
+  right: 0px
+}

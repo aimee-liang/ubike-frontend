@@ -18,10 +18,12 @@ class Map extends React.Component{
     }
     render(){
     return(
-        <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/ckhppbi8209vs19qtm3yamjmt"
-        onViewportChange={(viewport => this.setState({viewport}))}
-        mapboxApiAccessToken="pk.eyJ1IjoibGlhbmdhIiwiYSI6ImNraG9kODF6djAybDkyd3FsMnhxcG8wMmsifQ.5Z8qlJahYdbW_JlGhhs1hQ">
-        </ReactMapGL>
+        <div className="map">
+            <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/ckhppbi8209vs19qtm3yamjmt"
+            onViewportChange={(viewport => this.setState({viewport}))}
+            mapboxApiAccessToken="pk.eyJ1IjoibGlhbmdhIiwiYSI6ImNraG9kODF6djAybDkyd3FsMnhxcG8wMmsifQ.5Z8qlJahYdbW_JlGhhs1hQ">
+            </ReactMapGL>
+        </div>
     )}
 }
 

@@ -1,43 +1,55 @@
-import React, {useState} from "react"
+import React from "react"
 import { NavLink } from "react-router-dom";
 
-const BikeStation = props => {
+// const BikeStation = props => {
+class BikeStation extends React.Component {
 
-    const [clicked, setClicked] = useState(false)
-
-
-    const clickHandler = (e) => {
-        setClicked(true)
-        props.checkedIn(props.bike)
-        props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
+    state={
+        clicked: false
     }
 
-    const favoriteHandler = (e) => {
-        props.addFaves(props.bike)
+    /* need to set date time? */
+    // const [currentTime, setCurrentTime] = useState()
+
+
+    clickHandler = (e) => {
+        this.setState(previousState => ({
+            clicked: !previousState.clicked
+        }))
+        this.props.checkedIn(this.props.bike)
+        this.props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
-    const localFilter = (e) => {
-        props.setStationIdForFilteringReviews(props.bike.id)
-        props.setBikeObjToDisplayInShowPage(props.bike)
+    favoriteHandler = (e) => {
+        this.props.addFaves(this.props.bike)
     }
+
+    localFilter = (e) => {
+        this.props.setStationIdForFilteringReviews(this.props.bike.id)
+        this.props.setBikeObjToDisplayInShowPage(this.props.bike)
+    }
+
+    render(){
 
         return (
             <>
     
                 <ul>
-                    <li key={props.bike.id}>
-                        <NavLink to={`/bike_stations/${props.bike.id}`}>
-                            <h4 onClick={localFilter}>{props.bike.location}</h4>
+                    <li key={this.props.bike.id}>
+                        <NavLink to={`/bike_stations/${this.props.bike.id}`}>
+                            <h4 onClick={this.localFilter}>{this.props.bike.location}</h4>
                         </NavLink>
     
-                        <p>Available Bike Racks: {props.bike.available_bike_racks}</p>
-                        <button onClick={clickHandler}> { clicked ? "You've checked in!": "Check In" } </button> 
-                        <button onClick={favoriteHandler}>Favorite</button>
+                        <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p>
+                        <button onClick={this.clickHandler}> { this.state.clicked ? "You've checked in!": "Check In" } </button> 
+                        <button onClick={this.favoriteHandler}>Favorite</button>
                     </li>
                 </ul>
     
             </>
         )
+
+    }
 }
 
 export default BikeStation

@@ -107,7 +107,7 @@ class App extends React.Component{
     })
   }
 
-/* updated bike racks available */
+/* updated bike racks available - how? */
   updateAvailableBikeRacks = (stationId) => {
     fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
       method: "PATCH",
@@ -116,7 +116,9 @@ class App extends React.Component{
         accepts: "application/json",
       },
       body: JSON.stringify({
+        bike_station: {
 
+        }
       })
     })
   }
