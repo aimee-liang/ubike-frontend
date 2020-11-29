@@ -5,10 +5,10 @@ import Chatbot from "react-simple-chatbot"
 const theme={
     background: '#f5f8fb',
     fontFamily: 'Helvetica Neue',
-    headerBgColor: '#EF6C00',
+    headerBgColor: '#58A4B0',
     headerFontColor: '#fff',
     headerFontSize: '15px',
-    botBubbleColor: '#EF6C00',
+    botBubbleColor: '#58A4B0',
     botFontColor: '#fff',
     userBubbleColor: '#fff',
     userFontColor: '#4a4a4a',
@@ -92,10 +92,12 @@ const steps = [
     }
 ]
 
-const CustomChatBot = () => (
-    <ThemeProvider theme={theme}>
-        <Chatbot steps={steps} />
-    </ThemeProvider>
+const CustomChatBot = (props) => (
+    <>
+        <ThemeProvider theme={theme}>
+            <Chatbot steps={steps} />
+        </ThemeProvider>
+    </>
 )
 
 export default CustomChatBot

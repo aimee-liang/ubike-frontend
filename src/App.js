@@ -31,6 +31,7 @@ class App extends React.Component{
     } else {
       this.props.history.push("/login")
     }
+    this.helpFetchAndFindCheckIn()
   }
 
   signUpHandler = (userObj) => {
@@ -200,7 +201,7 @@ class App extends React.Component{
   }
 
   render(){
-    this.helpFetchAndFindCheckIn()
+    // console.log(this.state.check_ins)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />

@@ -7,14 +7,13 @@ import CustomChatBot from "../Components/CustomChatbot"
 // import { fetchBikes } from "../redux/actions"
 
 const BikeStations = (props) => {
-
     const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={props.setBikeObjToDisplayInShowPage} />)
 
         return(
             <>
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
                 {renderBikes}
-                {/* <CustomChatBot /> */}
+                <CustomChatBot />
             </>
         )
 }
