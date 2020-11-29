@@ -180,7 +180,7 @@ class App extends React.Component{
       .then(resp => resp.json())
       .then(data => {
         this.setState({
-          check_ins: data.check_ins[0]
+          check_ins: data.check_in
         })
       })
       .catch(errors => console.log(errors))

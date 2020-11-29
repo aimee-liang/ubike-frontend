@@ -14,7 +14,7 @@ class ProfilePage extends React.Component{
     }
 
     displayCheckedIn = () => {
-        return <CheckInSpan checkIn={this.props.user.check_ins} username={this.props.user.username} />
+        return <CheckInSpan checkIn={this.props.user.check_in} username={this.props.user.username} />
     }
 
     displayNotCheckedIn = () => {
@@ -36,7 +36,6 @@ class ProfilePage extends React.Component{
     }
     
     render(){
-        console.log("Profile Page:", this.props.user)
         return(
             <>
                 <div className="about-me">
@@ -51,8 +50,8 @@ class ProfilePage extends React.Component{
 
                 <div className="currently-checked-status">
                     <h4>Status</h4>
-                    {this.props.user.check_ins.length >= 1 ? this.displayCheckedIn() : this.displayNotCheckedIn() }
-                    {this.props.user.check_ins.length >= 1 ? <button onClick={this.localCheckOut}> Check Out </button> : null}
+                    {this.props.user.check_in ? this.displayCheckedIn() : this.displayNotCheckedIn() }
+                    {this.props.user.check_in ? <button onClick={this.localCheckOut}> Check Out </button> : null}
                 </div>
 
                 <div className="fav-stations-div">
