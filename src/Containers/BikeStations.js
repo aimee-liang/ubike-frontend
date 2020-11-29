@@ -8,7 +8,7 @@ import CustomChatBot from "../Components/CustomChatbot"
 
 const BikeStations = (props) => {
 
-    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={props.setBikeObjToDisplayInShowPage} /* setBikeObjToCheckInStatus={props.setBikeObjToCheckInStatus} */ />)
+    const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={props.setBikeObjToDisplayInShowPage} />)
 
         return(
             <>

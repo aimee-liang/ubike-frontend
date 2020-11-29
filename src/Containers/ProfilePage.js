@@ -8,7 +8,6 @@ class ProfilePage extends React.Component{
 
     state={
         profile: false,
-        // check_ins: []
     }
 
     clickToEditProfile = () => {

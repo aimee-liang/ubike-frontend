@@ -16,7 +16,7 @@ class App extends React.Component{
     currentStation: [],
     bikeStationId: 0,
     specificBikeStationObj: {},
-    check_ins: []
+    // check_ins: []
   }
 
   componentDidMount(){
@@ -134,12 +134,6 @@ class App extends React.Component{
     }))
   }
 
-  // setBikeObjToCheckInStatus = (stationObj) => {
-  //   this.setState(() => ({
-  //     checkedInAt: stationObj
-  //   }))
-  // }
-
   editProfile = (userObj) => {
     fetch(`http://localhost:3000/api/v1/users/${this.state.user.id}`, {
       method: "PATCH",
@@ -206,9 +200,9 @@ class App extends React.Component{
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
-          <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} setBikeObjToCheckInStatus={this.setBikeObjToCheckInStatus} /> } />
+          <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} user={this.state.user} /> } />
-          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} unlike={this.unlike} /* checkedInAt={this.state.checkedInAt} */ /> } />
+          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} unlike={this.unlike}  /> } />
         </Switch> 
 
       </>
