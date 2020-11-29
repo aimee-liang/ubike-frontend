@@ -1,10 +1,11 @@
 import React from "react"
 import ReviewsContainer from "../Containers/ReviewsContainer"
+import ReviewsForm from "./ReviewsForm"
 class BikeStationShowPage extends React.Component {
 
     state={
         reviews: [],
-        comment: ""
+        // comment: ""
     }
 
     componentDidMount(){
@@ -18,18 +19,18 @@ class BikeStationShowPage extends React.Component {
             .catch(errors => console.log(errors))
     }
     
-    changeHandler = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
+    // changeHandler = (e) => {
+    //     this.setState({[e.target.name]: e.target.value})
+    // }
 
-    localSubmitComments = (e) => {
-        e.preventDefault()
-        this.submitComments(this.state.comment)
+    // localSubmitComments = (e) => {
+    //     e.preventDefault()
+    //     this.submitComments(this.state.comment)
 
-        this.setState(()=> ({
-            comment: ""
-        }))
-    }
+    //     this.setState(()=> ({
+    //         comment: ""
+    //     }))
+    // }
 
     filterReviews = () => {
         return this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
@@ -45,6 +46,7 @@ class BikeStationShowPage extends React.Component {
             body: JSON.stringify({
                 review: {
                     user_id: this.props.user.id,
+                    username: this.props.user.username,
                     bike_station_id: this.props.bikeId,
                     comment: commentObj
                 }
@@ -59,6 +61,8 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
+        console.log("Show page props", this.props)
+        console.log("Reviews", this.state.reviews)
         return(
             <>
                 {/* <img>Bike Image */}
@@ -66,10 +70,11 @@ class BikeStationShowPage extends React.Component {
                 <h4>{this.props.bikeObj.borough}</h4>
 
                 <p>Please keep our community guidelines in mind when you write a review.</p>
-                <form onSubmit={this.localSubmitComments}>
+                {/* <form onSubmit={this.localSubmitComments}>
                     <input type="textarea" name="comment" value={this.state.comment} placeholder="Write a comment" onChange={this.changeHandler} />
                     <button input="submit" value="Submit comment">Submit</button>
-                </form>
+                </form> */}
+                <ReviewsForm submitComments={this.submitComments} />
 
                 <div>
                     <h4>All Reviews </h4>

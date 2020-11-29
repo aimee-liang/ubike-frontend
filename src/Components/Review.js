@@ -1,9 +1,9 @@
-import React, {useState} from "react"
+import React from "react"
 
 const Review = props => {
     return (
         <>
-        <p>@: {props.review.comment}</p>
+        <p>@{props.review.username}: {props.review.comment}</p>
         </>
     )
 }
