@@ -17,7 +17,7 @@ class App extends React.Component{
     bikeStationId: 0,
     specificBikeStationObj: {},
     check_ins: [],
-    timeAndDay: new Date().toLocaleString()
+    timeAndDay: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
   }
 
   componentDidMount(){
@@ -68,7 +68,7 @@ class App extends React.Component{
       }, 
       () => this.props.history.push(`/home`) )
     })
-    this.helpFetchAndFindCheckIn(this.state.user.id)
+    // this.helpFetchAndFindCheckIn(this.state.user.id)
   }
 
   logOut = () => {
