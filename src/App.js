@@ -173,8 +173,10 @@ class App extends React.Component{
       }
     })
     .then(resp => resp.json())
-    .then(console.log)
-    
+    .then(nullData => {
+      // this.state.check_in.splice(0, 1))
+      this.setState({check_in: nullData})
+    })
   }
 
 /* working on it... */
@@ -192,7 +194,7 @@ class App extends React.Component{
 
   render(){
     // console.log("User", this.state.user)
-    // console.log("check in:", this.state.check_in)
+    console.log("check in:", this.state.check_in)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
