@@ -103,7 +103,6 @@ getUserFavoriteStations = (userId) => {
       this.setState(() => ({
         favorite_stations: arrayToUpdate
       }))
-      // console.log("arrayToUpdate:", this.state.favorite_stations)
     })
 }
 
@@ -120,9 +119,9 @@ unlike = (faveId) => {
   .then(console.log
     // this.setState({favorite_stations: []})
   )
-  let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
-  // console.log(filtered)
-  this.setState({favorite_stations: [filtered]})
+  let filtered = this.state.favorite_stations.filter(station => station.id === faveId)
+  console.log("Filtered", filtered)
+  // this.setState({favorite_stations: [filtered]})
 }
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
@@ -194,6 +193,7 @@ unlike = (faveId) => {
         }))
       })
   }
+
 
 /* find the one check in which is set in state, deletes it */
   checkOut = (checkedInId) => {
