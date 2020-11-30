@@ -111,7 +111,6 @@ class App extends React.Component{
     this.getUserCheckIn(this.state.user.id)
   }
 
-/* fetch user and update state w/ check_ins */
   getUserCheckIn = (userId) => {
     fetch(`http://localhost:3000/api/v1/users/${userId}`)
       .then(resp => resp.json())
@@ -205,8 +204,8 @@ class App extends React.Component{
   }
 
   render(){
-    console.log("User", this.state.user)
-    console.log("check in:", this.state.check_in)
+    // console.log("User", this.state.user)
+    // console.log("check in:", this.state.check_in)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />

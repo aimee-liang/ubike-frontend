@@ -53,8 +53,8 @@ class ProfilePage extends React.Component{
 
                 <div className="currently-checked-status">
                     <h4>Status</h4>
-                    {this.props.user.check_in ? this.displayCheckedIn() : this.displayNotCheckedIn() }
-                    {this.props.user.check_in ? <button onClick={this.localCheckOut}> Check Out </button> : null}
+                    {this.props.check_in ? this.displayCheckedIn() : this.displayNotCheckedIn() }
+                    {this.props.check_in ? <button onClick={this.localCheckOut}> Check Out </button> : null}
                 </div>
 
                 <div className="fav-stations-div">
