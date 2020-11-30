@@ -115,8 +115,12 @@ class App extends React.Component{
   getUserCheckIn = (userId) => {
     fetch(`http://localhost:3000/api/v1/users/${userId}`)
       .then(resp => resp.json())
-      // .then(console.log)
-      .then(checkInData => console.log(checkInData))
+      .then(checkInData => {
+        let arrayToDelete = checkInData.check_in
+        this.setState(() => ({
+          check_in: arrayToDelete
+        }))
+      })
   }
 
   setStationIdForFilteringReviews = (clickedBikeStationId) => {
@@ -202,6 +206,7 @@ class App extends React.Component{
 
   render(){
     console.log("User", this.state.user)
+    console.log("check in:", this.state.check_in)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
