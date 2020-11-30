@@ -77,9 +77,12 @@ class App extends React.Component{
 
 /* Creates a POST with new favorite station */
   favoriteStationsUpdate = (favBikeStation) => {
+  /* new */
+  const token = localStorage.getItem("secret")
     fetch(`http://localhost:3000/api/v1/favorite_stations/`,{
       method: "POST",
       headers: {
+          Authorization: `Bearer ${token}`, /* new */
           "content-type": "application/json",
           accepts: "application/json"
       },
