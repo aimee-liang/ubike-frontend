@@ -49,7 +49,9 @@ class BikeStationShowPage extends React.Component {
     render(){
         return(
             <>
-                <img alt="" src={this.props.bikeObj.photos ? this.props.bikeObj.photos : "/placeholder.jpg" } />
+            <div>
+                <img alt=""src={this.props.bikeObj.photos ? this.props.bikeObj.photos : "/placeholder.jpg" }  className="default-pic"  />
+            </div>
                 <h3>{this.props.bikeObj.location}</h3>
                 <h4>{this.props.bikeObj.borough}</h4>
 

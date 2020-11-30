@@ -75,6 +75,11 @@
 
 }
 
+.default-pic {
+  width: 200px;
+  height: 200px;
+}
+
 .chatbot {
   position: absolute;
   right: 0px;
