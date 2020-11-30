@@ -1,6 +1,7 @@
 import React from "react"
 import ReviewsContainer from "../Containers/ReviewsContainer"
 import ReviewsForm from "./ReviewsForm"
+import PhotosContainer from "../Containers/PhotosContainer"
 class BikeStationShowPage extends React.Component {
 
     state={
@@ -47,11 +48,13 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
+        console.log(this.props)
         return(
             <>
-            <div>
+            {/* <div>
                 <img alt=""src={this.props.bikeObj.photos ? this.props.bikeObj.photos : "/placeholder.jpg" }  className="default-pic"  />
-            </div>
+            </div> */}
+            <PhotosContainer photos={this.props.bikeObj.photos} />
                 <h3>{this.props.bikeObj.location}</h3>
                 <h4>{this.props.bikeObj.borough}</h4>
 
