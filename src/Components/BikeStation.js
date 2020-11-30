@@ -12,7 +12,7 @@ class BikeStation extends React.Component {
             clicked: !previousState.clicked
         }))
         this.props.checkedIn(this.props.bike)
-        this.props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
+        // this.props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
     favoriteHandler = (e) => {
@@ -29,11 +29,12 @@ class BikeStation extends React.Component {
             <>
     
                     <span key={this.props.bike.id} className="individual-station">
+                        <img alt="" src="/bikestockphoto.jpg" className="bike-stock-photo" />
                         <NavLink to={`/bike_stations/${this.props.bike.id}`}>
                             <h4 onClick={this.localFilter}>{this.props.bike.location}</h4>
                         </NavLink>
     
-                        <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p>
+                        {/* <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p> */}
                         <button onClick={this.clickHandler}> { this.state.clicked ? "You've checked in!": "Check In" } </button> 
                         <button onClick={this.favoriteHandler}>Favorite</button>
                     </span>    

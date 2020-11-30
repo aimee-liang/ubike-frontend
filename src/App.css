@@ -80,6 +80,11 @@
   height: 200px;
 }
 
+.bike-stock-photo {
+  width: 140px;
+  height: 110px;
+}
+
 .chatbot {
   position: absolute;
   right: 0px;
@@ -88,8 +93,5 @@
 
 
 .individual-station {
-  /* position: absolute; */
-  /* left: 0px; */
-  /* width: 250px; */
-  /* height: 400px */
+  
 }

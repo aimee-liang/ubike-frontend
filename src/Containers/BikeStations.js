@@ -1,7 +1,7 @@
 import React from "react"
 import FilterBoroughs from "../Components/FilterBoroughs"
 import BikeStation from "../Components/BikeStation"
-import CustomChatBot from "../Components/CustomChatbot"
+// import CustomChatBot from "../Components/CustomChatbot"
 
 // import { connect } from "react-redux"
 // import { fetchBikes } from "../redux/actions"
@@ -13,7 +13,7 @@ const BikeStations = (props) => {
             <>
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
                 {renderBikes}
-                <CustomChatBot />
+                {/* <CustomChatBot /> */}
             </>
         )
 }
