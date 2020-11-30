@@ -108,9 +108,15 @@ class App extends React.Component{
         }
       })
     })
-    this.setState(() => ({
-      check_in: this.state.user.check_in
-    }))
+    this.getUserCheckIn(this.state.user.id)
+  }
+
+/* fetch user and update state w/ check_ins */
+  getUserCheckIn = (userId) => {
+    fetch(`http://localhost:3000/api/v1/users/${userId}`)
+      .then(resp => resp.json())
+      // .then(console.log)
+      .then(checkInData => console.log(checkInData))
   }
 
   setStationIdForFilteringReviews = (clickedBikeStationId) => {

@@ -2,6 +2,7 @@ import React from "react"
 import ReviewsContainer from "../Containers/ReviewsContainer"
 import ReviewsForm from "./ReviewsForm"
 import PhotosContainer from "../Containers/PhotosContainer"
+
 class BikeStationShowPage extends React.Component {
 
     state={
