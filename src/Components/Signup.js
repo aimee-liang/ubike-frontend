@@ -1,4 +1,6 @@
 import React from "react"
+import {styled} from "@material-ui/core/styles"
+import Button from "@material-ui/core/Button"
 
 class Signup extends React.Component{
     state={
@@ -40,7 +42,8 @@ class Signup extends React.Component{
                 <input type="text" name="bike" placeholder="Bike details" value={this.state.bicycle} onChange={this.changeHandler} />
                 <input type="text" name="bio" placeholder="Bio" value={this.state.bio} onChange={this.changeHandler} />
                 <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.changeHandler} />
-                <button type="submit" value="sign up">Sign up </button>
+                <br></br>
+                <Button variant="contained" color="primary" type="submit" value="sign up">Sign up </Button>
             </form>
             </>
         )

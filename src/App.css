@@ -75,6 +75,16 @@
 
 }
 
+.login-body {
+  background-color: #AFC9D4;  
+  height: 1000px;
+  width: auto;
+}
+
+.login-form {
+  
+}
+
 .default-pic {
   width: 200px;
   height: 200px;

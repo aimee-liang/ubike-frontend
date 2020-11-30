@@ -1,4 +1,6 @@
 import React from "react"
+import {styled} from "@material-ui/core/styles"
+import Button from "@material-ui/core/Button"
 
 class Login extends React.Component{
     state={
@@ -22,18 +24,22 @@ class Login extends React.Component{
     
     render(){
         return(
-            <>
+            <div className="login-body">
+
             <p>Login</p>
 
-            <form onSubmit={this.localLoginHandler}>
+            <form className="login-form" onSubmit={this.localLoginHandler}>
                 
                 <input type="text" name="username" placeholder="Enter Username" value={this.state.username} onChange={this.changeHandler} />
                 <input type="password" name="password" placeholder="Enter Password" value={this.state.password} onChange={this.changeHandler} />
-                <button input="submit" value="Log In"> Login </button>
+                {/* <button input="submit" value="Log In"> Login </button> */}
+                <br></br>
+                <Button variant="contained" color="primary" type="submit" value="Log In"> Login </Button>
+
             
             </form>
 
-            </>
+            </div>
         )
     }
 }
