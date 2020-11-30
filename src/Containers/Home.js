@@ -1,7 +1,7 @@
 import React from "react"
 import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
-import CustomChatBot from "../Components/CustomChatbot"
+// import CustomChatBot from "../Components/CustomChatbot"
 
 class Home extends React.Component{
     state={
@@ -41,7 +41,7 @@ class Home extends React.Component{
             <div className="home">
                 <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} setStationIdForFilteringReviews={this.props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.props.setBikeObjToDisplayInShowPage} />
                 <Map />
-                <CustomChatBot />
+                {/* <CustomChatBot /> */}
             </div>
         )
     }

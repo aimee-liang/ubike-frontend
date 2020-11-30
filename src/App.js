@@ -109,12 +109,12 @@ class App extends React.Component{
       })
     })
     this.setState(() => ({
-      check_ins: this.state.user.check_in
+      check_in: this.state.user.check_in
     }))
   }
 
-/* updated bike racks available - how? */
-  updateAvailableBikeRacks = (stationId) => {
+/* TO DO: update bike racks available */
+  decreaseAvailableBikeRacks = (stationId) => {
     fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
       method: "PATCH",
       headers: {
@@ -124,6 +124,24 @@ class App extends React.Component{
       body: JSON.stringify({
         bike_station: {
 
+        }
+      })
+    })
+  }
+
+  increaseAvailableBikeRacks = (station) => {
+    fetch(`http://localhost:3000/api/v1/bike_stations/${station.id}`,{
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json",
+      },
+      body: JSON.stringify({
+        bike_station: {
+          id: station.id,
+          location: station.location,
+          borough: station.borough,
+          // available_bike_racks: += 1
         }
       })
     })
@@ -164,18 +182,7 @@ class App extends React.Component{
     .catch(errors => console.log(errors))
   }
 
-/* fetches check ins, set in state */
-  // helpFetchAndFindCheckIn = (userId) => {
-  //   fetch(`http://localhost:3000/api/v1/check_ins`)
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       this.setState({
-  //         check_ins: data
-  //       })
-  //     })
-  //     .catch(errors => console.log(errors))
-  // }
-
+/* old method that re-renders user data */
   // checkOut = (checkedInId) => {
   //   fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
   //     method: "DELETE",
@@ -190,13 +197,23 @@ class App extends React.Component{
   //         user: {
 
   //         }})))
-  //  // .catch(errors => console.log(errors))
   // }
 
 /* find the one in state, delete it */
   checkOut = (checkedInId) => {
-    // let deleteFromThisCheckInArray = this.state.check_ins.find(checkin)
-    console.log(checkedInId)
+    // let deleteFromThisCheckInArray = this.state.check_ins.find(checkedInId === check)
+    fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json"
+      }
+    })
+    .then(resp => resp.json())
+    // .then(this.setState ({
+    //   check_in: []
+    // }))
+    .then(console.log)
   }
 
   unlike = (stationId) => {
@@ -208,11 +225,10 @@ class App extends React.Component{
       }
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(console.log) /* what to do here? */
   }
 
   render(){
-    console.log("User's check ins:", this.state.check_ins)
     console.log("User", this.state.user)
     return (
       <>
@@ -223,7 +239,7 @@ class App extends React.Component{
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} user={this.state.user} /> } />
-          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} unlike={this.unlike}  /> } />
+          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} unlike={this.unlike} check_in={this.state.check_in} /> } />
         </Switch> 
 
       </>
