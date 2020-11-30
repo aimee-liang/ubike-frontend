@@ -111,9 +111,11 @@ getUserFavoriteStations = (userId) => {
 
 /* remove from favorite Stations in state */
 unlike = (faveId) => {
+  const token = localStorage.getItem("secret")
   fetch(`http://localhost:3000/api/v1/favorite_stations/${faveId}`,{
     method: "DELETE",
     headers: {
+      Authorization: `Bearer ${token}`,
       "content-type": "application/json",
       accepts: "application/json"
     }
@@ -126,9 +128,11 @@ unlike = (faveId) => {
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
   currentCheckStatus = (checkedInObj) => {
+    const token = localStorage.getItem("secret")
     fetch(`http://localhost:3000/api/v1/check_ins`, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${token}`,
         "content-type": "application/json",
         accepts: "application/json"
       },
@@ -197,9 +201,11 @@ unlike = (faveId) => {
 
 /* find the one check in which is set in state, deletes it */
   checkOut = (checkedInId) => {
+    const token = localStorage.getItem("secret")
     fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
       method: "DELETE",
       headers: {
+        Authorization: `Bearer ${token}`,
         "content-type": "application/json",
         accepts: "application/json"
       }

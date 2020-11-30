@@ -25,9 +25,11 @@ class BikeStationShowPage extends React.Component {
     }
 
     submitComments = (commentObj) => {
+        const token = localStorage.getItem("secret")
         fetch(`http://localhost:3000/api/v1/reviews`, {
             method: "POST",
             headers: { 
+                Authorization: `Bearer ${token}`,
                 "content-type": "application/json",
                 accepts: "application/json"
             },
@@ -49,7 +51,6 @@ class BikeStationShowPage extends React.Component {
     })}
 
     render(){
-        console.log(this.props)
         return(
             <>
             {/* <div>
