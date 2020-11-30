@@ -94,7 +94,7 @@ class App extends React.Component{
     this.getUserFavoriteStations(this.state.user.id)
   }
 
-/* helper method to get favorite stations from user and save in state*/
+/* helper method to get favorite stations from user and save in state */
 getUserFavoriteStations = (userId) => {
   fetch(`http://localhost:3000/api/v1/users/${userId}`)
     .then(resp => resp.json())
@@ -106,7 +106,7 @@ getUserFavoriteStations = (userId) => {
     })
 }
 
-/* remove from favorite Stations */
+/* remove from favorite Stations in state */
 unlike = (faveId) => {
   fetch(`http://localhost:3000/api/v1/favorite_stations/${faveId}`,{
     method: "DELETE",
@@ -119,9 +119,9 @@ unlike = (faveId) => {
   .then(console.log
     // this.setState({favorite_stations: []})
   )
-  let filtered = this.state.favorite_stations.filter(station => station.id === faveId)
+  let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
+  this.setState({favorite_stations: filtered})
   console.log("Filtered", filtered)
-  // this.setState({favorite_stations: [filtered]})
 }
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
@@ -213,7 +213,7 @@ unlike = (faveId) => {
 
   render(){
     // console.log("User", this.state.user)
-    // console.log(this.state.favorite_stations)
+    console.log(this.state.favorite_stations)
     // console.log(this.state)
     return (
       <>
