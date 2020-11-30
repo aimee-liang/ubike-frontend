@@ -91,7 +91,35 @@ class App extends React.Component{
           borough: favBikeStation.borough
         }})
     })
+    this.getUserFavoriteStations(this.state.user.id)
   }
+
+/* helper method to get favorite stations from user and save in state*/
+getUserFavoriteStations = (userId) => {
+  fetch(`http://localhost:3000/api/v1/users/${userId}`)
+    .then(resp => resp.json())
+    .then(checkInData => {
+      let arrayToUpdate = checkInData.favorite_stations
+      this.setState(() => ({
+        check_in: arrayToUpdate
+      }))
+    })
+}
+
+/* remove from favorite Stations w/o mutating and forcing re-rendering*/
+unlike = (stationId) => {
+  fetch(`http://localhost:3000/api/v1/favorite_stations/${stationId}`,{
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+      accepts: "application/json"
+    }
+  })
+  .then(resp => resp.json())
+  .then(console.log)
+/* create a new array where the deleted station is filtered out and set state to new array */
+  // let filtered = this.state.favoriteStations.filter(favorite => favorite.id !== stationId)
+}
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
   currentCheckStatus = (checkedInObj) => {
@@ -174,29 +202,13 @@ class App extends React.Component{
     })
     .then(resp => resp.json())
     .then(nullData => {
-      // this.state.check_in.splice(0, 1))
       this.setState({check_in: nullData})
     })
   }
 
-/* working on it... */
-  unlike = (stationId) => {
-    fetch(`http://localhost:3000/api/v1/favorite_stations/${stationId}`,{
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-        accepts: "application/json"
-      }
-    })
-    .then(resp => resp.json())
-    .then(console.log)
-/* create a new array where the deleted station is filtered out and set state to new array */
-    let filtered = this.state.favoriteStations.filter(favorite => favorite.id !== stationId)
-  }
 
   render(){
-    // console.log("User", this.state.user)
-    console.log("check in:", this.state.check_in)
+    console.log(this.state.favoriteStations)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
