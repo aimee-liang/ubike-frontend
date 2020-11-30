@@ -116,12 +116,16 @@ unlike = (faveId) => {
     }
   })
   .then(resp => resp.json())
-  .then(nullFaveData => {
-    /* create a new array where the deleted station is filtered out and set state to new array */
-      let filtered = [...this.state.favorite_stations, nullFaveData]
-      let reset = filtered.pop
-      this.setState({favorite_stations: reset})
-  })
+  // .then(nullFaveData => {
+  //     // let reset = filtered.pop()
+  //     // this.setState({favorite_stations: reset})
+  //     console.log(nullFaveData)
+  // }) 
+  console.log("Faves:", this.state.favorite_stations)
+
+  let filtered = this.state.favorite_stations.filter(station => station.id === faveId)
+  console.log(filtered)
+  this.setState({favorite_stations: []})
 }
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
@@ -189,9 +193,11 @@ unlike = (faveId) => {
       .then(checkInData => {
         let arrayToDelete = checkInData.check_in
         this.setState(() => ({
-          check_in: arrayToDelete
+          check_in: [arrayToDelete]
         }))
       })
+      // console.log(checkInData)
+      // })
   }
 
 /* find the one check in which is set in state, deletes it */
@@ -213,6 +219,7 @@ unlike = (faveId) => {
   render(){
     // console.log("User", this.state.user)
     // console.log(this.state.favorite_stations)
+    console.log(this.state)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />

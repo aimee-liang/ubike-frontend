@@ -36,7 +36,7 @@ class BikeStation extends React.Component {
     
                         {/* <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p> */}
                         <button onClick={this.clickHandler}> { this.state.clicked ? "You've checked in!": "Check In" } </button> 
-                        <button onClick={this.favoriteHandler}>Favorite</button>
+                        <button onClick={this.favoriteHandler}>{this.state.clicked ? "Liked!" : "Like"}</button>
                     </span>    
             </>
         )

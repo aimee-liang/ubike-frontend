@@ -37,7 +37,7 @@ class ProfilePage extends React.Component{
     }
     
     render(){
-        // console.log(this.props)
+        console.log(this.props)
         return(
             <>
                 <div className="about-me">
@@ -54,14 +54,14 @@ class ProfilePage extends React.Component{
 
                 <div className="currently-checked-status">
                     <h4>Status</h4>
-                    {this.props.check_in === null ? this.displayCheckedIn() : this.displayNotCheckedIn() } {/* bugs! */}
-                    {this.props.check_in === null ? <button onClick={this.localCheckOut}> Check Out </button> : null}
+                    {this.props.check_in.length ? this.displayCheckedIn() : this.displayNotCheckedIn() } {/* bugs! */}
+                    {this.props.check_in.length ? <button onClick={this.localCheckOut}> Check Out </button> : null}
                 </div>
 
                 <div className="fav-stations-div">
                     <h4>@{this.props.user.username}'s Favorite Stations</h4>
                     {this.props.user.favorite_stations.length ?
-                        <FavoriteStationsContainer filterFavorites={this.props.user.favorite_stations} /*{this.props.favorites}*/ unlike={this.props.unlike}/> 
+                        <FavoriteStationsContainer filterFavorites={this.props.favorites} /*{this.props.user.favorite_stations} */ unlike={this.props.unlike}/> 
                             :
                         "This user did not favorite any stations."
                 }
