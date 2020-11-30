@@ -16,6 +16,9 @@ This map was made possible by React Map GL API. You can access their documentati
 ### Chatbot
 All credits to Lucas Bassetti for the React Simple Chatbot feature. You can access their docs [here](https://lucasbassetti.com.br/react-simple-chatbot/#/). Himanshu Jaiswal wrote a very clear [Medium blog](https://medium.com/javascript-in-plain-english/may-i-help-you-build-a-chatbot-in-10-minutes-with-react-df19e940bbc8) on how to set up your own React Simple Chatbot.
 
+### Images
+I used a general stock photo for a bike station placeholder, and Github's very own Octocat.
+
 ### Stretch Goals
 The next version would include a map safety feature, being able to interact with other users, and transitioning or having a version in React Native as users would be on the go when biking. I set out wanting to use all bike docks, but I was not familiar with Shapefile format and converting that to JSON and had to redirect my app to Bike Shelters due to time constraints. That would also be great to implement. 
 

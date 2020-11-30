@@ -28,8 +28,7 @@ class BikeStation extends React.Component {
         return (
             <>
     
-                <ul>
-                    <li key={this.props.bike.id} className="individual-station">
+                    <span key={this.props.bike.id} className="individual-station">
                         <NavLink to={`/bike_stations/${this.props.bike.id}`}>
                             <h4 onClick={this.localFilter}>{this.props.bike.location}</h4>
                         </NavLink>
@@ -37,9 +36,7 @@ class BikeStation extends React.Component {
                         <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p>
                         <button onClick={this.clickHandler}> { this.state.clicked ? "You've checked in!": "Check In" } </button> 
                         <button onClick={this.favoriteHandler}>Favorite</button>
-                    </li>
-                </ul>
-    
+                    </span>    
             </>
         )
 
