@@ -191,7 +191,7 @@ class App extends React.Component{
     .then(resp => resp.json())
     .then(console.log)
 /* create a new array where the deleted station is filtered out and set state to new array */
-
+    let filtered = this.state.favoriteStations.filter(favorite => favorite.id !== stationId)
   }
 
   render(){
