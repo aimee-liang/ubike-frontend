@@ -107,7 +107,7 @@ getUserFavoriteStations = (userId) => {
     })
 }
 
-/* remove from favorite Stations w/o mutating and forcing re-rendering*/
+/* remove from favorite Stations */
 unlike = (faveId) => {
   fetch(`http://localhost:3000/api/v1/favorite_stations/${faveId}`,{
     method: "DELETE",
@@ -117,14 +117,12 @@ unlike = (faveId) => {
     }
   })
   .then(resp => resp.json())
-  .then(
-    this.setState({favorite_stations: []})
+  .then(console.log
+    // this.setState({favorite_stations: []})
   )
-  // console.log("Faves:", this.state.favorite_stations)
-
   let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
-  console.log(filtered)
-  // this.setState({favorite_stations: []})
+  // console.log(filtered)
+  this.setState({favorite_stations: [filtered]})
 }
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
