@@ -6,7 +6,7 @@ class Home extends React.Component{
     state={
         bikesAPI: [],
         searchValue: "All",
-        available: 0
+        // available: 0
     }
 
     componentDidMount(){
@@ -36,38 +36,38 @@ class Home extends React.Component{
     }
 
     /* TO DO: update bike racks available */
-    decreaseAvailableBikeRacks = (stationId) => {
-        fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
-            method: "PATCH",
-            headers: {
-                "content-type": "application/json",
-                accepts: "application/json",
-            },
-        body: JSON.stringify({
-            bike_station: {
+    // decreaseAvailableBikeRacks = (stationId) => {
+    //     fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
+    //         method: "PATCH",
+    //         headers: {
+    //             "content-type": "application/json",
+    //             accepts: "application/json",
+    //         },
+    //     body: JSON.stringify({
+    //         bike_station: {
 
-            }
-        })
-        })
-    }
+    //         }
+    //     })
+    //     })
+    // }
 
-    increaseAvailableBikeRacks = (station) => {
-        fetch(`http://localhost:3000/api/v1/bike_stations/${station.id}`,{
-            method: "PATCH",
-            headers: {
-                "content-type": "application/json",
-                accepts: "application/json",
-            },
-        body: JSON.stringify({
-            bike_station: {
-            id: station.id,
-            location: station.location,
-            borough: station.borough,
-            // available_bike_racks: += 1
-            }
-        })
-        })
-    }
+    // increaseAvailableBikeRacks = (station) => {
+    //     fetch(`http://localhost:3000/api/v1/bike_stations/${station.id}`,{
+    //         method: "PATCH",
+    //         headers: {
+    //             "content-type": "application/json",
+    //             accepts: "application/json",
+    //         },
+    //     body: JSON.stringify({
+    //         bike_station: {
+    //         id: station.id,
+    //         location: station.location,
+    //         borough: station.borough,
+    //         // available_bike_racks: += 1
+    //         }
+    //     })
+    //     })
+    // }
 
     render(){
         return(
