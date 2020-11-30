@@ -71,7 +71,15 @@
   right: 0px
 }
 
+.menuToggle {
 
+}
+
+.chatbot {
+  position: absolute;
+  right: 0px;
+  ;
+}
 
 
 .individual-station {

@@ -49,7 +49,7 @@ class BikeStationShowPage extends React.Component {
     render(){
         return(
             <>
-                {/* <img>Bike Image */}
+                {/* <img alt="" src={this.props.bikeObj.photos ? this.props.bikeObj.photos : <p>"No photos available of bike station"</p>} /> */}
                 <h3>{this.props.bikeObj.location}</h3>
                 <h4>{this.props.bikeObj.borough}</h4>
 

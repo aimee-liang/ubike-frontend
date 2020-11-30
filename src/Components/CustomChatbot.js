@@ -47,6 +47,11 @@ const steps = [
                 value: "DoT",
                 label: "Report an incident to DoT",
                 trigger: "Report to DoT"
+            },
+            {
+                value: "Report",
+                label: "Report a comment",
+                trigger: "What's the report for?"
             }
         ]
     },
@@ -86,6 +91,21 @@ const steps = [
         trigger: "Anything else?"
     },
     {
+        id: "What's the report for?",
+        message: "Thank you for flagging a comment. Which comment are you reporting?",
+        trigger: "Wait for user to confirm"
+    }, 
+    {
+        id: "Wait for user to confirm",
+        user: true,
+        trigger: "Looking into it"
+    },
+    {
+        id: "Looking into it",
+        message: "Thanks! Our team is looking into this matter.",
+        trigger: "Anything else?"
+    },
+    {
         id: "Anything else?",
         message: "Is there anything else you'd like to do today?",
         trigger: "Display last options"
@@ -120,7 +140,7 @@ const steps = [
 const CustomChatBot = (props) => (
     <>
         <ThemeProvider theme={theme}>
-            <Chatbot steps={steps} />
+            <Chatbot steps={steps} className="chatbot" />
         </ThemeProvider>
     </>
 )

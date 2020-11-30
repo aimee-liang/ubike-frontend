@@ -1,12 +1,12 @@
 import React from "react"
 import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
-// import CustomChatBot from "../Components/CustomChatbot"
 
 class Home extends React.Component{
     state={
         bikesAPI: [],
         searchValue: "All",
+        available: 0
     }
 
     componentDidMount(){
@@ -25,7 +25,6 @@ class Home extends React.Component{
         }))
     }
 
-
     sortByBorough = () => {
         let arrayOfBikeStations = this.state.bikesAPI
         if (this.state.searchValue !== "All"){
@@ -36,12 +35,45 @@ class Home extends React.Component{
         return arrayOfBikeStations
     }
 
+    /* TO DO: update bike racks available */
+    decreaseAvailableBikeRacks = (stationId) => {
+        fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json",
+                accepts: "application/json",
+            },
+        body: JSON.stringify({
+            bike_station: {
+
+            }
+        })
+        })
+    }
+
+    increaseAvailableBikeRacks = (station) => {
+        fetch(`http://localhost:3000/api/v1/bike_stations/${station.id}`,{
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json",
+                accepts: "application/json",
+            },
+        body: JSON.stringify({
+            bike_station: {
+            id: station.id,
+            location: station.location,
+            borough: station.borough,
+            // available_bike_racks: += 1
+            }
+        })
+        })
+    }
+
     render(){
         return(
             <div className="home">
                 <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} setStationIdForFilteringReviews={this.props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.props.setBikeObjToDisplayInShowPage} />
                 <Map />
-                {/* <CustomChatBot /> */}
             </div>
         )
     }

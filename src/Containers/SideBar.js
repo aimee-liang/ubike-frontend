@@ -18,7 +18,7 @@ class SideBar extends React.Component{
 
         return(
             <>
-            <button onClick={this.clickHandler}>BUTTON</button>
+            <button className="menuToggle" onClick={this.clickHandler}>BUTTON</button>
     
             <div className={
                 this.state.show ? "sidebar menu" : "off-screen menu"
