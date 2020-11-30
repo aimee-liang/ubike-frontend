@@ -12,7 +12,7 @@ class App extends React.Component{
   
   state={
     user: null,
-    favoriteStations: [],
+    favorite_stations: [],
     currentStation: [],
     bikeStationId: 0,
     specificBikeStationObj: {},
@@ -98,17 +98,17 @@ class App extends React.Component{
 getUserFavoriteStations = (userId) => {
   fetch(`http://localhost:3000/api/v1/users/${userId}`)
     .then(resp => resp.json())
-    .then(checkInData => {
-      let arrayToUpdate = checkInData.favorite_stations
+    .then(favoriteData => {
+      let arrayToUpdate = favoriteData.favorite_stations
       this.setState(() => ({
-        check_in: arrayToUpdate
+        favorite_stations: arrayToUpdate
       }))
     })
 }
 
 /* remove from favorite Stations w/o mutating and forcing re-rendering*/
-unlike = (stationId) => {
-  fetch(`http://localhost:3000/api/v1/favorite_stations/${stationId}`,{
+unlike = (faveId) => {
+  fetch(`http://localhost:3000/api/v1/favorite_stations/${faveId}`,{
     method: "DELETE",
     headers: {
       "content-type": "application/json",
@@ -116,9 +116,12 @@ unlike = (stationId) => {
     }
   })
   .then(resp => resp.json())
-  .then(console.log)
-/* create a new array where the deleted station is filtered out and set state to new array */
-  // let filtered = this.state.favoriteStations.filter(favorite => favorite.id !== stationId)
+  .then(nullFaveData => {
+    /* create a new array where the deleted station is filtered out and set state to new array */
+      let filtered = [...this.state.favorite_stations, nullFaveData]
+      let reset = filtered.pop
+      this.setState({favorite_stations: reset})
+  })
 }
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
@@ -141,7 +144,7 @@ unlike = (stationId) => {
     this.getUserCheckIn(this.state.user.id)
   }
 
-/* this () grabs station ID from the bike station component and used to filter reviews in the show page */
+/* may clean up at a later time - this () grabs station ID from the bike station component and filters reviews in the show page */
   setStationIdForFilteringReviews = (clickedBikeStationId) => {
     this.setState(()=> ({
       bikeStationId: clickedBikeStationId
@@ -208,7 +211,8 @@ unlike = (stationId) => {
 
 
   render(){
-    console.log(this.state.favoriteStations)
+    // console.log("User", this.state.user)
+    // console.log(this.state.favorite_stations)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
@@ -218,7 +222,7 @@ unlike = (stationId) => {
           <Route path ="/login" render={()=> <Login loginHandler={this.loginHandler} />} />
           <Route path ="/home" render={()=> <Home addFaves={this.favoriteStationsUpdate} checkedIn={this.currentCheckStatus} setStationIdForFilteringReviews={this.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.setBikeObjToDisplayInShowPage} /> } />
           <Route path ="/bike_stations/:id" render={()=> <BikeStationShowPage bikeId={this.state.bikeStationId} bikeObj={this.state.specificBikeStationObj} user={this.state.user} /> } />
-          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} unlike={this.unlike} check_in={this.state.check_in} /> } />
+          <Route path ="/profile" render={() => <ProfilePage user={this.state.user} checkOut={this.checkOut} editProfile={this.editProfile} unlike={this.unlike} check_in={this.state.check_in} favorites={this.state.favorite_stations} /> } />
         </Switch> 
 
       </>
