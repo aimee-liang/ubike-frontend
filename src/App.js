@@ -111,17 +111,6 @@ class App extends React.Component{
     this.getUserCheckIn(this.state.user.id)
   }
 
-  getUserCheckIn = (userId) => {
-    fetch(`http://localhost:3000/api/v1/users/${userId}`)
-      .then(resp => resp.json())
-      .then(checkInData => {
-        let arrayToDelete = checkInData.check_in
-        this.setState(() => ({
-          check_in: arrayToDelete
-        }))
-      })
-  }
-
   setStationIdForFilteringReviews = (clickedBikeStationId) => {
     this.setState(()=> ({
       bikeStationId: clickedBikeStationId
@@ -157,26 +146,19 @@ class App extends React.Component{
     .catch(errors => console.log(errors))
   }
 
-/* old method that re-renders user data */
-  // checkOut = (checkedInId) => {
-  //   fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
-  //     method: "DELETE",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       accepts: "application/json"
-  //     }
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(checkedInData => (
-  //       this.setState({
-  //         user: {
-
-  //         }})))
-  // }
+  getUserCheckIn = (userId) => {
+    fetch(`http://localhost:3000/api/v1/users/${userId}`)
+      .then(resp => resp.json())
+      .then(checkInData => {
+        let arrayToDelete = checkInData.check_in
+        this.setState(() => ({
+          check_in: arrayToDelete
+        }))
+      })
+  }
 
 /* find the one in state, delete it */
   checkOut = (checkedInId) => {
-    // let deleteFromThisCheckInArray = this.state.check_ins.find(checkedInId === check)
     fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
       method: "DELETE",
       headers: {
@@ -185,10 +167,8 @@ class App extends React.Component{
       }
     })
     .then(resp => resp.json())
-    // .then(this.setState ({
-    //   check_in: []
-    // }))
-    .then(console.log)
+    .then(
+    
   }
 
   unlike = (stationId) => {
