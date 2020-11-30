@@ -116,11 +116,9 @@ unlike = (faveId) => {
     }
   })
   .then(resp => resp.json())
-  // .then(faveId => {
-    let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
-    this.setState({favorite_stations: filtered})
-  // }
-  // )
+  let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
+  this.setState({favorite_stations: filtered})
+
 }
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
@@ -211,9 +209,6 @@ unlike = (faveId) => {
 
 
   render(){
-    // console.log("User", this.state.user)
-    console.log(this.state.favorite_stations)
-    // console.log(this.state)
     return (
       <>
         <SideBar user={this.state.user} logOut={this.logOut} />
