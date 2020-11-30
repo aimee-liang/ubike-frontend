@@ -75,6 +75,7 @@ class App extends React.Component{
     this.props.history.push("/login")
   }
 
+/* Creates a POST with new favorite station */
   favoriteStationsUpdate = (favBikeStation) => {
     fetch(`http://localhost:3000/api/v1/favorite_stations/`,{
       method: "POST",
@@ -92,6 +93,7 @@ class App extends React.Component{
     })
   }
 
+/* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
   currentCheckStatus = (checkedInObj) => {
     fetch(`http://localhost:3000/api/v1/check_ins`, {
       method: "POST",
@@ -111,18 +113,21 @@ class App extends React.Component{
     this.getUserCheckIn(this.state.user.id)
   }
 
+/* this () grabs station ID from the bike station component and used to filter reviews in the show page */
   setStationIdForFilteringReviews = (clickedBikeStationId) => {
     this.setState(()=> ({
       bikeStationId: clickedBikeStationId
     }))
   }
 
+/* this () grabs the entire bike station object and is used in bike station show page for basic info on location, etc. */
   setBikeObjToDisplayInShowPage = (clickedBikeStationObj) => {
     this.setState(() => ({
       specificBikeStationObj: clickedBikeStationObj
     }))
   }
 
+/* PATCH request to update user's profile page */
   editProfile = (userObj) => {
     fetch(`http://localhost:3000/api/v1/users/${this.state.user.id}`, {
       method: "PATCH",
@@ -146,6 +151,7 @@ class App extends React.Component{
     .catch(errors => console.log(errors))
   }
 
+/* helper method which gets current user's ID and sets state */
   getUserCheckIn = (userId) => {
     fetch(`http://localhost:3000/api/v1/users/${userId}`)
       .then(resp => resp.json())
@@ -157,7 +163,7 @@ class App extends React.Component{
       })
   }
 
-/* find the one in state, delete it */
+/* find the one check in which is set in state, deletes it */
   checkOut = (checkedInId) => {
     fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
       method: "DELETE",
@@ -167,10 +173,11 @@ class App extends React.Component{
       }
     })
     .then(resp => resp.json())
-    .then(
+    .then(console.log)
     
   }
 
+/* working on it... */
   unlike = (stationId) => {
     fetch(`http://localhost:3000/api/v1/favorite_stations/${stationId}`,{
       method: "DELETE",
