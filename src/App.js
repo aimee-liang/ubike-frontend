@@ -116,12 +116,11 @@ unlike = (faveId) => {
     }
   })
   .then(resp => resp.json())
-  .then(console.log
-    // this.setState({favorite_stations: []})
-  )
-  let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
-  this.setState({favorite_stations: filtered})
-  console.log("Filtered", filtered)
+  // .then(faveId => {
+    let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
+    this.setState({favorite_stations: filtered})
+  // }
+  // )
 }
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
