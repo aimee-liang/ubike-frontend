@@ -41,7 +41,7 @@ class ProfilePage extends React.Component{
             <>
                 <div className="about-me">
                     <h4>@{this.props.user.username}</h4>
-                    <img alt="" src={this.props.user.avatar ? this.props.user.avatar : null} />
+                    <img alt="" src={this.props.user.avatar ? this.props.user.avatar : "/Octocat.png" }/>
                     <p>Name: {this.props.user.name}</p>
                     <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                     <p>Bike Info: {this.props.user.bike}</p>
