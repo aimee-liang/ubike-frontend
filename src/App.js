@@ -151,7 +151,7 @@ class App extends React.Component{
     .catch(errors => console.log(errors))
   }
 
-/* helper method which gets current user's ID and sets state */
+/* helper method which gets current user's ID and sets state with where they checked in*/
   getUserCheckIn = (userId) => {
     fetch(`http://localhost:3000/api/v1/users/${userId}`)
       .then(resp => resp.json())
@@ -189,7 +189,9 @@ class App extends React.Component{
       }
     })
     .then(resp => resp.json())
-    .then(console.log) /* what to do here? */
+    .then(console.log)
+/* create a new array where the deleted station is filtered out and set state to new array */
+
   }
 
   render(){
