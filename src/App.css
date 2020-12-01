@@ -103,6 +103,7 @@
   width: 50vw; */
   /* border: 1px solid black; */
   display: grid;
+  align-items: center;
 }
 
 .livechat {
@@ -121,8 +122,8 @@
 }
 
 .bike-stock-photo {
-  width: 90px;
-  height: 90px;
+  width: 85px;
+  height: 85px;
 }
 
 

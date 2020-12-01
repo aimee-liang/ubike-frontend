@@ -2,6 +2,7 @@ import React from "react"
 // import {makeStyles, styled} from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import TextField from '@material-ui/core/TextField';
+import {NavLink} from "react-router-dom"
 
 class Login extends React.Component{
     state={
@@ -43,10 +44,13 @@ class Login extends React.Component{
                         <TextField required id="standard-required" label="Enter Password" input type="password" input="true" name="password" value={this.state.password} onChange={this.changeHandler} />
                         {/* <button input="submit" value="Log In"> Login </button> */}
                         <br></br>
+                        <br></br>
                         <Button variant="contained" color="primary" type="submit" value="Log In"> Login </Button>
+                        <br></br>
+                    <NavLink to="/signup">Create an account</NavLink>
                     
                     </form>
-
+                    
                 </div>
                 
             </div>
