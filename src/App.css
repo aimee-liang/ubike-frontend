@@ -149,3 +149,8 @@
 .individual-station {
   
 }
+
+.location-pin {
+  height: 25px;
+  width: 15px;
+}

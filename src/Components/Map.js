@@ -3,8 +3,8 @@ import {PureComponent} from "react"
 import ReactMapGL, {Marker} from "react-map-gl"
 
 const shelters=[
-    {name: "Dekalb Ave & Flatbush Ave", longitude: -73.981096, latitude: 40.689851}
-    {name: "Graham Ave & Metropolitan Ave", longitude: -73.944512, latitude: 40.714712}
+    {name: "Dekalb Ave & Flatbush Ave", longitude: -73.981096, latitude: 40.689851},
+    {name: "Graham Ave & Metropolitan Ave", longitude: -73.944512, latitude: 40.714712},
     {name: "Kings Hwy & E. 15th St", longitude: -73.958153, latitude: 40.608880},
     {name: "4th Ave & 36th St", longitude: -74.004185, latitude: 40.654291},
     {name: "Surf Ave & Stillwell Ave", longitude: -73.980495, latitude: 40.575674},
@@ -22,14 +22,14 @@ const shelters=[
     {name: "Father Capodanno Blvd & Sand Lane", longitude: -74.066198, latitude: 40.590507},
     {name: "Richmond Ave & Wainwright Ave", longitude: -74.170972, latitude: 40.560158}
 ]
-// class Markers extends PureComponent{
-//     render(){
-//         const data={this.props}
-//         return data.map(
-//             shelter => <Marker key={shelter.name} longitude={shelter.longitude} latitude={shelter.latitude}><img src=""/></Marker>
-//         )
-//     }
-// }
+class Markers extends PureComponent{
+    render(){
+        const {data}=this.props 
+        return data.map(
+            shelter => <Marker key={shelter.name} longitude={shelter.longitude} latitude={shelter.latitude}><img className="location-pin" src="/green-location-pin.png"/></Marker>
+        )
+    }
+}
 
 class Map extends React.Component{
     state={
@@ -48,7 +48,7 @@ class Map extends React.Component{
             <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/ckhppbi8209vs19qtm3yamjmt"
             onViewportChange={(viewport => this.setState({viewport}))}
             mapboxApiAccessToken="pk.eyJ1IjoibGlhbmdhIiwiYSI6ImNraG9kODF6djAybDkyd3FsMnhxcG8wMmsifQ.5Z8qlJahYdbW_JlGhhs1hQ">
-                {/* <Markers data={shelters} /> */}
+                <Markers data={shelters} />
             </ReactMapGL>
         </div>
     )}
