@@ -1,6 +1,6 @@
 import React from "react"
 import {PureComponent} from "react"
-import ReactMapGL, {Marker, Popup} from "react-map-gl"
+import ReactMapGL, {Marker} from "react-map-gl"
 
 const shelters=[
     {name: "Dekalb Ave & Flatbush Ave", longitude: -73.981096, latitude: 40.689851},
@@ -34,7 +34,7 @@ class Markers extends PureComponent{
 class Map extends React.Component{
     state={
         viewport:{
-            width: "50vw",
+            width: "47vw",
             height: "100vh",
             latitude: 40.730610,
             longitude: -73.935242,
@@ -43,25 +43,16 @@ class Map extends React.Component{
         // selectedSpot: null
     }
 
-    // setSelectedSpot = (shelter) => {
-    //     this.setState({selectedSpot: shelter})
-    // }
-
-    // resetSpot = () => {
-    //     this.setState({selectedSpot: null})
-    // }
-
-
     render(){
-    return(
-        <div className="map">
-            <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/cki678vrg0y5q19o8wvrb9bj7"
-            onViewportChange={(viewport => this.setState({viewport}))}
-            mapboxApiAccessToken="pk.eyJ1IjoibGlhbmdhIiwiYSI6ImNraG9kODF6djAybDkyd3FsMnhxcG8wMmsifQ.5Z8qlJahYdbW_JlGhhs1hQ">
-                <Markers data={shelters}  />
-            </ReactMapGL>
-        </div>
-    )}
+        return(
+            <div className="map">
+                <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/cki678vrg0y5q19o8wvrb9bj7"
+                onViewportChange={(viewport => this.setState({viewport}))}
+                mapboxApiAccessToken="pk.eyJ1IjoibGlhbmdhIiwiYSI6ImNraG9kODF6djAybDkyd3FsMnhxcG8wMmsifQ.5Z8qlJahYdbW_JlGhhs1hQ">
+                    <Markers data={shelters}  />
+                </ReactMapGL>
+            </div>
+        )}
 }
 
 export default Map
