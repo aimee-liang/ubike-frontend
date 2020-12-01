@@ -1,6 +1,6 @@
 import React from "react"
 import {PureComponent} from "react"
-import ReactMapGL, {Marker} from "react-map-gl"
+import ReactMapGL, {Marker, Popup} from "react-map-gl"
 
 const shelters=[
     {name: "Dekalb Ave & Flatbush Ave", longitude: -73.981096, latitude: 40.689851},
@@ -26,7 +26,7 @@ class Markers extends PureComponent{
     render(){
         const {data}=this.props 
         return data.map(
-            shelter => <Marker key={shelter.name} longitude={shelter.longitude} latitude={shelter.latitude}><img className="location-pin" src="/green-location-pin.png"/></Marker>
+            shelter => <Marker key={shelter.name} longitude={shelter.longitude} latitude={shelter.latitude}><img alt="" className="location-pin" src="/green-location-pin.png"/></Marker>
         )
     }
 }
@@ -39,17 +39,26 @@ class Map extends React.Component{
             latitude: 40.730610,
             longitude: -73.935242,
             zoom: 10
-        }
+        },
+        // selectedSpot: null
     }
+
+    // setSelectedSpot = (shelter) => {
+    //     this.setState({selectedSpot: shelter})
+    // }
+
+    // resetSpot = () => {
+    //     this.setState({selectedSpot: null})
+    // }
+
 
     render(){
     return(
         <div className="map">
             <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/cki678vrg0y5q19o8wvrb9bj7"
-            // mapStyle="mapbox://styles/lianga/ckhppbi8209vs19qtm3yamjmt"
             onViewportChange={(viewport => this.setState({viewport}))}
             mapboxApiAccessToken="pk.eyJ1IjoibGlhbmdhIiwiYSI6ImNraG9kODF6djAybDkyd3FsMnhxcG8wMmsifQ.5Z8qlJahYdbW_JlGhhs1hQ">
-                <Markers data={shelters} />
+                <Markers data={shelters}  />
             </ReactMapGL>
         </div>
     )}
