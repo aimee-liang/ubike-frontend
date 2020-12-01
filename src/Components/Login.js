@@ -24,21 +24,28 @@ class Login extends React.Component{
     
     render(){
         return(
-            <div className="login-body">
+            <div className="login-background">
 
-            <p>Login</p>
+                <div className="login-body">
 
-            <form className="login-form" onSubmit={this.localLoginHandler}>
+                    <div className="logo">
+                        <img alt="" src ="/ubike-logo.png" />
+                    </div>
+
+
+                    <form className="login-form" onSubmit={this.localLoginHandler}>
+                        
+                        <p>Login</p>
+                        <input type="text" name="username" placeholder="Enter Username" value={this.state.username} onChange={this.changeHandler} />
+                        <input type="password" name="password" placeholder="Enter Password" value={this.state.password} onChange={this.changeHandler} />
+                        {/* <button input="submit" value="Log In"> Login </button> */}
+                        <br></br>
+                        <Button variant="contained" color="primary" type="submit" value="Log In"> Login </Button>
+                    
+                    </form>
+
+                </div>
                 
-                <input type="text" name="username" placeholder="Enter Username" value={this.state.username} onChange={this.changeHandler} />
-                <input type="password" name="password" placeholder="Enter Password" value={this.state.password} onChange={this.changeHandler} />
-                {/* <button input="submit" value="Log In"> Login </button> */}
-                <br></br>
-                <Button variant="contained" color="primary" type="submit" value="Log In"> Login </Button>
-
-            
-            </form>
-
             </div>
         )
     }

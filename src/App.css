@@ -43,7 +43,7 @@
   border: 1px solid black;
   width: 25vw;
   height: 50vh;
-  left: -50vw;
+  left: -70vw;
   z-index: 100;
 }
 
@@ -75,14 +75,50 @@
 
 }
 
+.login-background {
+  height: 100vh;
+  width: 100vw;
+  /* background-color: yellow; */
+  position: fixed;
+  top: 0;
+  z-index: -1000;
+}
+
 .login-body {
   background-color: #AFC9D4;  
-  height: 1000px;
-  width: auto;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%; 
+  display: table;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  height: 50vh;
+}
+
+.logo {
+  width: 25vw;
+  padding-left: 20px;
+}
+
+.logo img{
+  width: 25vw;
 }
 
 .login-form {
-  
+  float: right; 
+  width: 25vw;
+}
+
+.login-form p{
+  text-align: center;
+}
+
+.login-form input, .login-form p, .login-form Button{
+  display: block;
+  text-align: center;
+  margin: 2vh auto;
 }
 
 .default-pic {
