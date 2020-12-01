@@ -63,7 +63,7 @@
 }
 
 .home {
-  display: grid
+  display: flex;
 }
 
 .map {
@@ -112,8 +112,6 @@
   float: right; 
   width: 25vw;
   text-align: center;
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
 .login-form p {

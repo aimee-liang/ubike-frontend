@@ -1,5 +1,5 @@
 import React from "react"
-// import CustomChatBot from "../Components/CustomChatbot"
+import CustomChatBot from "../Components/CustomChatbot"
 import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
 
@@ -8,7 +8,6 @@ class Home extends React.Component{
         bikesAPI: [],
         searchValue: "All",
         clicked: false,
-        // available: 0
     }
 
     componentDidMount(){
@@ -44,47 +43,14 @@ class Home extends React.Component{
     }
 
     /* TO DO: update bike racks available */
-    // decreaseAvailableBikeRacks = (stationId) => {
-    //     fetch(`http://localhost:3000/api/v1/bike_stations/${stationId}`,{
-    //         method: "PATCH",
-    //         headers: {
-    //             "content-type": "application/json",
-    //             accepts: "application/json",
-    //         },
-    //     body: JSON.stringify({
-    //         bike_station: {
-
-    //         }
-    //     })
-    //     })
-    // }
-
-    // increaseAvailableBikeRacks = (station) => {
-    //     fetch(`http://localhost:3000/api/v1/bike_stations/${station.id}`,{
-    //         method: "PATCH",
-    //         headers: {
-    //             "content-type": "application/json",
-    //             accepts: "application/json",
-    //         },
-    //     body: JSON.stringify({
-    //         bike_station: {
-    //         id: station.id,
-    //         location: station.location,
-    //         borough: station.borough,
-    //         // available_bike_racks: += 1
-    //         }
-    //     })
-    //     })
-    // }
 
     render(){
         return(
             <div className="home">
                 <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} setStationIdForFilteringReviews={this.props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.props.setBikeObjToDisplayInShowPage} />
                 <Map />
-                {/* <button onClick={this.clickHandler}></button> */}
-                {/* {this.state.clicked ? <CustomChatBot /> : null } */}
-                {/* <CustomChatBot /> */}
+                <button onClick={this.clickHandler}>Click Me!</button>
+                {this.state.clicked ? <CustomChatBot /> : null }
             </div>
         )
     }
