@@ -29,7 +29,7 @@ class Login extends React.Component{
                 <div className="login-body">
 
                     <div className="logo">
-                        <img alt="" src ="/ubike-logo.png" />
+                        <img alt="" src ="/ubike.png" />
                     </div>
 
 
