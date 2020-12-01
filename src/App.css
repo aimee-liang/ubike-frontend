@@ -75,19 +75,18 @@
 
 }
 
-
-.bike-stock-photo {
-  width: 130px;
-  height: 100px;
-}
-
 .chatbot {
   float: right;
 }
 
+.filter-boroughs {
+  height: 8vh;
+  width: 50vw;
+}
+
 .bike-stations-container {
-  height: 50vh;
-  width: 45vw;
+  height: 92vh;
+  width: 50vw;
   flex-wrap: wrap;
 }
 
@@ -96,10 +95,24 @@
   height: 3vh;
 }
 
+.home-background{
+  height: 100vh;
+  width: 100vw;
+}
+
 .individual-station {
   font-family: 'Raleway', sans-serif;
-  border: 1px solid black
+  border: 1px solid black;
+  height: 20vh;
+  width: 13vw;
+  text-align: center;
 }
+
+.bike-stock-photo {
+  width: 90px;
+  height: 90px;
+}
+
 
 .location-pin {
   height: 25px;

@@ -12,7 +12,6 @@ class BikeStation extends React.Component {
             clicked: !previousState.clicked
         }))
         this.props.checkedIn(this.props.bike)
-        // this.props.bike.available_bike_racks -= 1 /* need to update this to a PATCH request to the backend */
     }
 
     favoriteHandler = (e) => {
