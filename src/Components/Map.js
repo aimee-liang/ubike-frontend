@@ -45,7 +45,8 @@ class Map extends React.Component{
     render(){
     return(
         <div className="map">
-            <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/ckhppbi8209vs19qtm3yamjmt"
+            <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/cki678vrg0y5q19o8wvrb9bj7"
+            // mapStyle="mapbox://styles/lianga/ckhppbi8209vs19qtm3yamjmt"
             onViewportChange={(viewport => this.setState({viewport}))}
             mapboxApiAccessToken="pk.eyJ1IjoibGlhbmdhIiwiYSI6ImNraG9kODF6djAybDkyd3FsMnhxcG8wMmsifQ.5Z8qlJahYdbW_JlGhhs1hQ">
                 <Markers data={shelters} />
