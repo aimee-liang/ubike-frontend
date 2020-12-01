@@ -2,7 +2,6 @@ import React from "react"
 import CustomChatBot from "../Components/CustomChatbot"
 import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
-// import FaceTwoToneIcon from '@material-ui/icons/FaceTwoTone';
 
 class Home extends React.Component{
     state={
@@ -50,7 +49,9 @@ class Home extends React.Component{
             <div className="home-background">
                 <div className="home">
                     <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} setStationIdForFilteringReviews={this.props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.props.setBikeObjToDisplayInShowPage} />
+                <div className="map-container">
                     <Map />
+                </div>
                 </div>
                     <button className="livechat" onClick={this.clickHandler}>Surprise Button</button>
                     {/* {this.state.clicked ? <CustomChatBot /> : null } */}

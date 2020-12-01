@@ -1,6 +1,8 @@
 
 .App {
   text-align: center;
+  /* background-color: #C8E0F4; */
+
 }
 /* 
 .App-logo {
@@ -63,9 +65,9 @@
 }
 
 .home {
-  display: flex;
-  width: 50vw;
-  height: 50vh;
+  width: auto;
+  height: auto;
+  background-color: #C8E0F4;
 }
 
 .map {
@@ -73,13 +75,24 @@
   right: 0px
 }
 
+.map-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  opacity: 1;
+  width: 50%;
+}
+
 .menuToggle {
 
 }
 
 .home-background{
-  height: 100vh;
-  width: 100vw;
+  top: 0;
+  position: sticky;
+  height: auto;
+  width: 100%;
 }
 
 .chatbot {
@@ -88,9 +101,7 @@
 
 .bike-stations {
   height: 100vh;
-  width: 50vw;
-  background-color: #C8E0F4;
-  
+  width: 50%;  
 }
 
 .filter-boroughs {
@@ -99,31 +110,51 @@
 }
 
 .bike-stations-container {
-  /* height: 50vh;
-  width: 50vw; */
-  /* border: 1px solid black; */
-  display: grid;
-  align-items: center;
+  width: 100%;
+  height: 90vh;
+  overflow: scroll;
 }
 
-.livechat {
-  width: 5vw;
-  height: 3vh;
+.bike-stations-container::-webkit-scrollbar{
+  scroll-behavior: smooth;
 }
-
 
 .individual-station {
   font-family: 'Raleway', sans-serif;
   border: 1px solid black;
-  height: 20vh;
-  width: 13vw;
+  height: auto;
+  width: 30%;
   text-align: center;
-  flex-wrap: wrap;
+  margin: 1%;
+  float: left;
+  min-height: 230px;
+  border-radius: 20px;
+  transition: 1s;
+  padding-top: 20px;
 }
+
+.individual-station:hover{
+  transform: scale(1.01);
+}
+
+.livechat {
+  width: 150px;
+  height: 40px;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border: none;
+  border-radius: 20px;
+  font-weight: 700;
+  background-color: green;
+  color: white;
+}
+
 
 .bike-stock-photo {
   width: 85px;
   height: 85px;
+  border-radius: 20px;
 }
 
 

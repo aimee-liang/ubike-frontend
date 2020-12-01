@@ -34,13 +34,12 @@ class Markers extends PureComponent{
 class Map extends React.Component{
     state={
         viewport:{
-            width: "50vw",
+            width: "51vw",
             height: "100vh",
             latitude: 40.730610,
             longitude: -73.935242,
             zoom: 10
         },
-        // selectedSpot: null
     }
 
     render(){
