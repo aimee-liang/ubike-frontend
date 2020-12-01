@@ -25,8 +25,8 @@ class BikeStations extends React.Component{
             <>
                 <FilterBoroughs searchBorough={this.props.searchBorough} searchValue={this.props.searchValue} />
                 {this.renderBikes}
-                <button onClick={this.clickHandler}>Live Chat</button>
-                {this.state.clicked ? <CustomChatBot /> : null}
+                {/* some toggle functionality */}
+                <CustomChatBot />
             </>
         )
     }
