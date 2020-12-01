@@ -111,16 +111,22 @@
 .login-form {
   float: right; 
   width: 25vw;
-}
-
-.login-form p{
   text-align: center;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
-.login-form input, .login-form p, .login-form Button{
+.login-form p {
+  font-family: 'Oxygen', sans-serif;
+  font-size: x-large;
+  text-align: center
+}
+
+
+.login-form input, .login-form p, .login-form Button, .login-form TextField {
   display: block;
   text-align: center;
-  margin: 2vh auto;
+  margin: 1vh auto;
 }
 
 .default-pic {

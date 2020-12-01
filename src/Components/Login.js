@@ -1,6 +1,7 @@
 import React from "react"
-import {styled} from "@material-ui/core/styles"
+// import {makeStyles, styled} from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
+import TextField from '@material-ui/core/TextField';
 
 class Login extends React.Component{
     state={
@@ -21,6 +22,7 @@ class Login extends React.Component{
             password: ""
         }))
     }    
+
     
     render(){
         return(
@@ -33,11 +35,12 @@ class Login extends React.Component{
                     </div>
 
 
-                    <form className="login-form" onSubmit={this.localLoginHandler}>
+                    <form className="login-form" noValidate autoComplete="off" onSubmit={this.localLoginHandler}>
                         
                         <p>Login</p>
-                        <input type="text" name="username" placeholder="Enter Username" value={this.state.username} onChange={this.changeHandler} />
-                        <input type="password" name="password" placeholder="Enter Password" value={this.state.password} onChange={this.changeHandler} />
+                        <TextField required id="standard-required" label="Enter Username" input type="text" input="true" name="username" value={this.state.username} onChange={this.changeHandler} />
+                        <br></br>
+                        <TextField required id="standard-required" label="Enter Password" input type="password" input="true" name="password" value={this.state.password} onChange={this.changeHandler} />
                         {/* <button input="submit" value="Log In"> Login </button> */}
                         <br></br>
                         <Button variant="contained" color="primary" type="submit" value="Log In"> Login </Button>

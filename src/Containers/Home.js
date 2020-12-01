@@ -1,4 +1,5 @@
 import React from "react"
+// import CustomChatBot from "../Components/CustomChatbot"
 import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
 
@@ -6,6 +7,7 @@ class Home extends React.Component{
     state={
         bikesAPI: [],
         searchValue: "All",
+        clicked: false,
         // available: 0
     }
 
@@ -33,6 +35,12 @@ class Home extends React.Component{
             })
         } 
         return arrayOfBikeStations
+    }
+
+    clickHandler = () => {
+        this.setState(previousState => ({
+            clicked: !previousState.clicked
+        }))
     }
 
     /* TO DO: update bike racks available */
@@ -74,6 +82,9 @@ class Home extends React.Component{
             <div className="home">
                 <BikeStations bikes={this.sortByBorough()} searchBorough={this.searchBorough} searchValue={this.state.searchValue} addFaves={this.props.addFaves} checkedIn={this.props.checkedIn} setStationIdForFilteringReviews={this.props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={this.props.setBikeObjToDisplayInShowPage} />
                 <Map />
+                {/* <button onClick={this.clickHandler}></button> */}
+                {/* {this.state.clicked ? <CustomChatBot /> : null } */}
+                {/* <CustomChatBot /> */}
             </div>
         )
     }
