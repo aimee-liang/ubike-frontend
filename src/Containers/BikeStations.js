@@ -9,10 +9,10 @@ const BikeStations = (props) => {
     const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={props.setBikeObjToDisplayInShowPage} />)
 
     return(
-        <>
+        <div className="bike-stations-container">
             <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
             {renderBikes}
-        </>
+        </div>
     )
 }
 
