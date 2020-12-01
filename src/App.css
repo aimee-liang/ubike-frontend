@@ -50,18 +50,30 @@
 }
 
 .sidebar {
-  position: absolute;
-  border: 1px solid black;
+  position: fixed;
+  left: 0;
   width: 25vw;
   height: 50vh;
   z-index: 100;
   background-color: #ffffff;
+  display: block;
+}
+
+.menu a{
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 18pt;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .menu {
-  transition: 3s;
-  transform-origin: 0% 0%;
-  transform: translate(100%, 0);
+  transition: 1s;
+  /* transform-origin: 0% 0%; */
+  /* transform: translate(100%, 0); */
+
 }
 
 .home {
@@ -85,7 +97,12 @@
 }
 
 .menuToggle {
-
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+  border: none;
+  font-size: 30pt;
 }
 
 .home-background{
@@ -107,6 +124,10 @@
 .filter-boroughs {
   height: 8vh;
   width: 49vw;
+}
+
+.filter-boroughs p {
+  margin-top: 0;
 }
 
 .bike-stations-container {
