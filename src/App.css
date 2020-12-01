@@ -82,12 +82,15 @@
 .filter-boroughs {
   height: 8vh;
   width: 50vw;
+  border: 1px solid black;
+
 }
 
 .bike-stations-container {
   height: 92vh;
   width: 50vw;
   flex-wrap: wrap;
+  /* border: 1px solid black; */
 }
 
 .livechat {
