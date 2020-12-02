@@ -5,7 +5,8 @@ import Button from "@material-ui/core/Button"
 class BikeStation extends React.Component {
 
     state={
-        clicked: false
+        clicked: false,
+        liked: false
     }
 
     clickHandler = (e) => {
@@ -15,8 +16,12 @@ class BikeStation extends React.Component {
         this.props.checkedIn(this.props.bike)
     }
 
+
     favoriteHandler = (e) => {
         this.props.addFaves(this.props.bike)
+        this.setState(previousState => ({
+            liked: !previousState.liked
+        }))
     }
 
     localFilter = (e) => {
@@ -36,7 +41,7 @@ class BikeStation extends React.Component {
     
                         {/* <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p> */}
                         <Button variant="contained" onClick={this.clickHandler}> { this.state.clicked ? "You've checked in!": "Check In" } </Button> 
-                        <Button variant="contained" color="secondary" onClick={this.favoriteHandler}>{this.state.clicked ? "♡ Liked!" : "Like"}</Button>
+                        <Button variant="contained" color="secondary" onClick={this.favoriteHandler}>{ this.state.liked ? "♡ Liked!" : "Like"}</Button>
                     </span>   
                     
             </div>

@@ -53,8 +53,8 @@ class Home extends React.Component{
                     <Map />
                 </div>
                 </div>
-                    <button className="livechat" onClick={this.clickHandler}>Surprise Button</button>
-                    {this.state.clicked ? <CustomChatBot /> : null }
+                    <button className={this.state.clicked ? "livechat open":"livechat"} onClick={this.clickHandler}>{this.state.clicked ? "x" : "Surprise Button"}</button>
+                    {this.state.clicked ? <div className="chatbot-container"> <CustomChatBot /> </div> : null }
             </div>
         )
     }
