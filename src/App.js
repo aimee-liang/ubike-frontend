@@ -220,7 +220,8 @@ unlike = (faveId) => {
   render(){
     return (
       <>
-        <SideBar user={this.state.user} logOut={this.logOut} />
+      {this.state.user ? <SideBar user={this.state.user} logOut={this.logOut} /> : null }
+        {/*<SideBar user={this.state.user} logOut={this.logOut} / */ }
 
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
