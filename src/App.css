@@ -296,6 +296,7 @@
 }
 
 .show-page-components {
+  align-items: center;
 }
 
 .profile-page {
@@ -310,6 +311,12 @@
 
 .reviews {
   align-items: center;
+  border: solid 2px white;
+  width: 50%;
+  height: auto;
+  border-radius: 25px;
+  margin: auto;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .submit-reviews {
