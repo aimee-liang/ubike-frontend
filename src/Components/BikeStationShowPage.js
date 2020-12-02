@@ -55,7 +55,7 @@ class BikeStationShowPage extends React.Component {
             <>
             <div className="show-page-container">
 
-                <PhotosContainer photos={this.props.bikeObj.photos} />
+                <PhotosContainer photos={this.props.bikeObj.photos} className="photos-container"/>
                     <h3>{this.props.bikeObj.location}</h3>
                     <h4>{this.props.bikeObj.borough}</h4>
 

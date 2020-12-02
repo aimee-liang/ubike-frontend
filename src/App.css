@@ -250,5 +250,26 @@
 }
 
 .show-page-container {
-  align-items: center;
+  text-align: center;
+  background-color: #78A1BB;
+  width: 100%;
+  height: 100%;
+}
+
+.photos-container {
+  border-style: solid;
+  border-color: ;
+}
+
+.about-me {
+  text-align: center;
+  /* font-family: ; */
+}
+
+.currently-checked-status {
+  text-align: center;
+}
+
+.fav-stations-div {
+  text-align: center;
 }

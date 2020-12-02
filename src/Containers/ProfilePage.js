@@ -3,6 +3,7 @@ import EditProfileForm from "../Components/EditProfileForm"
 import FavoriteStationsContainer from "./FavoriteStationsContainer"
 import CheckInSpan from "../Components/CheckInSpan"
 import {Redirect} from "react-router-dom"
+import Button from "@material-ui/core/Button"
 
 class ProfilePage extends React.Component{
 
@@ -51,7 +52,7 @@ class ProfilePage extends React.Component{
                         <p>Name: {this.props.user.name}</p>
                         <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                         <p>Bike Info: {this.props.user.bike}</p>
-                        <button onClick={() => this.setState({profile: true}) }>Edit Profile</button>
+                        <Button variant="outlined" color="primary" onClick={() => this.setState({profile: true}) }>Edit Profile</Button>
                         {this.state.profile ? this.clickToEditProfile() : null }
                     </div>
     
