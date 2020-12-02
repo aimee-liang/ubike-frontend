@@ -198,7 +198,6 @@ unlike = (faveId) => {
       })
   }
 
-
 /* find the one check in which is set in state, deletes it */
   checkOut = (checkedInId) => {
     const token = localStorage.getItem("secret")
@@ -221,7 +220,6 @@ unlike = (faveId) => {
     return (
       <>
       {this.state.user ? <SideBar user={this.state.user} logOut={this.logOut} /> : null }
-        {/*<SideBar user={this.state.user} logOut={this.logOut} / */ }
 
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
