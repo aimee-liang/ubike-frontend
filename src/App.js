@@ -217,6 +217,7 @@ unlike = (faveId) => {
 
 
   render(){
+    console.log(this.state.check_in)
     return (
       <>
       {this.state.user ? <SideBar user={this.state.user} logOut={this.logOut} /> : null }

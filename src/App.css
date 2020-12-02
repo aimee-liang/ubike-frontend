@@ -264,7 +264,7 @@
 
 .login-form p {
   font-family: 'Oxygen', sans-serif;
-  font-size: x-large;
+  font-size: large;
   text-align: center
 }
 
@@ -272,7 +272,8 @@
 .login-form input, .login-form p, .login-form Button, .login-form TextField {
   display: block;
   text-align: center;
-  margin: 1vh auto;
+  margin: 0.4vh auto;
+  
 }
 
 .default-pic {

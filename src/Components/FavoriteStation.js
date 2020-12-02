@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "@material-ui/core/Button"
 
 const FavoriteStation = props => {
 
@@ -9,7 +10,7 @@ const FavoriteStation = props => {
     return(
         <>
         <p>{props.station.location} in {props.station.borough}</p>
-        <button onClick={clickHandler}>Unfavorite this station</button>
+        <Button variant="outlined" color="secondary" onClick={clickHandler}>Unfavorite this station</Button>
         </>
     )
 }

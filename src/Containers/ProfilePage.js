@@ -37,6 +37,15 @@ class ProfilePage extends React.Component{
             profile: !previousState.profile
         }))
     }
+
+    hasUserCheckInProps = () => {
+        if (this.props.check_in.length >= 1){
+            this.displayCheckedIn() 
+            return <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button">Check Out</Button>
+        } else if (this.props.check_in === null) {
+            return this.displayNotCheckedIn()
+        }
+    }
     
     render(){
         return(
@@ -58,8 +67,9 @@ class ProfilePage extends React.Component{
     
                     <div className="currently-checked-status">
                         <i className="fas fa-map-pin"></i><h3>Status</h3>
-                        {this.props.check_in === null ? this.displayNotCheckedIn() : this.displayCheckedIn() }
-                        {this.props.check_in === null ? null : <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> }
+                        {this.hasUserCheckInProps()}
+                        {/* {this.props.check_in.length ? this.displayCheckedIn() && <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> : null } */}
+                        {/* {this.props.check_in === null ? null : <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> } */}
                     </div>
     
                     <div className="fav-stations-div">
