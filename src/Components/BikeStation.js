@@ -1,5 +1,6 @@
 import React from "react"
 import { NavLink } from "react-router-dom";
+import Button from "@material-ui/core/Button"
 
 class BikeStation extends React.Component {
 
@@ -34,8 +35,8 @@ class BikeStation extends React.Component {
                         </NavLink>
     
                         {/* <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p> */}
-                        <button onClick={this.clickHandler}> { this.state.clicked ? "You've checked in!": "Check In" } </button> 
-                        <button onClick={this.favoriteHandler}>{this.state.clicked ? "Liked!" : "Like"}</button>
+                        <Button variant="contained" onClick={this.clickHandler}> { this.state.clicked ? "You've checked in!": "Check In" } </Button> 
+                        <Button variant="contained" color="secondary" onClick={this.favoriteHandler}>{this.state.clicked ? "♡ Liked!" : "Like"}</Button>
                     </span>   
                     
             </div>
