@@ -22,7 +22,7 @@ export default class ReviewsForm extends React.Component{
 
     render(){
         return(
-            <form className="submit-reviews" onSubmit={this.localSubmitComments}>
+            <form onSubmit={this.localSubmitComments}>
                 <TextField id="outlined-basic" variant="outlined" input type="textarea" name="comment" value={this.state.comment} label="Write a comment..." onChange={this.changeHandler} />
                 <br></br>
                 <br></br>
