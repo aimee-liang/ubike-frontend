@@ -1,7 +1,7 @@
 import React from "react"
 // import {makeStyles, styled} from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField"
 import {NavLink} from "react-router-dom"
 
 class Login extends React.Component{
@@ -38,7 +38,8 @@ class Login extends React.Component{
 
                     <form className="login-form" noValidate autoComplete="off" onSubmit={this.localLoginHandler}>
                         
-                        <p>Login</p>
+                        <h4>Login</h4>
+
                         <TextField required id="standard-required" label="Enter Username" input type="text" input="true" name="username" value={this.state.username} onChange={this.changeHandler} />
                         <br></br>
                         <TextField required id="standard-required" label="Enter Password" input type="password" input="true" name="password" value={this.state.password} onChange={this.changeHandler} />

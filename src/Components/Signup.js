@@ -1,5 +1,6 @@
 import React from "react"
 import Button from "@material-ui/core/Button"
+import TextField from "@material-ui/core/TextField"
 import {NavLink} from "react-router-dom"
 
 class Signup extends React.Component{
@@ -44,11 +45,11 @@ class Signup extends React.Component{
 
                     <form className="login-form" noValidate autoComplete="off" onSubmit={this.localLoginHandler}></form>
 
-                        <h4 className="create-account">Join ubike</h4>
+                        <h4>Join ubike</h4>
             
                             <form onSubmit={this.localSignupHandler}>
-                                <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.changeHandler} />
-                                <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeHandler} />
+                                <TextField required id="standard-required" label="Name" input type="text" input="true" name="name" value={this.state.name} onChange={this.changeHandler} />
+                                <TextField required id="standard-required" label="Username" input type="text" input="true" name="username" value={this.state.username} onChange={this.changeHandler} />
                                 <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.changeHandler} />
                                 <input type="text" name="bike" placeholder="Bike details" value={this.state.bicycle} onChange={this.changeHandler} />
                                 <input type="text" name="bio" placeholder="Bio" value={this.state.bio} onChange={this.changeHandler} />
