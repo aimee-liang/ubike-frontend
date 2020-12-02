@@ -53,7 +53,7 @@ class Home extends React.Component{
                     <Map />
                 </div>
                 </div>
-                    <button className={this.state.clicked ? "livechat open":"livechat"} onClick={this.clickHandler}>{this.state.clicked ? "x" : "Live Chat"}</button>
+                    <button className={this.state.clicked ? "livechat open":"livechat"} onClick={this.clickHandler}>{this.state.clicked ? "x" : <i className="fas fa-comments"></i>}</button>
                     {this.state.clicked ? <div className="chatbot-container"> <CustomChatBot /> </div> : null }
             </div>
         )
