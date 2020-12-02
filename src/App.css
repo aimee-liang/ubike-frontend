@@ -1,8 +1,6 @@
 
 .App {
   text-align: center;
-  /* background-color: #C8E0F4; */
-
 }
 /* 
 .App-logo {
@@ -289,26 +287,30 @@
   height: 100%;
 }
 
+.profile-page {
+  width: 100%;
+  height: auto;
+}
+
 .photos-container {
   border-style: solid;
   border-color: black;
 }
 
-.about-me {
-  text-align: center;
+/* .about-me {
+  /* text-align: center; */
   /* font-family: ; */
+/* } */
+
+.profile-pic-container {
+  text-align: center;
+  width: 50vh;
 }
 
 .currently-checked-status {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .fav-stations-div {
-  text-align: center;
-}
-
-.check-in-span {
-  border-style: solid;
-  border-width: thick;
-  border-color: black;
+  /* text-align: center; */
 }

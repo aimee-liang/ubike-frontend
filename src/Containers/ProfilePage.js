@@ -42,12 +42,12 @@ class ProfilePage extends React.Component{
         return(
             <>
             {this.props.user ? 
-                <>
-                    <div className="about-me">
-                        <div>
+                <div className="profile-page"> 
+                        <div className = "profile-pic-container">
                             <img alt="" className="default-pic"  src={this.props.user.avatar ? this.props.user.avatar : "/Octocat.png" }/>
                         </div>
 
+                    <div className="about-me">
                         <h4>@{this.props.user.username}</h4>
                         <p>Name: {this.props.user.name}</p>
                         <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
@@ -57,22 +57,21 @@ class ProfilePage extends React.Component{
                     </div>
     
                     <div className="currently-checked-status">
-                        <h4>Status</h4>
+                        <i className="fas fa-map-pin"></i><h3>Status</h3>
                         {this.props.check_in === null ? this.displayNotCheckedIn() : this.displayCheckedIn() }
                         {this.props.check_in === null ? null : <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> }
                     </div>
     
                     <div className="fav-stations-div">
-                        <h4>@{this.props.user.username}'s Favorite Stations</h4>
+                        <h3>@{this.props.user.username}'s Favorite Stations</h3>
                         {this.props.user.favorite_stations.length ?
                             <FavoriteStationsContainer filterFavorites={this.props.favorites} unlike={this.props.unlike}/> 
                                 :
                             "This user did not favorite any stations."
                     }
-                    
                     </div>
                     
-                </>
+                </div>
             : <Redirect to="/home" /> }
         </>
         )
