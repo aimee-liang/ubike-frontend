@@ -62,13 +62,13 @@ class BikeStationShowPage extends React.Component {
                         <h3>{this.props.bikeObj.location}</h3>
                         <h4>{this.props.bikeObj.borough}</h4>
 
+                    <div className="reviews">
                         <p>Please keep our community guidelines in mind when you write a review.</p>
                         <ReviewsForm submitComments={this.submitComments} />
 
-                        <div>
-                            <h4>All Reviews </h4>
-                            <ReviewsContainer filterReviews={this.filterReviews()} />
-                        </div>
+                        <h4>All Reviews </h4>
+                        <ReviewsContainer filterReviews={this.filterReviews()} />
+                    </div>
 
                 </div>
             

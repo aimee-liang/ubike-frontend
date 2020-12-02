@@ -295,6 +295,9 @@
   height: 100vh;
 }
 
+.show-page-components {
+}
+
 .profile-page {
   width: 100%;
   height: auto;
@@ -305,10 +308,20 @@
   padding-top: 5px;
 }
 
-/* .about-me {
-  /* text-align: center; */
-  /* font-family: ; */
-/* } */
+.reviews {
+  align-items: center;
+}
+
+.submit-reviews {
+
+}
+
+.submit-reviews input{
+  display: block;
+  text-align: center;
+  margin: 0.2vh auto;
+  width: 13vw;
+}
 
 .profile-pic-container {
   text-align: center;

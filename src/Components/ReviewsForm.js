@@ -22,8 +22,8 @@ export default class ReviewsForm extends React.Component{
 
     render(){
         return(
-            <form onSubmit={this.localSubmitComments}>
-                <TextField id="outlined-basic" variant="outlined" input type="textarea" name="comment" value={this.state.comment} label="Write a comment" onChange={this.changeHandler} />
+            <form className="submit-reviews" onSubmit={this.localSubmitComments}>
+                <TextField id="outlined-basic" variant="outlined" input type="textarea" name="comment" value={this.state.comment} label="Write a comment..." onChange={this.changeHandler} />
                 <br></br>
                 <br></br>
                 <Button variant="contained" color="primary" type="submit" value="Submit comment"> <AddCommentIcon/> &nbsp;Submit</Button>
