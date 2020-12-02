@@ -48,7 +48,8 @@ class BikeStationShowPage extends React.Component {
         this.setState(() => ({
             reviews: updatedReviews
         }))
-    })}
+    })
+    }
 
     render(){
         return(
