@@ -196,7 +196,7 @@ unlike = (faveId) => {
           check_in: [arrayToDelete]
         }))
       })
-  }
+    }
 
 /* find the one check in which is set in state, deletes it */
   checkOut = (checkedInId) => {
