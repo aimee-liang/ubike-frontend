@@ -43,8 +43,8 @@
 .off-screen {
   position: absolute;
   border: 1px solid black;
-  width: 25vw;
-  height: 50vh;
+  width: 12vw;
+  height: 30vh;
   left: -70vw;
   z-index: 100;
 }
@@ -52,8 +52,8 @@
 .sidebar {
   position: fixed;
   left: 0;
-  width: 25vw;
-  height: 50vh;
+  width: 12vw;
+  height: 30vh;
   z-index: 100;
   background-color: #ffffff;
   display: block;
@@ -305,4 +305,10 @@
 
 .fav-stations-div {
   text-align: center;
+}
+
+.check-in-span {
+  border-style: solid;
+  border-width: thick;
+  border-color: black;
 }

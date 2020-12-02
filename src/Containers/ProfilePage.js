@@ -44,10 +44,11 @@ class ProfilePage extends React.Component{
             {this.props.user ? 
                 <>
                     <div className="about-me">
-                        <h4>@{this.props.user.username}</h4>
                         <div>
                             <img alt="" className="default-pic"  src={this.props.user.avatar ? this.props.user.avatar : "/Octocat.png" }/>
                         </div>
+
+                        <h4>@{this.props.user.username}</h4>
                         <p>Name: {this.props.user.name}</p>
                         <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                         <p>Bike Info: {this.props.user.bike}</p>
@@ -58,7 +59,7 @@ class ProfilePage extends React.Component{
                     <div className="currently-checked-status">
                         <h4>Status</h4>
                         {this.props.check_in === null ? this.displayNotCheckedIn() : this.displayCheckedIn() }
-                        {this.props.check_in === null ? null:  <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> }
+                        {this.props.check_in === null ? null : <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> }
                     </div>
     
                     <div className="fav-stations-div">
