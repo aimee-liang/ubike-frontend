@@ -230,6 +230,29 @@
   border-radius: 25px;
 }
 
+.signup-body {
+  background-color: white;  
+  opacity: 0.8;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%; 
+  display: table;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  width: 50vw;
+  height: 50vh;
+  border-radius: 25px;
+}
+
+.signup-form{
+  float: right;
+  width: 45vw;
+  height: 45vh;
+  text-align: center;
+}
+
 .logo {
   width: 25vw;
   padding-left: 20px;
