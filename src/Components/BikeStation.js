@@ -40,7 +40,7 @@ class BikeStation extends React.Component {
                         </NavLink>
     
                         {/* <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p> */}
-                        <Button variant="contained" onClick={this.clickHandler}> { this.state.clicked ? "You've checked in!": "Check In" } </Button> 
+                        <Button variant="contained" onClick={this.clickHandler}> { this.state.clicked ? "✔️ You've checked in!": "Check In" } </Button> 
                         <Button variant="contained" color="secondary" onClick={this.favoriteHandler}>{ this.state.liked ? "♡ Liked!" : "Like"}</Button>
                     </span>   
                     
