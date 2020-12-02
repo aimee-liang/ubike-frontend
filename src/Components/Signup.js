@@ -60,11 +60,10 @@ class Signup extends React.Component{
                         <TextField required id="standard-required" label="Password" input type="password" input="true" name="password" value={this.state.password} onChange={this.changeHandler} />
                         <br></br>
                         <br></br>
-                        <NavLink to="/login">Sign in</NavLink>
+                        <Button variant="contained" color="primary" type="submit" value="sign up">Create My Account</Button>
                         <br></br>
                         <br></br>
-                        <Button variant="contained" color="primary" type="submit" value="sign up">Sign up </Button>
-
+                        <NavLink to="/login">Log in</NavLink>
                     </form>
                 </div>
             </div>
