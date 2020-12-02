@@ -175,7 +175,8 @@
   border: none;
   border-radius: 20px;
   font-weight: 700;
-  background-color: green;
+  /* background-color: green; */
+  background-color: #390099;
   color: white;
 }
 
@@ -184,6 +185,7 @@
   right:0;
   font-size: 22pt;
   width: 40px;
+  background-color: #390099;
 }
 
 .chatbot-container{
