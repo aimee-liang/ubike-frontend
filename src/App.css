@@ -300,8 +300,10 @@
 }
 
 .profile-page {
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: #78A1BB;
 }
 
 .photos-container {
@@ -328,8 +330,8 @@
 }
 
 .profile-pic-container {
-  text-align: center;
-  width: 50vh;
+  align-items: center;  
+  padding-top: 5px;
 }
 
 .currently-checked-status {

@@ -4,6 +4,7 @@ import FavoriteStationsContainer from "./FavoriteStationsContainer"
 import CheckInSpan from "../Components/CheckInSpan"
 import {Redirect} from "react-router-dom"
 import Button from "@material-ui/core/Button"
+import EditIcon from '@material-ui/icons/Edit';
 
 class ProfilePage extends React.Component{
 
@@ -40,10 +41,10 @@ class ProfilePage extends React.Component{
 
     hasUserCheckInProps = () => {
         if (this.props.check_in.length >= 1){
-            this.displayCheckedIn() 
+            this.displayCheckedIn()
             return <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button">Check Out</Button>
         } else if (this.props.check_in === null) {
-            this.displayNotCheckedIn()
+            return this.displayNotCheckedIn
         }
     }
     
@@ -61,12 +62,12 @@ class ProfilePage extends React.Component{
                         <p>Name: {this.props.user.name}</p>
                         <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                         <p>Bike Info: {this.props.user.bike}</p>
-                        <Button variant="outlined" color="primary" onClick={() => this.setState({profile: true}) }>Edit Profile</Button>
+                        <Button variant="outlined" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button>
                         {this.state.profile ? this.clickToEditProfile() : null }
                     </div>
     
                     <div className="currently-checked-status">
-                        <i className="fas fa-map-pin"></i><h3>Status</h3>
+                        <h3>Status</h3>
                         {this.hasUserCheckInProps()}
                         {/* {this.props.check_in.length ? this.displayCheckedIn() && <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> : null } */}
                         {/* {this.props.check_in === null ? null : <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> } */}
@@ -78,7 +79,7 @@ class ProfilePage extends React.Component{
                             <FavoriteStationsContainer filterFavorites={this.props.favorites} unlike={this.props.unlike}/> 
                                 :
                             "This user did not favorite any stations."
-                    }
+                        }
                     </div>
                     
                 </div>
