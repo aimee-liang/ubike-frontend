@@ -46,24 +46,18 @@ class Signup extends React.Component{
                     <form className="signup-form" noValidate autoComplete="off" onSubmit={this.localSignupHandler}>
 
                         <h3>Join ubike</h3>
-                        <br></br>
-                        <TextField required id="standard-required" label="Name" input type="text" input="true" name="name" value={this.state.name} onChange={this.changeHandler} />
-                        <br></br>
-                        <TextField required id="standard-required" label="Username" input type="text" input="true" name="username" value={this.state.username} onChange={this.changeHandler} />
-                        <br></br>
-                        <TextField required id="standard-required" label="Email" input type="text" input="true" name="email" value={this.state.email} onChange={this.changeHandler} />
-                        <br></br>
-                        <TextField required id="standard-required" label="Bicycle info" input type="text" input="true" name="bike" placeholder="Bike details" value={this.state.bicycle} onChange={this.changeHandler} />
-                        <br></br>
-                        <TextField required id="standard-required" label="About Me" input type="text" name="bio" value={this.state.bio} onChange={this.changeHandler} />
-                        <br></br>
-                        <TextField required id="standard-required" label="Password" input type="password" input="true" name="password" value={this.state.password} onChange={this.changeHandler} />
+                        <TextField required id="outlined-required" label="Name" variant="outlined" input type="text" name="name" value={this.state.name} onChange={this.changeHandler} />
+                        <TextField required id="outlined-required" label="Username" variant="outlined" input type="text" name="username" value={this.state.username} onChange={this.changeHandler} />
+                        <TextField required id="outlined-required" label="Email" variant="outlined" input type="text" name="email" value={this.state.email} onChange={this.changeHandler} />
+                        <TextField required id="outlined-required" label="Bike Details" variant="outlined" input type="text" name="bike" placeholder="Bike details" value={this.state.bicycle} onChange={this.changeHandler} />
+                        <TextField id="outlined" label="About Me" variant="outlined" input type="text" name="bio" value={this.state.bio} onChange={this.changeHandler} />
+                        <TextField required id="outlined-required" label="Password" variant="outlined" input type="password" name="password" value={this.state.password} onChange={this.changeHandler} />
                         <br></br>
                         <br></br>
                         <Button variant="contained" color="primary" type="submit" value="sign up">Create My Account</Button>
                         <br></br>
-                        <br></br>
-                        <NavLink to="/login">Log in</NavLink>
+                        <NavLink to="/login">Log in to my account</NavLink>
+                        
                     </form>
                 </div>
             </div>

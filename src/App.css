@@ -236,15 +236,22 @@
   display: flex;
   align-items: center;
   width: 50vw;
-  height: 50vh;
+  height: 60vh;
   border-radius: 25px;
 }
 
 .signup-form{
   float: right;
   width: 60vw;
-  height: 45vh;
+  height: 50vh;
   text-align: center;
+}
+
+.signup-form input, .signup-form p, .signup-form Button, .signup-form TextField {
+  display: block;
+  text-align: center;
+  margin: 0.1vh auto;
+  width: 12vw
 }
 
 .logo {
