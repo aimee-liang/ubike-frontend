@@ -1,4 +1,6 @@
 import React from "react"
+import Button from "@material-ui/core/Button"
+import AddCommentIcon from '@material-ui/icons/AddComment';
 
 export default class ReviewsForm extends React.Component{
     state={
@@ -22,7 +24,9 @@ export default class ReviewsForm extends React.Component{
         return(
             <form onSubmit={this.localSubmitComments}>
                 <input type="textarea" name="comment" value={this.state.comment} placeholder="Write a comment" onChange={this.changeHandler} />
-                <button input="submit" value="Submit comment">Submit</button>
+                <br></br>
+                <br></br>
+                <Button variant="contained" color="primary" input="submit" value="Submit comment"> <AddCommentIcon/> &nbsp;Submit</Button>
             </form>
         )
     }

@@ -300,6 +300,10 @@
   height: auto;
 }
 
+.photos-container {
+  align-items: center;
+  padding-top: 5px;
+}
 
 /* .about-me {
   /* text-align: center; */
