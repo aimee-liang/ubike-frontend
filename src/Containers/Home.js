@@ -54,7 +54,7 @@ class Home extends React.Component{
                 </div>
                 </div>
                     <button className="livechat" onClick={this.clickHandler}>Surprise Button</button>
-                    {/* {this.state.clicked ? <CustomChatBot /> : null } */}
+                    {this.state.clicked ? <CustomChatBot /> : null }
             </div>
         )
     }
