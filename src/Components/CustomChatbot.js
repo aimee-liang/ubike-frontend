@@ -127,7 +127,7 @@ const steps = [
     },
     {
         id: "Not built!",
-        message: "Unfortunately we haven't built more functionalities to ubike at this time. We will continue to optimize this app though.",
+        message: "Unfortunately we haven't built more functionalities to ubike at this time. We will continue to optimize this app in the meantime.",
         trigger: "Goodbye"
     },
     {
