@@ -258,7 +258,7 @@
 
 .login-form {
   float: right; 
-  width: 25vw;
+  width: 20vw;
   text-align: center;
 }
 
@@ -272,8 +272,8 @@
 .login-form input, .login-form p, .login-form Button, .login-form TextField {
   display: block;
   text-align: center;
-  margin: 0.4vh auto;
-  
+  margin: 0.2vh auto;
+  width: 11vw
 }
 
 .default-pic {
