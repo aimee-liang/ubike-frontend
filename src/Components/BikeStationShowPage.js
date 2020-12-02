@@ -53,20 +53,21 @@ class BikeStationShowPage extends React.Component {
     render(){
         return(
             <>
-            {/* <div>
-                <img alt=""src={this.props.bikeObj.photos ? this.props.bikeObj.photos : "/placeholder.jpg" }  className="default-pic"  />
-            </div> */}
-            <PhotosContainer photos={this.props.bikeObj.photos} />
-                <h3>{this.props.bikeObj.location}</h3>
-                <h4>{this.props.bikeObj.borough}</h4>
+            <div className="show-page-container">
 
-                <p>Please keep our community guidelines in mind when you write a review.</p>
-                <ReviewsForm submitComments={this.submitComments} />
+                <PhotosContainer photos={this.props.bikeObj.photos} />
+                    <h3>{this.props.bikeObj.location}</h3>
+                    <h4>{this.props.bikeObj.borough}</h4>
 
-                <div>
-                    <h4>All Reviews </h4>
-                    <ReviewsContainer filterReviews={this.filterReviews()} />
-                </div>
+                    <p>Please keep our community guidelines in mind when you write a review.</p>
+                    <ReviewsForm submitComments={this.submitComments} />
+
+                    <div>
+                        <h4>All Reviews </h4>
+                        <ReviewsContainer filterReviews={this.filterReviews()} />
+                    </div>
+            
+            </div>
             </>
         )
     }

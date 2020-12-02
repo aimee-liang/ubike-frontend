@@ -70,10 +70,10 @@
 }
 
 .menu {
-  transition: 1s;
+  transition: 0.5s;
+  background-color: #F3F7F0;
   /* transform-origin: 0% 0%; */
   /* transform: translate(100%, 0); */
-
 }
 
 .home {
@@ -247,4 +247,8 @@
 .default-pic {
   width: 200px;
   height: 200px;
+}
+
+.show-page-container {
+  align-items: center;
 }
