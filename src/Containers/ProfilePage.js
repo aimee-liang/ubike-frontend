@@ -44,7 +44,7 @@ class ProfilePage extends React.Component{
             return this.displayCheckedIn()
             // return <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button">Check Out</Button>
         } else if (this.props.check_in === null) {
-            return this.displayNotCheckedIn
+            return this.displayNotCheckedIn()
         }
     }
     
