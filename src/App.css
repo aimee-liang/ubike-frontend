@@ -191,7 +191,8 @@
 
 .bike-stock-photo {
   width: 85px;
-  height: 85px;
+  /* height: 85px; */
+  margin-top: 25px;
   border-radius: 20px;
 }
 
