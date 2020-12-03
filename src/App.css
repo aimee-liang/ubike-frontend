@@ -335,19 +335,17 @@
 }
 
 .profile-page-border {
-  border-style: solid;
-  border-width: thick;
-  border-color: white;
   border-radius: 25px;
+  align-items: center;
+  border: solid 2px white;
+  width: 40vw;
+  height: 60vh;
+  border-radius: 25px;
+  margin: auto;
+  padding-top: 20px;
 }
 
 .profile-pic-container {
   align-items: center;  
   padding-top: 5px;
-}
-
-.currently-checked-status {
-}
-
-.fav-stations-div {
 }

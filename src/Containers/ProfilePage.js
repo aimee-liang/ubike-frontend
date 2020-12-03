@@ -60,8 +60,8 @@ class ProfilePage extends React.Component{
                         </div>
 
                         <div className="about-me">
-                            <h4>@{this.props.user.username}</h4>
-                            <p>Name: {this.props.user.name}</p>
+                            <h3>@{this.props.user.username}</h3>
+                            <h4>Name: {this.props.user.name}</h4>
                             <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                             <p>Bike Info: {this.props.user.bike}</p>
                             <Button variant="contained" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button>
