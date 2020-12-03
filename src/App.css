@@ -340,10 +340,11 @@
   align-items: center;
   border: solid 2px white;
   width: 40vw;
-  height: 60vh;
+  height: auto;
   border-radius: 25px;
   margin: auto;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .profile-pic-container {
