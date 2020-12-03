@@ -305,6 +305,7 @@
   height: 100vh;
   text-align: center;
   background-color: #AED1EA;
+  align-items: center;
 }
 
 .photos-container {
@@ -326,12 +327,18 @@
   font-size: large;
 }
 
-
 .submit-reviews input{
   display: block;
   text-align: center;
   margin: 0.2vh auto;
   width: 13vw;
+}
+
+.profile-page-border {
+  border-style: solid;
+  border-width: thick;
+  border-color: white;
+  border-radius: 25px;
 }
 
 .profile-pic-container {
@@ -340,9 +347,7 @@
 }
 
 .currently-checked-status {
-  /* text-align: center; */
 }
 
 .fav-stations-div {
-  /* text-align: center; */
 }

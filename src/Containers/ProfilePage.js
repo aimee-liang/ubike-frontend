@@ -54,35 +54,37 @@ class ProfilePage extends React.Component{
             <>
             {this.props.user ? 
                 <div className="profile-page"> 
+                    <div className="profile-page-border">
                         <div className = "profile-pic-container">
                             <img alt="" className="default-pic"  src={this.props.user.avatar ? this.props.user.avatar : "/Octocat.png" }/>
                         </div>
 
-                    <div className="about-me">
-                        <h4>@{this.props.user.username}</h4>
-                        <p>Name: {this.props.user.name}</p>
-                        <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
-                        <p>Bike Info: {this.props.user.bike}</p>
-                        <Button variant="contained" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button>
-                        {this.state.profile ? this.clickToEditProfile() : null }
-                    </div>
+                        <div className="about-me">
+                            <h4>@{this.props.user.username}</h4>
+                            <p>Name: {this.props.user.name}</p>
+                            <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
+                            <p>Bike Info: {this.props.user.bike}</p>
+                            <Button variant="contained" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button>
+                            {this.state.profile ? this.clickToEditProfile() : null }
+                        </div>
     
-                    <div className="currently-checked-status">
-                        <h3>Status</h3>
-                        {this.hasUserCheckInProps()}
-                        {/* {this.props.check_in.length ? this.displayCheckedIn() && <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> : null } */}
-                        {this.props.check_in === null ? null : <Button variant="contained" color="secondary" onClick={this.localCheckOut} className="check-out-button"><DirectionsBikeIcon/>&nbsp; Check Out </Button> }
-                    </div>
+                        <div className="currently-checked-status">
+                            <h3>Status</h3>
+                            {this.hasUserCheckInProps()}
+                            {/* {this.props.check_in.length ? this.displayCheckedIn() && <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> : null } */}
+                            {this.props.check_in === null ? null : <Button variant="contained" color="secondary" onClick={this.localCheckOut} className="check-out-button"><DirectionsBikeIcon/>&nbsp; Check Out </Button> }
+                        </div>
     
-                    <div className="fav-stations-div">
-                        <h3>@{this.props.user.username}'s Favorite Stations</h3>
-                        {this.props.user.favorite_stations.length ?
-                            <FavoriteStationsContainer filterFavorites={this.props.favorites} unlike={this.props.unlike}/> 
-                                :
-                            "This user did not favorite any stations."
-                        }
+                        <div className="fav-stations-div">
+                            <h3>@{this.props.user.username}'s Favorite Stations</h3>
+                            {this.props.user.favorite_stations.length ?
+                                <FavoriteStationsContainer filterFavorites={this.props.favorites} unlike={this.props.unlike}/> 
+                                    :
+                                "This user did not favorite any stations."
+                            }
+                        </div>
+
                     </div>
-                    
                 </div>
             : <Redirect to="/home" /> }
         </>
