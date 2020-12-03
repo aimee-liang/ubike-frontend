@@ -5,6 +5,7 @@ import CheckInSpan from "../Components/CheckInSpan"
 import {Redirect} from "react-router-dom"
 import Button from "@material-ui/core/Button"
 import EditIcon from '@material-ui/icons/Edit';
+import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 
 class ProfilePage extends React.Component{
 
@@ -62,7 +63,7 @@ class ProfilePage extends React.Component{
                         <p>Name: {this.props.user.name}</p>
                         <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
                         <p>Bike Info: {this.props.user.bike}</p>
-                        <Button variant="outlined" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button>
+                        <Button variant="contained" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button>
                         {this.state.profile ? this.clickToEditProfile() : null }
                     </div>
     
@@ -70,7 +71,7 @@ class ProfilePage extends React.Component{
                         <h3>Status</h3>
                         {this.hasUserCheckInProps()}
                         {/* {this.props.check_in.length ? this.displayCheckedIn() && <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> : null } */}
-                        {this.props.check_in === null ? null : <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> }
+                        {this.props.check_in === null ? null : <Button variant="contained" color="secondary" onClick={this.localCheckOut} className="check-out-button"><DirectionsBikeIcon/>&nbsp; Check Out </Button> }
                     </div>
     
                     <div className="fav-stations-div">

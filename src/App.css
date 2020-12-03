@@ -291,7 +291,6 @@
 
 .show-page-container {
   text-align: center;
-  /* background-color: #78A1BB; */
   background-color: #AED1EA;
   width: 100vw;
   height: 100vh;
@@ -305,7 +304,7 @@
   width: 100vw;
   height: 100vh;
   text-align: center;
-  background-color: #78A1BB;
+  background-color: #AED1EA;
 }
 
 .photos-container {
