@@ -291,7 +291,8 @@
 
 .show-page-container {
   text-align: center;
-  background-color: #78A1BB;
+  /* background-color: #78A1BB; */
+  background-color: #AED1EA;
   width: 100vw;
   height: 100vh;
 }
@@ -319,7 +320,11 @@
   height: auto;
   border-radius: 25px;
   margin: auto;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.community-guidelines{
+  font-size: large;
 }
 
 
