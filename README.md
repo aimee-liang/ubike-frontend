@@ -19,6 +19,9 @@ All credits to Lucas Bassetti for the React Simple Chatbot feature. You can acce
 ### Images
 I used general stock photos for a bike station placeholder and the bike station show page, and Github's very own Octocat as a default if a user did not upload a photo for their avatar on registration.
 
+### Design
+I used a mix of vanilla CSS, Material UI, and FontAwesome for styling, button and form details, and icons.
+
 ### Stretch Goals
 The next version would include a map safety feature, being able to interact with other users, and transitioning or having a version in React Native as users would be on the go when biking. I set out wanting to use all bike docks, but I was not familiar with Shapefile format and converting that to JSON and had to redirect my app to Bike Shelters due to time constraints. That would also be great to implement. 
 
