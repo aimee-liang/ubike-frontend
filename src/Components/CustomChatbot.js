@@ -5,10 +5,10 @@ import Chatbot from "react-simple-chatbot"
 const theme={
     background: '#f5f8fb',
     fontFamily: 'Helvetica Neue',
-    headerBgColor: '#58A4B0',
+    headerBgColor: '#390099',
     headerFontColor: '#fff',
     headerFontSize: '15px',
-    botBubbleColor: '#58A4B0',
+    botBubbleColor: '#390099',
     botFontColor: '#fff',
     userBubbleColor: '#fff',
     userFontColor: '#4a4a4a',
@@ -127,7 +127,7 @@ const steps = [
     },
     {
         id: "Not built!",
-        message: "Unfortunately we haven't built more functionalities to ubike at this time. We will continue to optimize this app though.",
+        message: "Unfortunately we haven't built more functionalities to ubike at this time. We will continue to optimize this app in the meantime.",
         trigger: "Goodbye"
     },
     {

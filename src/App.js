@@ -77,9 +77,12 @@ class App extends React.Component{
 
 /* Creates a POST with new favorite station */
   favoriteStationsUpdate = (favBikeStation) => {
+  /* new */
+  const token = localStorage.getItem("secret")
     fetch(`http://localhost:3000/api/v1/favorite_stations/`,{
       method: "POST",
       headers: {
+          Authorization: `Bearer ${token}`, /* new */
           "content-type": "application/json",
           accepts: "application/json"
       },
@@ -108,26 +111,28 @@ getUserFavoriteStations = (userId) => {
 
 /* remove from favorite Stations in state */
 unlike = (faveId) => {
+  const token = localStorage.getItem("secret")
   fetch(`http://localhost:3000/api/v1/favorite_stations/${faveId}`,{
     method: "DELETE",
     headers: {
+      Authorization: `Bearer ${token}`,
       "content-type": "application/json",
       accepts: "application/json"
     }
   })
   .then(resp => resp.json())
-  // .then(faveId => {
-    let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
-    this.setState({favorite_stations: filtered})
-  // }
-  // )
+  let filtered = this.state.favorite_stations.filter(station => station.id !== faveId)
+  this.setState({favorite_stations: filtered})
+
 }
 
 /* POST method to check in, invokes getUserCheckIn() which sets state of user's check in */
   currentCheckStatus = (checkedInObj) => {
+    const token = localStorage.getItem("secret")
     fetch(`http://localhost:3000/api/v1/check_ins`, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${token}`,
         "content-type": "application/json",
         accepts: "application/json"
       },
@@ -191,14 +196,15 @@ unlike = (faveId) => {
           check_in: [arrayToDelete]
         }))
       })
-  }
-
+    }
 
 /* find the one check in which is set in state, deletes it */
   checkOut = (checkedInId) => {
+    const token = localStorage.getItem("secret")
     fetch(`http://localhost:3000/api/v1/check_ins/${checkedInId}`,{
       method: "DELETE",
       headers: {
+        Authorization: `Bearer ${token}`,
         "content-type": "application/json",
         accepts: "application/json"
       }
@@ -211,12 +217,9 @@ unlike = (faveId) => {
 
 
   render(){
-    // console.log("User", this.state.user)
-    console.log(this.state.favorite_stations)
-    // console.log(this.state)
     return (
       <>
-        <SideBar user={this.state.user} logOut={this.logOut} />
+      {this.state.user ? <SideBar user={this.state.user} logOut={this.logOut} /> : null }
 
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />

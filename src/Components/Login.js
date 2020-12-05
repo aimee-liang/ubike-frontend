@@ -1,4 +1,24 @@
 import React from "react"
+// import {withStyles} from "@material-ui/core/styles"
+import Button from "@material-ui/core/Button"
+import TextField from "@material-ui/core/TextField"
+import {NavLink} from "react-router-dom"
+
+// const CssTextField = withStyles({
+//     root: {
+//         '& label.Mui-focused': {
+//             color: 'black',
+//         },
+//         '& .MuiInput-underline:after': {
+//             borderBottomColor: 'black',
+//         },
+//         '& .MuiOutlinedInput-root': {
+//             '&.Mui-focused fieldset': {
+//                 borderColor: 'black',
+//             },
+//         },
+//     },
+// })(TextField);
 
 class Login extends React.Component{
     state={
@@ -19,21 +39,37 @@ class Login extends React.Component{
             password: ""
         }))
     }    
+
     
     render(){
         return(
-            <>
-            <p>Login</p>
+            <div className="login-background">
 
-            <form onSubmit={this.localLoginHandler}>
+                <div className="login-body">
+
+                    <div className="logo">
+                        <img alt="" src ="/ubike.png" />
+                    </div>
+
+
+                    <form className="login-form" noValidate autoComplete="off" onSubmit={this.localLoginHandler}>
+                        
+                        <h4>Login</h4>
+
+                        <TextField required id="outlined-required" label="Enter Username" variant="outlined" input type="text" name="username" value={this.state.username} onChange={this.changeHandler} />
+                        <br></br>
+                        <TextField required id="outlined-required" label="Enter Password" variant="outlined"input type="password" name="password" value={this.state.password} onChange={this.changeHandler} />
+                        <br></br>
+                        <br></br>
+                        <Button variant="contained" color="primary" type="submit" value="Log In"> Login </Button>
+                        <br></br>
+                    <NavLink to="/signup">Create an account</NavLink>
+                    
+                    </form>
+                    
+                </div>
                 
-                <input type="text" name="username" placeholder="Enter Username" value={this.state.username} onChange={this.changeHandler} />
-                <input type="password" name="password" placeholder="Enter Password" value={this.state.password} onChange={this.changeHandler} />
-                <button input="submit" value="Log In"> Login </button>
-            
-            </form>
-
-            </>
+            </div>
         )
     }
 }

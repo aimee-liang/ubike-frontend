@@ -1,7 +1,6 @@
 import React from "react"
 import FilterBoroughs from "../Components/FilterBoroughs"
 import BikeStation from "../Components/BikeStation"
-// import CustomChatBot from "../Components/CustomChatbot"
 
 // import { connect } from "react-redux"
 // import { fetchBikes } from "../redux/actions"
@@ -9,13 +8,16 @@ import BikeStation from "../Components/BikeStation"
 const BikeStations = (props) => {
     const renderBikes = props.bikes.map(bike => <BikeStation key={bike.id} bike={bike} addFaves={props.addFaves} checkedIn={props.checkedIn} setStationIdForFilteringReviews={props.setStationIdForFilteringReviews} setBikeObjToDisplayInShowPage={props.setBikeObjToDisplayInShowPage} />)
 
-        return(
-            <>
+    return(
+        <div className="bike-stations">
+            <div className="filter-boroughs">
                 <FilterBoroughs searchBorough={props.searchBorough} searchValue={props.searchValue} />
+            </div>
+            <div className="bike-stations-container">
                 {renderBikes}
-                {/* <CustomChatBot /> */}
-            </>
-        )
+            </div>
+        </div>
+    )
 }
 
 

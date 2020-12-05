@@ -1,4 +1,9 @@
 import React from "react"
+import Button from "@material-ui/core/Button"
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from "@material-ui/core/TextField"
+import Icon from "@material-ui/core/Icon"
+import SaveIcon from "@material-ui/icons/Save"
 
 export default class EditProfileForm extends React.Component{
 
@@ -27,6 +32,7 @@ export default class EditProfileForm extends React.Component{
         }))
     }
 
+
     render(){
         return(
             <span>
@@ -36,7 +42,7 @@ export default class EditProfileForm extends React.Component{
                     <input type="text" name="bike" value={this.state.bike} placeholder="Update bike" onChange={this.changeHandler} />
                     <input type="textarea" name="bio" value={this.state.bio} placeholder="Update bio" onChange={this.changeHandler} />
                     <input type="text" name="avatar" value={this.state.avatar} placeholder="Upload new profile photo" onChange={this.changeHandler} />
-                    <button input="submit" value="Submit">Update</button>
+                    <Button variant="contained" color="primary" size="medium" input="submit" value="Submit"><SaveIcon/>&nbsp;Update &nbsp;</Button>
                 </form>
             </span>
         )

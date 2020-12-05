@@ -25,9 +25,11 @@ class BikeStationShowPage extends React.Component {
     }
 
     submitComments = (commentObj) => {
+        const token = localStorage.getItem("secret")
         fetch(`http://localhost:3000/api/v1/reviews`, {
             method: "POST",
             headers: { 
+                Authorization: `Bearer ${token}`,
                 "content-type": "application/json",
                 accepts: "application/json"
             },
@@ -46,26 +48,31 @@ class BikeStationShowPage extends React.Component {
         this.setState(() => ({
             reviews: updatedReviews
         }))
-    })}
+    })
+    }
 
     render(){
-        console.log(this.props)
         return(
             <>
-            {/* <div>
-                <img alt=""src={this.props.bikeObj.photos ? this.props.bikeObj.photos : "/placeholder.jpg" }  className="default-pic"  />
-            </div> */}
-            <PhotosContainer photos={this.props.bikeObj.photos} />
-                <h3>{this.props.bikeObj.location}</h3>
-                <h4>{this.props.bikeObj.borough}</h4>
+            <div className="show-page-container">
 
-                <p>Please keep our community guidelines in mind when you write a review.</p>
-                <ReviewsForm submitComments={this.submitComments} />
+                <div className="show-page-components">
 
-                <div>
-                    <h4>All Reviews </h4>
-                    <ReviewsContainer filterReviews={this.filterReviews()} />
+                    <PhotosContainer photos={this.props.bikeObj.photos}/>
+                        <h2>{this.props.bikeObj.location}</h2>
+                        <h3>{this.props.bikeObj.borough}</h3>
+
+                    <div className="reviews">
+                        <h4 className="community-guidelines">Please keep our community guidelines in mind when you write a review.</h4>
+                        <ReviewsForm submitComments={this.submitComments} />
+
+                        <h4>All Reviews </h4>
+                        <ReviewsContainer filterReviews={this.filterReviews()} />
+                    </div>
+
                 </div>
+            
+            </div>
             </>
         )
     }

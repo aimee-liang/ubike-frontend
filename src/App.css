@@ -41,29 +41,41 @@
 .off-screen {
   position: absolute;
   border: 1px solid black;
-  width: 25vw;
-  height: 50vh;
-  left: -50vw;
+  width: 12vw;
+  height: 30vh;
+  left: -70vw;
   z-index: 100;
 }
 
 .sidebar {
-  position: absolute;
-  border: 1px solid black;
-  width: 25vw;
-  height: 50vh;
+  position: fixed;
+  left: 0;
+  width: 12vw;
+  height: 30vh;
   z-index: 100;
   background-color: #ffffff;
+  display: block;
+}
+
+.menu a{
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 18pt;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .menu {
-  transition: 3s;
-  transform-origin: 0% 0%;
-  transform: translate(100%, 0);
+  transition: 0.5s;
+  background-color: #F3F7F0;
 }
 
 .home {
-  display: grid
+  width: auto;
+  height: auto;
+  background-color: #C8E0F4;
 }
 
 .map {
@@ -71,8 +83,205 @@
   right: 0px
 }
 
-.menuToggle {
+.map-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  opacity: 1;
+  width: 50%;
+}
 
+.menuToggle {
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+  border: none;
+  font-size: 30pt;
+}
+
+.home-background{
+  top: 0;
+  position: sticky;
+  height: auto;
+  width: 100%;
+}
+
+.chatbot {
+  float: right;
+}
+
+.bike-stations {
+  height: 100vh;
+  width: 50%;  
+}
+
+.filter-boroughs {
+  height: 8vh;
+  width: 47vw;
+  padding-left: 5px;
+}
+
+.filter-boroughs p {
+  margin-top: 0;
+  text-align: center;
+  font-size: 15pt;
+  padding-top: 4px
+}
+
+.bike-stations-container {
+  width: 100%;
+  height: 90vh;
+  overflow: scroll;
+}
+
+.bike-stations-container::-webkit-scrollbar{
+  scroll-behavior: smooth;
+}
+
+.individual-station {
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid black;
+  height: auto;
+  width: 30%;
+  text-align: center;
+  margin: 1%;
+  float: left;
+  min-height: 230px;
+  border-radius: 20px;
+  transition: 1s;
+  padding-top: 20px;
+}
+
+.individual-station:hover{
+  transform: scale(1.01);
+}
+
+.individual-station button{
+  margin: 4px;
+}
+
+.livechat {
+  width: 70px;
+  height: 47px;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border: none;
+  border-radius: 20px;
+  font-weight: 700;
+  background-color: #390099;
+  color: white;
+}
+
+.livechat.open{
+  bottom:50%;
+  right:0;
+  font-size: 22pt;
+  width: 40px;
+  background-color: #390099;
+}
+
+.chatbot-container{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.bike-stock-photo {
+  width: 85px;
+  /* height: 85px; */
+  margin-top: 25px;
+  border-radius: 20px;
+}
+
+.location-pin {
+  height: 25px;
+  width: 15px;
+}
+
+.login-background {
+  height: 100vh;
+  width: 100vw;
+  background-color: #065A82;
+  position: fixed;
+  top: 0;
+  z-index: -1000;
+}
+
+.login-body {
+  background-color: white;  
+  opacity: 0.8;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%; 
+  display: table;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  height: 50vh;
+  border-radius: 25px;
+}
+
+.signup-body {
+  background-color: white;  
+  opacity: 0.8;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%; 
+  display: table;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  width: 50vw;
+  height: 60vh;
+  border-radius: 25px;
+}
+
+.signup-form{
+  float: right;
+  width: 60vw;
+  height: 50vh;
+  text-align: center;
+}
+
+.signup-form input, .signup-form p, .signup-form Button, .signup-form TextField {
+  display: block;
+  text-align: center;
+  margin: 0.1vh auto;
+  width: 12vw
+}
+
+.logo {
+  width: 25vw;
+  padding-left: 20px;
+}
+
+.logo img{
+  width: 25vw;
+}
+
+.login-form {
+  float: right; 
+  width: 20vw;
+  text-align: center;
+}
+
+.login-form p {
+  font-family: 'Oxygen', sans-serif;
+  font-size: large;
+  text-align: center
+}
+
+
+.login-form input, .login-form p, .login-form Button, .login-form TextField {
+  display: block;
+  text-align: center;
+  margin: 0.2vh auto;
+  width: 11vw
 }
 
 .default-pic {
@@ -80,18 +289,65 @@
   height: 200px;
 }
 
-.bike-stock-photo {
-  width: 140px;
-  height: 110px;
+.show-page-container {
+  text-align: center;
+  background-color: #AED1EA;
+  width: 100%;
+  height: 100vh;
 }
 
-.chatbot {
-  position: absolute;
-  right: 0px;
-  ;
+.show-page-components {
+  align-items: center;
 }
 
+.profile-page {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color: #AED1EA;
+  align-items: center;
+  display: flex;
+}
 
-.individual-station {
-  
+.photos-container {
+  align-items: center;
+  padding-top: 5px;
+}
+
+.reviews {
+  align-items: center;
+  border: solid 2px white;
+  width: 50%;
+  height: auto;
+  border-radius: 25px;
+  margin: auto;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.community-guidelines{
+  font-size: large;
+}
+
+.submit-reviews input{
+  display: block;
+  text-align: center;
+  margin: 0.2vh auto;
+  width: 13vw;
+}
+
+.profile-page-border {
+  border-radius: 25px;
+  align-items: center;
+  border: solid 2px white;
+  width: 40vw;
+  height: auto;
+  border-radius: 25px;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.profile-pic-container {
+  align-items: center;  
+  padding-top: 5px;
 }

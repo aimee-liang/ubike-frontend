@@ -1,7 +1,6 @@
 import React from "react"
 import {NavLink} from "react-router-dom"
 
-// const SideBar = props => {
 class SideBar extends React.Component{
     
     state={
@@ -18,33 +17,25 @@ class SideBar extends React.Component{
 
         return(
             <>
-            <button className="menuToggle" onClick={this.clickHandler}>BUTTON</button>
+            <button className="menuToggle" onClick={this.clickHandler}>{this.state.show ? "x" : "=" }</button>
     
-            <div className={
-                this.state.show ? "sidebar menu" : "off-screen menu"
-            }>
+            <div className={this.state.show ? "sidebar menu" : "off-screen menu"}>
 
-            {this.props.user ? 
             <>
                 <NavLink to="/home">
-                    Home
+                <i className="fas fa-house-user"></i> Home
                 </NavLink>
     
                 <NavLink to="/profile">
-                    Profile
+                <i className="fas fa-user-circle"></i> Profile
                 </NavLink>
     
                 <NavLink to="/login" onClick={this.props.logOut}>
-                    Log out
+                <i className="fas fa-sign-out-alt"></i> Log out
                 </NavLink>
     
             </>
-            :
-            <>
-                <NavLink to="/signup">Create an account</NavLink>
-                <NavLink to="/login">Sign in</NavLink>
-            </>
-            }
+
         </div>
     
         </>
