@@ -14,7 +14,7 @@ Enter, ubike (no relation to any other apps). ubike offers a way to allow users 
 Users have the option to log in or sign up for the first time.
 
 ### Map
-![Alt Text](https://media.giphy.com/media/0FQuqakv6JIBTRmon3/giphy.gif)
+![image](https://media.giphy.com/media/0FQuqakv6JIBTRmon3/giphy.gif)
 <br />
 Upon login, users can see an interactive map containing green markers that will indicate where each bike shelter is located in the city.
 
