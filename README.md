@@ -7,6 +7,12 @@ This project was born out of a personal necessity. In 2020, I spent hours on Goo
 
 Enter, ubike (no relation to any other apps). ubike offers a way to allow users to check in/out of bike parking shelters throughout New York City (all five boroughs). It also allows riders to filter for shelters depending on the borough and for riders to leave comments. 
 
+
+### Login/Sign up
+![Alt Text](https://media.giphy.com/media/jYeWOD9QRKbLP4BCm4/giphy.gif)
+
+Users have the option to log in or sign up for the first time.
+
 ### Main API
 This app was made possible by the NYC Open Data API. I used the [Bike Shelters](https://data.cityofnewyork.us/Transportation/Bicycle-Parking-Shelters/thbt-gfu9) information. 
 
