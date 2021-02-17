@@ -15,6 +15,7 @@ Users have the option to log in or sign up for the first time.
 
 ### Map
 ![Alt Text](https://media.giphy.com/media/0FQuqakv6JIBTRmon3/giphy.gif)
+<br />
 Upon login, users can see an interactive map containing green markers that will indicate where each bike shelter is located in the city.
 
 ### Bike Shelters
@@ -30,6 +31,7 @@ Upon login, users will see all bike shelters as well as filter for borough using
 From there, users are able to leave and view comments from other users about each bike station.
 
 ![Alt Text](https://media.giphy.com/media/BeU7132O0bSuMToeQm/giphy.gif)
+<br />
 Users can check into a station and also like/favorite a station.
 
 
