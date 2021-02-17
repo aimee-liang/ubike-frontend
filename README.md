@@ -29,6 +29,15 @@ Upon login, users will see all bike shelters as well as filter for borough using
 <br />
 From there, users are able to leave and view comments from other users about each bike station.
 
+![Alt Text](https://media.giphy.com/media/BeU7132O0bSuMToeQm/giphy.gif)
+Users can check into a station and also like/favorite a station.
+
+
+### Chat Bot
+![Alt Text](https://media.giphy.com/media/nvAZNDxkuRAJrPqFMe/giphy.gif)
+<br />
+A custom feature users can click on to interact with "ubi", our Chatbot, to report incidents to the Department of Transportation or the NYPD. A beta feature to report comments is being worked on!
+
 ### Main API
 This app was made possible by the NYC Open Data API. I used the [Bike Shelters](https://data.cityofnewyork.us/Transportation/Bicycle-Parking-Shelters/thbt-gfu9) information. 
 
