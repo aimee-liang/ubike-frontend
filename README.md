@@ -19,12 +19,14 @@ Upon login, users can see an interactive map containing green markers that will 
 
 ### Bike Shelters
 ![Alt Text](https://media.giphy.com/media/EZygwLkqkz6AtsPlO1/giphy.gif) 
-
+<br />
 ![Alt Text](https://media.giphy.com/media/5wu4pjdN52n3W2iAop/giphy.gif)
+<br />
 Upon login, users will see all bike shelters as well as filter for borough using a dropdown option.
 
 
 ![Alt Text](https://media.giphy.com/media/lqpkqQxgSbjv1nSRRn/giphy.gif)
+<br />
 From there, users are able to leave and view comments from other users about each bike station.
 
 ### Main API
