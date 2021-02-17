@@ -13,6 +13,33 @@ Enter, ubike (no relation to any other apps). ubike offers a way to allow users 
 
 Users have the option to log in or sign up for the first time.
 
+### Map
+![image](https://giphy.com/gifs/0FQuqakv6JIBTRmon3/html5)
+<br />
+Upon login, users can see an interactive map containing green markers that will indicate where each bike shelter is located in the city.
+
+### Bike Shelters
+![Alt Text](https://media.giphy.com/media/EZygwLkqkz6AtsPlO1/giphy.gif) 
+<br />
+![Alt Text](https://media.giphy.com/media/5wu4pjdN52n3W2iAop/giphy.gif) 
+<br />
+Upon login, users will see all bike shelters as well as filter for borough using a dropdown option.
+
+
+![Alt Text](https://media.giphy.com/media/lqpkqQxgSbjv1nSRRn/giphy.gif)
+<br />
+From there, users are able to leave and view comments from other users about each bike station.
+
+![Alt Text](https://media.giphy.com/media/BeU7132O0bSuMToeQm/giphy.gif)
+<br />
+Users can check into a station and also like/favorite a station.
+
+
+### Chat Bot
+![Alt Text](https://media.giphy.com/media/nvAZNDxkuRAJrPqFMe/giphy.gif)
+<br />
+A custom feature users can click on to interact with "ubi", our Chatbot, to report incidents to the Department of Transportation or the NYPD. A beta feature to report comments is being worked on!
+
 ### Main API
 This app was made possible by the NYC Open Data API. I used the [Bike Shelters](https://data.cityofnewyork.us/Transportation/Bicycle-Parking-Shelters/thbt-gfu9) information. 
 
