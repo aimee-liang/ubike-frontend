@@ -1,30 +1,45 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import ReviewsContainer from "../Containers/ReviewsContainer"
 import ReviewsForm from "./ReviewsForm"
 import PhotosContainer from "../Containers/PhotosContainer"
 
-class BikeStationShowPage extends React.Component {
+const BikeStationShowPage = (props) => {
+// class BikeStationShowPage extends React.Component {
 
-    state={
-        reviews: [],
-    }
+    const [reviews, setReviews] = useState([])
+    const reviewsUrl = `http://localhost:3000/api/v1/reviews/`
 
-    componentDidMount(){
-        fetch(`http://localhost:3000/api/v1/reviews/`)
-            .then(resp => resp.json())
-            .then(reviewsData => {
-                this.setState(() => ({
-                    reviews: reviewsData
-                }))
-            })
+    // state={
+    //     reviews: [],
+    // }
+
+    useEffect(() => {
+        fetchReviews(reviewsUrl)
+    })
+
+    const fetchReviews = (url) => {
+        fetch(url)
+            .then(response => response.json())
+            .then((data) => setReviews(data))
             .catch(errors => console.log(errors))
     }
 
-    filterReviews = () => {
-        return this.state.reviews.filter(review => review.bike_station_id === this.props.bikeId)
+    // componentDidMount(){
+    //     fetch(`http://localhost:3000/api/v1/reviews/`)
+    //         .then(resp => resp.json())
+    //         .then(reviewsData => {
+    //             this.setState(() => ({
+    //                 reviews: reviewsData
+    //             }))
+    //         })
+    //         .catch(errors => console.log(errors))
+    // }
+
+    const filterReviews = () => {
+        return reviews.filter(review => review.bike_station_id === props.bikeId)
     }
 
-    submitComments = (commentObj) => {
+    const submitComments = (commentObj) => {
         const token = localStorage.getItem("secret")
         fetch(`http://localhost:3000/api/v1/reviews`, {
             method: "POST",
@@ -51,23 +66,23 @@ class BikeStationShowPage extends React.Component {
     })
     }
 
-    render(){
+    // render(){
         return(
             <>
             <div className="show-page-container">
 
                 <div className="show-page-components">
 
-                    <PhotosContainer photos={this.props.bikeObj.photos}/>
-                        <h2>{this.props.bikeObj.location}</h2>
-                        <h3>{this.props.bikeObj.borough}</h3>
+                    <PhotosContainer photos={props.bikeObj.photos}/>
+                        <h2>{props.bikeObj.location}</h2>
+                        <h3>{props.bikeObj.borough}</h3>
 
                     <div className="reviews">
                         <h4 className="community-guidelines">Please keep our community guidelines in mind when you write a review.</h4>
-                        <ReviewsForm submitComments={this.submitComments} />
+                        <ReviewsForm submitComments={submitComments} />
 
                         <h4>All Reviews </h4>
-                        <ReviewsContainer filterReviews={this.filterReviews()} />
+                        <ReviewsContainer filterReviews={filterReviews()} />
                     </div>
 
                 </div>
@@ -75,7 +90,7 @@ class BikeStationShowPage extends React.Component {
             </div>
             </>
         )
-    }
+    // }
 }
 
 export default BikeStationShowPage
