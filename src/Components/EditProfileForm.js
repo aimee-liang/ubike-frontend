@@ -5,46 +5,66 @@ import TextField from "@material-ui/core/TextField"
 import Icon from "@material-ui/core/Icon"
 import SaveIcon from "@material-ui/icons/Save"
 
-export default class EditProfileForm extends React.Component{
+const EditProfileForm = (props) => {
+// export default class EditProfileForm extends React.Component{
 
-    state={
+    const [user, setUser] = useState({
         username: "",
         email: "",
         bike: "",
         bio: "",
         avatar: ""
+    })
+
+    // state={
+    //     username: "",
+    //     email: "",
+    //     bike: "",
+    //     bio: "",
+    //     avatar: ""
+    // }
+
+    const changeHandler = (e) => {
+        setUser({...user, [e.target.name]: e.target.value})
     }
 
-    changeHandler = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
-
-    submitHandler = (e) =>{
+    const submitHandler = (e) =>{
         e.preventDefault()
-        this.props.editProfile(this.state)
-        this.props.hideProfileSpan()
-        this.setState(()=>({
+        props.editProfile(user)
+        props.hideProfileSpan()
+
+        setUser({
             username: "",
             email: "",
             bike: "",
             bio: "",
             avatar: ""
-        }))
+        })
+
+        // setState(()=>({
+        //     username: "",
+        //     email: "",
+        //     bike: "",
+        //     bio: "",
+        //     avatar: ""
+        // }))
     }
 
 
-    render(){
+    // render(){
         return(
             <span>
-                <form onSubmit={this.submitHandler}>
-                    <input type="text" name="username" value={this.state.username} placeholder="Update username" onChange={this.changeHandler} />
-                    <input type="text" name="email" value={this.state.email} placeholder="Update email" onChange={this.changeHandler} />
-                    <input type="text" name="bike" value={this.state.bike} placeholder="Update bike" onChange={this.changeHandler} />
-                    <input type="textarea" name="bio" value={this.state.bio} placeholder="Update bio" onChange={this.changeHandler} />
-                    <input type="text" name="avatar" value={this.state.avatar} placeholder="Upload new profile photo" onChange={this.changeHandler} />
+                <form onSubmit={submitHandler}>
+                    <input type="text" name="username" value={user.username} placeholder="Update username" onChange={changeHandler} />
+                    <input type="text" name="email" value={user.email} placeholder="Update email" onChange={changeHandler} />
+                    <input type="text" name="bike" value={user.bike} placeholder="Update bike" onChange={changeHandler} />
+                    <input type="textarea" name="bio" value={user.bio} placeholder="Update bio" onChange={changeHandler} />
+                    <input type="text" name="avatar" value={user.avatar} placeholder="Upload new profile photo" onChange={changeHandler} />
                     <Button variant="contained" color="primary" size="medium" input="submit" value="Submit"><SaveIcon/>&nbsp;Update &nbsp;</Button>
                 </form>
             </span>
         )
-    }
+    // }
 }
+
+export default EditProfileForm
