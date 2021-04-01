@@ -1,6 +1,6 @@
 import './App.css';
-import React from "react"
-import { Route, Switch, withRouter } from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { Route, Switch, withRouter, useHistory } from "react-router-dom"
 import ProfilePage from "./Containers/ProfilePage"
 import Home from "./Containers/Home"
 import SideBar from "./Containers/SideBar"
@@ -8,17 +8,22 @@ import Login from "./Components/Login"
 import Signup from "./Components/Signup"
 import BikeStationShowPage from "./Components/BikeStationShowPage"
 
-class App extends React.Component{  
+const App = (props) => {
+// class App extends React.Component{  
   
-  state={
-    user: null,
-    favorite_stations: [],
-    currentStation: [],
-    bikeStationId: 0,
-    specificBikeStationObj: {},
-    check_in: [],
-    timeAndDay: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
-  }
+  const [user, setUser] = useState(null)
+  const [favStations, setFavStations] = useState([])
+  const [currentStation, setCurrentStation] = useState([])
+
+  // state={
+  //   user: null,
+  //   favorite_stations: [],
+  //   currentStation: [],
+  //   bikeStationId: 0,
+  //   specificBikeStationObj: {},
+  //   check_in: [],
+  //   timeAndDay: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
+  // }
 
   componentDidMount(){
     const token = localStorage.getItem("secret")
