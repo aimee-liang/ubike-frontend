@@ -1,47 +1,42 @@
 import React, {useState} from "react"
-// import {withStyles} from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import {NavLink} from "react-router-dom"
 
-// const CssTextField = withStyles({
-//     root: {
-//         '& label.Mui-focused': {
-//             color: 'black',
-//         },
-//         '& .MuiInput-underline:after': {
-//             borderBottomColor: 'black',
-//         },
-//         '& .MuiOutlinedInput-root': {
-//             '&.Mui-focused fieldset': {
-//                 borderColor: 'black',
-//             },
-//         },
-//     },
-// })(TextField);
-
-class Login extends React.Component{
-    state={
+const Login = (props) => {
+// class Login extends React.Component{
+    
+    const [user, setUser] = useState({
         username: "",
         password: ""
-    }
+    })
+
+    // state={
+    //     username: "",
+    //     password: ""
+    // }
 
     changeHandler = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({...user, [e.target.name]: e.target.value})
     }
     
     localLoginHandler = (e) => {
         e.preventDefault()
-        this.props.loginHandler(this.state)
+        props.loginHandler(user)
 
-        this.setState(()=>({
+        setUser({
             username: "",
             password: ""
-        }))
+        })
+
+        // this.setState(()=>({
+        //     username: "",
+        //     password: ""
+        // }))
     }    
 
-    
-    render(){
+
+    // render(){
         return(
             <div className="login-background">
 
@@ -71,7 +66,7 @@ class Login extends React.Component{
                 
             </div>
         )
-    }
+    // }
 }
 
 export default Login
