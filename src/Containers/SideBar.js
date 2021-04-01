@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {NavLink} from "react-router-dom"
 
-const SideBar = (props) => {
+const SideBar = props => {
 // class SideBar extends React.Component{
     
     const [show, setShow] = useState(false)
