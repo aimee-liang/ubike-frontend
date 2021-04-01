@@ -2,7 +2,6 @@ import React from "react"
 import Button from "@material-ui/core/Button"
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
-
 const PhotosContainer = (props) => {
     return (
         <div className="photos-container">

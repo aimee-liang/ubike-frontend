@@ -68,7 +68,8 @@ const ProfilePage = props => {
                             <h4>Name: {props.user.name}</h4>
                             <p>About Me: {props.user.bio ? props.user.bio : "This user did not submit a profile!"}</p>
                             <p>Bike Info: {props.user.bike}</p>
-                            <Button variant="contained" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button>
+                            <Button variant="contained" color="primary" onClick={() => setProfile(true) }><EditIcon />&nbsp;Edit Profile</Button>
+                            {/* <Button variant="contained" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button> */}
                             {profile ? clickToEditProfile() : null }
                         </div>
     
