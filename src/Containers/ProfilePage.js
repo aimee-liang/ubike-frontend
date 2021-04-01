@@ -7,40 +7,43 @@ import Button from "@material-ui/core/Button"
 import EditIcon from '@material-ui/icons/Edit';
 import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 
-class ProfilePage extends React.Component{
+// class ProfilePage extends React.Component{
+const ProfilePage = props => {
 
-    state={
-        profile: false,
+    const [profile, setProfile] = useState(false)
+
+    // state={
+    //     profile: false,
+    // }
+
+    const clickToEditProfile = () => {
+        return <EditProfileForm editProfile={props.editProfile} profile={profile} hideProfileSpan={setProfileBackToFalse} />
     }
 
-    clickToEditProfile = () => {
-        return <EditProfileForm editProfile={this.props.editProfile} profile={this.state.profile} hideProfileSpan={this.setProfileBackToFalse} />
+    const displayCheckedIn = () => {
+        return <CheckInSpan checkIn={props.user.check_in} username={props.user.username} />
     }
 
-    displayCheckedIn = () => {
-        return <CheckInSpan checkIn={this.props.user.check_in} username={this.props.user.username} />
-    }
-
-    displayNotCheckedIn = () => {
-        return(
+    const displayNotCheckedIn = () => {
+        return (
             <span>
                 This user is not checked in anywhere!
             </span>
         )
     }
     
-    localCheckOut = () => {
-        this.props.checkOut(this.props.user.check_in.id)
-        this.displayNotCheckedIn()
+    const localCheckOut = () => {
+        props.checkOut(this.props.user.check_in.id)
+        displayNotCheckedIn()
     }
 
-    setProfileBackToFalse = () => {
+    const setProfileBackToFalse = () => {
         this.setState(previousState => ({
             profile: !previousState.profile
         }))
     }
 
-    hasUserCheckInProps = () => {
+    const hasUserCheckInProps = () => {
         if (this.props.check_in.length >= 1){
             return this.displayCheckedIn()
             // return <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button">Check Out</Button>
@@ -49,7 +52,7 @@ class ProfilePage extends React.Component{
         }
     }
     
-    render(){
+    // render(){
         return(
             <>
             {this.props.user ? 
@@ -89,7 +92,7 @@ class ProfilePage extends React.Component{
             : <Redirect to="/home" /> }
         </>
         )
-    }
+    // }
 }
 
 export default ProfilePage
