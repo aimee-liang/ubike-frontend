@@ -1,25 +1,31 @@
-import React from "react"
+import React, {useState} from "react"
 import {NavLink} from "react-router-dom"
 
-class SideBar extends React.Component{
+const SideBar = (props) => {
+// class SideBar extends React.Component{
     
-    state={
-        show: false
+    const [show, setShow] = useState(false)
+    
+    // state={
+    //     show: false
+    // }
+
+    const clickHandler = () => {
+        setShow(true)
+        // this.setState(previousState => ({
+        //     show: !previousState.show
+        // }))
     }
 
-    clickHandler=()=>{
-        this.setState(previousState => ({
-            show: !previousState.show
-        })
-    )}
-
-    render(){
+    // render(){
 
         return(
             <>
-            <button className="menuToggle" onClick={this.clickHandler}>{this.state.show ? "x" : "=" }</button>
-    
-            <div className={this.state.show ? "sidebar menu" : "off-screen menu"}>
+            <button className="menuToggle" onClick={clickHandler}>{show ? "x" : "=" }</button>
+            {/* <button className="menuToggle" onClick={clickHandler}>{this.state.show ? "x" : "=" }</button> */}
+
+            <div className={show ? "sidebar menu" : "off-screen menu"}>
+            {/* <div className={this.state.show ? "sidebar menu" : "off-screen menu"}> */}
 
             <>
                 <NavLink to="/home">
@@ -40,7 +46,7 @@ class SideBar extends React.Component{
     
         </>
         )
-    }
+    // }
 
 }
 
