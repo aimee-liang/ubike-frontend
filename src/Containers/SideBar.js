@@ -11,7 +11,7 @@ const SideBar = props => {
     // }
 
     const clickHandler = () => {
-        setShow(true)
+        setShow(!show)
         // this.setState(previousState => ({
         //     show: !previousState.show
         // }))

@@ -33,14 +33,15 @@ const ProfilePage = props => {
     }
     
     const localCheckOut = () => {
-        props.checkOut(this.props.user.check_in.id)
+        props.checkOut(props.user.check_in.id)
         displayNotCheckedIn()
     }
 
     const setProfileBackToFalse = () => {
-        this.setState(previousState => ({
-            profile: !previousState.profile
-        }))
+        setProfile(!profile)
+        // this.setState(previousState => ({
+        //     profile: !previousState.profile
+        // }))
     }
 
     const hasUserCheckInProps = () => {
