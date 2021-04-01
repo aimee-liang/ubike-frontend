@@ -123,7 +123,7 @@ const App = (props) => {
   }
 
 /* Creates a POST with new favorite station */
-  favoriteStationsUpdate = (favBikeStation) => {
+  const favoriteStationsUpdate = (favBikeStation) => {
   /* new */
   const token = localStorage.getItem("secret")
     fetch(`http://localhost:3000/api/v1/favorite_stations/`,{
