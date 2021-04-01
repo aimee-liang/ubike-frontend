@@ -16,11 +16,11 @@ const Login = (props) => {
     //     password: ""
     // }
 
-    changeHandler = (e) => {
+    const changeHandler = (e) => {
         this.setState({...user, [e.target.name]: e.target.value})
     }
     
-    localLoginHandler = (e) => {
+    const localLoginHandler = (e) => {
         e.preventDefault()
         props.loginHandler(user)
 
@@ -47,13 +47,13 @@ const Login = (props) => {
                     </div>
 
 
-                    <form className="login-form" noValidate autoComplete="off" onSubmit={this.localLoginHandler}>
+                    <form className="login-form" noValidate autoComplete="off" onSubmit={localLoginHandler}>
                         
                         <h4>Login</h4>
 
-                        <TextField required id="outlined-required" label="Enter Username" variant="outlined" input type="text" name="username" value={this.state.username} onChange={this.changeHandler} />
+                        <TextField required id="outlined-required" label="Enter Username" variant="outlined" input type="text" name="username" value={user.username} onChange={changeHandler} />
                         <br></br>
-                        <TextField required id="outlined-required" label="Enter Password" variant="outlined"input type="password" name="password" value={this.state.password} onChange={this.changeHandler} />
+                        <TextField required id="outlined-required" label="Enter Password" variant="outlined"input type="password" name="password" value={user.password} onChange={changeHandler} />
                         <br></br>
                         <br></br>
                         <Button variant="contained" color="primary" type="submit" value="Log In"> Login </Button>
