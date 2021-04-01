@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import {PureComponent} from "react"
 import ReactMapGL, {Marker} from "react-map-gl"
 
