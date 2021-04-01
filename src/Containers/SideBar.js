@@ -36,7 +36,8 @@ const SideBar = (props) => {
                 <i className="fas fa-user-circle"></i> Profile
                 </NavLink>
     
-                <NavLink to="/login" onClick={this.props.logOut}>
+                {/* <NavLink to="/login" onClick={this.props.logOut}> */}
+                <NavLink to="/login" onClick={props.logOut}>
                 <i className="fas fa-sign-out-alt"></i> Log out
                 </NavLink>
     
