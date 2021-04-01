@@ -18,8 +18,10 @@ const App = (props) => {
   const [bikeStationObj, setBikeStationObj] = useState({})
   const [checkIn, setCheckIn] = useState([])
   const [timeAndDay, setTimeAndDay] = useState(new Date().toLocaleDateString([], {hour: '2-digit', minute: '2-digit'}))
-
+  const history = useHistory()
   const profileUrl = `http://localhost:3000/api/v1/profile`
+  const usersUrl = `http://localhost:3000/api/v1/users`
+  const loginUrl = `http://localhost:3000/api/v1/login`
 
   // state={
   //   user: null,
@@ -38,14 +40,14 @@ const App = (props) => {
   const fetchUserLogin = (url) => {
     const token = localStorage.getItem("secret")
     if (token){
-      fetch("http://localhost:3000/api/v1/profile", {
+      fetch(url, {
         method: "GET",
         headers: {Authorization: `Bearer ${token}`},
       })
         .then(resp => resp.json())
-        .then(data => this.setState({user: data.user}))
+        .then(data => setUser({user: data.user}))
     } else {
-      this.props.history.push("/login")
+      props.history.push("/login")
     }
   }
 
@@ -63,8 +65,8 @@ const App = (props) => {
   //   }
   // }
 
-  signUpHandler = (userObj) => {
-    fetch(`http://localhost:3000/api/v1/users`, {
+  const fetchSignUp = (userObj) => {
+    fetch(usersUrl, {
       method: "POST",
       headers:{
         "content-type": "application/json",
@@ -75,12 +77,28 @@ const App = (props) => {
       .then(resp => resp.json())
       .then(data => {
         localStorage.setItem("secret", data.jwt)
-        this.setState({user: data.user}, () => this.props.history.push(`/home`) )
+        setUser({user: data.user}, () => props.history.push(`/home`) )
       })
   }
 
-  loginHandler = (userInfo) => {
-    fetch(`http://localhost:3000/api/v1/login`,{
+  // signUpHandler = (userObj) => {
+  //   fetch(`http://localhost:3000/api/v1/users`, {
+  //     method: "POST",
+  //     headers:{
+  //       "content-type": "application/json",
+  //       accepts: "application/json"
+  //     },
+  //     body: JSON.stringify({user: userObj})
+  //   })
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       localStorage.setItem("secret", data.jwt)
+  //       this.setState({user: data.user}, () => this.props.history.push(`/home`) )
+  //     })
+  // }
+
+  const loginHandler = (userInfo) => {
+    fetch(loginUrl, {
       method: "POST",
       headers:{
           "content-type": "application/json",
@@ -91,17 +109,17 @@ const App = (props) => {
     .then(resp => resp.json())
     .then(data => {
       localStorage.setItem("secret", data.jwt)
-      this.setState({
+      setUser({
         user: data.user,
       }, 
-      () => this.props.history.push(`/home`) )
+      () => props.history.push(`/home`) )
     })
   }
 
-  logOut = () => {
+  const logOut = () => {
     localStorage.removeItem("secret")
-    this.setState({user: null})
-    this.props.history.push("/login")
+    setUser({user: null})
+    props.history.push("/login")
   }
 
 /* Creates a POST with new favorite station */
