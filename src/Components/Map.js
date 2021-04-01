@@ -31,8 +31,9 @@ class Markers extends PureComponent{
     }
 }
 
-class Map extends React.Component{
-    state={
+const Map = () => {
+// class Map extends React.Component{
+    const [currentView, setCurrentView] = useState({
         viewport:{
             width: "51vw",
             height: "100vh",
@@ -40,18 +41,29 @@ class Map extends React.Component{
             longitude: -73.935242,
             zoom: 10
         },
-    }
+    })
 
-    render(){
+    // state={
+    //     viewport:{
+    //         width: "51vw",
+    //         height: "100vh",
+    //         latitude: 40.730610,
+    //         longitude: -73.935242,
+    //         zoom: 10
+    //     },
+    // }
+
+    // render(){
         return(
             <div className="map">
-                <ReactMapGL {...this.state.viewport} mapStyle="mapbox://styles/lianga/cki678vrg0y5q19o8wvrb9bj7"
-                onViewportChange={(viewport => this.setState({viewport}))}
+                <ReactMapGL {...currentView.viewport} mapStyle="mapbox://styles/lianga/cki678vrg0y5q19o8wvrb9bj7"
+                onViewportChange={(viewport => setCurrentView({viewport}))}
                 mapboxApiAccessToken="pk.eyJ1IjoibGlhbmdhIiwiYSI6ImNraG9kODF6djAybDkyd3FsMnhxcG8wMmsifQ.5Z8qlJahYdbW_JlGhhs1hQ">
                     <Markers data={shelters}  />
                 </ReactMapGL>
             </div>
-        )}
+        )
+    // }
 }
 
 export default Map
