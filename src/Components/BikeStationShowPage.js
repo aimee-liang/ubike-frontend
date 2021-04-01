@@ -15,7 +15,7 @@ const BikeStationShowPage = (props) => {
 
     useEffect(() => {
         fetchReviews(reviewsUrl)
-    })
+    }, [])
 
     const fetchReviews = (url) => {
         fetch(url)

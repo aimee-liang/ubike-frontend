@@ -35,7 +35,7 @@ const App = (props) => {
 
   useEffect(() => {
     fetchUserLogin(profileUrl)
-  })
+  }, [])
 
   const fetchUserLogin = (url) => {
     const token = localStorage.getItem("secret")
@@ -263,10 +263,10 @@ unlike = (faveId) => {
   }
 
 
-  render(){
+  // render(){
     return (
       <>
-      {this.state.user ? <SideBar user={this.state.user} logOut={this.logOut} /> : null }
+      {user ? <SideBar user={user.user} logOut={logOut} /> : null }
 
         <Switch>
           <Route path ="/signup" render={()=> <Signup signUpHandler={this.signUpHandler}/>} />
@@ -278,7 +278,7 @@ unlike = (faveId) => {
 
       </>
     );
-  }
+  // }
 }
 
 export default withRouter(App);
