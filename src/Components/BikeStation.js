@@ -1,53 +1,59 @@
-import React from "react"
+import React, {useState} from "react"
 import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button"
 
-class BikeStation extends React.Component {
+const BikeStation = (props) => {
+// class BikeStation extends React.Component {
 
-    state={
-        clicked: false,
-        liked: false
+    const [clicked, setClicked] = useState(false)
+    const [liked, setLiked] = useState(false)
+    
+    // state={
+    //     clicked: false,
+    //     liked: false
+    // }
+
+    const clickHandler = (e) => {
+        setClicked(!clicked)
+        // setState(previousState => ({
+        //     clicked: !previousState.clicked
+        // }))
+        props.checkedIn(props.bike)
     }
 
-    clickHandler = (e) => {
-        this.setState(previousState => ({
-            clicked: !previousState.clicked
-        }))
-        this.props.checkedIn(this.props.bike)
+
+    const favoriteHandler = (e) => {
+        props.addFaves(props.bike)
+        setLiked(!liked)
+        // setState(previousState => ({
+        //     liked: !previousState.liked
+        // }))
     }
 
-
-    favoriteHandler = (e) => {
-        this.props.addFaves(this.props.bike)
-        this.setState(previousState => ({
-            liked: !previousState.liked
-        }))
+    const localFilter = (e) => {
+        props.setStationIdForFilteringReviews(props.bike.id)
+        props.setBikeObjToDisplayInShowPage(props.bike)
     }
 
-    localFilter = (e) => {
-        this.props.setStationIdForFilteringReviews(this.props.bike.id)
-        this.props.setBikeObjToDisplayInShowPage(this.props.bike)
-    }
-
-    render(){
+    // render(){
         return (
             <div className="individual-station">
     
-                    <span key={this.props.bike.id}>
+                    <span key={props.bike.id}>
                         <img alt="" src="/bikestockphoto.jpg" className="bike-stock-photo" />
-                        <NavLink to={`/bike_stations/${this.props.bike.id}`}>
-                            <h4 onClick={this.localFilter}>{this.props.bike.location}</h4>
+                        <NavLink to={`/bike_stations/${props.bike.id}`}>
+                            <h4 onClick={localFilter}>{props.bike.location}</h4>
                         </NavLink>
     
-                        {/* <p>Available Bike Racks: {this.props.bike.available_bike_racks}</p> */}
-                        <Button variant="contained" onClick={this.clickHandler}> { this.state.clicked ? "✔️ You've checked in!": "Check In" } </Button> 
-                        <Button variant="contained" color="secondary" onClick={this.favoriteHandler}>{ this.state.liked ? "♡ Liked!" : "Like"}</Button>
+                        {/* <p>Available Bike Racks: {props.bike.available_bike_racks}</p> */}
+                        <Button variant="contained" onClick={clickHandler}> {clicked.clicked ? "✔️ You've checked in!": "Check In" } </Button> 
+                        <Button variant="contained" color="secondary" onClick={favoriteHandler}>{liked.liked ? "♡ Liked!" : "Like"}</Button>
                     </span>   
                     
             </div>
         )
 
-    }
+    // }
 }
 
 export default BikeStation
