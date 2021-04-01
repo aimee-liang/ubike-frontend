@@ -1,14 +1,16 @@
 import React from "react"
-class CheckInSpan extends React.Component{
+
+const CheckInSpan = (props) => {
+// class CheckInSpan extends React.Component{
     
-    render(){
+    // render(){
         return(
             <span>
                 <p>Parked at {this.props.checkIn.location} since: {this.props.checkIn.datetime}</p>
             </span>
         )
 
-    }
+    // }
 }
 
 export default CheckInSpan

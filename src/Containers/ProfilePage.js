@@ -8,7 +8,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 
 // class ProfilePage extends React.Component{
-const ProfilePage = props => {
+const ProfilePage = (props) => {
 
     const [profile, setProfile] = useState(false)
 
