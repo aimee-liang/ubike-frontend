@@ -45,44 +45,44 @@ const ProfilePage = props => {
     }
 
     const hasUserCheckInProps = () => {
-        if (this.props.check_in.length >= 1){
-            return this.displayCheckedIn()
+        if (props.check_in.length >= 1){
+            return displayCheckedIn()
             // return <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button">Check Out</Button>
-        } else if (this.props.check_in === null) {
-            return this.displayNotCheckedIn()
+        } else if (props.check_in === null) {
+            return displayNotCheckedIn()
         }
     }
     
     // render(){
         return(
             <>
-            {this.props.user ? 
+            {props.user ? 
                 <div className="profile-page"> 
                     <div className="profile-page-border">
                         <div className = "profile-pic-container">
-                            <img alt="" className="default-pic"  src={this.props.user.avatar ? this.props.user.avatar : "/Octocat.png" }/>
+                            <img alt="" className="default-pic"  src={props.user.avatar ? props.user.avatar : "/Octocat.png" }/>
                         </div>
 
                         <div className="about-me">
-                            <h3>@{this.props.user.username}</h3>
-                            <h4>Name: {this.props.user.name}</h4>
-                            <p>About Me: {this.props.user.bio ? this.props.user.bio : "This user did not submit a profile!"}</p>
-                            <p>Bike Info: {this.props.user.bike}</p>
+                            <h3>@{props.user.username}</h3>
+                            <h4>Name: {props.user.name}</h4>
+                            <p>About Me: {props.user.bio ? props.user.bio : "This user did not submit a profile!"}</p>
+                            <p>Bike Info: {props.user.bike}</p>
                             <Button variant="contained" color="primary" onClick={() => this.setState({profile: true}) }><EditIcon />&nbsp;Edit Profile</Button>
-                            {this.state.profile ? this.clickToEditProfile() : null }
+                            {profile ? clickToEditProfile() : null }
                         </div>
     
                         <div className="currently-checked-status">
                             <h3>Status</h3>
-                            {this.hasUserCheckInProps()}
+                            {hasUserCheckInProps()}
                             {/* {this.props.check_in.length ? this.displayCheckedIn() && <Button variant="outlined" color="secondary" onClick={this.localCheckOut} className="check-out-button"> Check Out </Button> : null } */}
-                            {this.props.check_in === null ? null : <Button variant="contained" color="secondary" onClick={this.localCheckOut} className="check-out-button"><DirectionsBikeIcon/>&nbsp; Check Out </Button> }
+                            {props.check_in === null ? null : <Button variant="contained" color="secondary" onClick={localCheckOut} className="check-out-button"><DirectionsBikeIcon/>&nbsp; Check Out </Button> }
                         </div>
     
                         <div className="fav-stations-div">
-                            <h3>@{this.props.user.username}'s Favorite Stations</h3>
-                            {this.props.user.favorite_stations.length ?
-                                <FavoriteStationsContainer filterFavorites={this.props.favorites} unlike={this.props.unlike}/> 
+                            <h3>@{props.user.username}'s Favorite Stations</h3>
+                            {props.user.favorite_stations.length ?
+                                <FavoriteStationsContainer filterFavorites={props.favorites} unlike={props.unlike}/> 
                                     :
                                 "This user did not favorite any stations."
                             }
