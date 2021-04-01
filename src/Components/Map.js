@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {PureComponent} from "react"
+// import {PureComponent} from "react"
 import ReactMapGL, {Marker} from "react-map-gl"
 
 const shelters=[
@@ -22,14 +22,17 @@ const shelters=[
     {name: "Father Capodanno Blvd & Sand Lane", longitude: -74.066198, latitude: 40.590507},
     {name: "Richmond Ave & Wainwright Ave", longitude: -74.170972, latitude: 40.560158}
 ]
-class Markers extends PureComponent{
-    render(){
-        const {data}=this.props 
-        return data.map(
-            shelter => <Marker key={shelter.name} longitude={shelter.longitude} latitude={shelter.latitude}><img alt="" className="location-pin" src="/green-location-pin.png"/></Marker>
-        )
-    }
-}
+
+const Markers = React.memo(props => {
+    const {data} = props 
+    return data.map(
+        shelter => <Marker key={shelter.name} longitude={shelter.longitude} latitude={shelter.latitude}><img alt="" className="location-pin" src="/green-location-pin.png"/></Marker>
+    )
+})
+// class Markers extends PureComponent{
+    // render(){
+    // }
+// }
 
 const Map = () => {
 // class Map extends React.Component{
