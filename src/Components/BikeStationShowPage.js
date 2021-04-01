@@ -39,31 +39,56 @@ const BikeStationShowPage = (props) => {
         return reviews.filter(review => review.bike_station_id === props.bikeId)
     }
 
+    // const submitComments = (commentObj) => {
+    //     const token = localStorage.getItem("secret")
+    //     fetch(`http://localhost:3000/api/v1/reviews`, {
+    //         method: "POST",
+    //         headers: { 
+    //             Authorization: `Bearer ${token}`,
+    //             "content-type": "application/json",
+    //             accepts: "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             review: {
+    //                 user_id: this.props.user.id,
+    //                 username: this.props.user.username,
+    //                 bike_station_id: this.props.bikeId,
+    //                 comment: commentObj
+    //             }
+    //         })
+    //     })
+    //     .then(resp => resp.json())
+    //     .then(includingNewReview => {
+    //     let updatedReviews = [...this.state.reviews, includingNewReview]
+    //     this.setState(() => ({
+    //         reviews: updatedReviews
+    //     }))
+    // })
+    // }
+
     const submitComments = (commentObj) => {
         const token = localStorage.getItem("secret")
-        fetch(`http://localhost:3000/api/v1/reviews`, {
+        fetch(reviewsUrl, {
             method: "POST",
-            headers: { 
+            headers: {
                 Authorization: `Bearer ${token}`,
                 "content-type": "application/json",
                 accepts: "application/json"
             },
             body: JSON.stringify({
                 review: {
-                    user_id: this.props.user.id,
-                    username: this.props.user.username,
-                    bike_station_id: this.props.bikeId,
+                    user_id: props.user.id,
+                    username: props.user.username,
+                    bike_station_id: props.bikeId,
                     comment: commentObj
                 }
             })
         })
-        .then(resp => resp.json())
-        .then(includingNewReview => {
-        let updatedReviews = [...this.state.reviews, includingNewReview]
-        this.setState(() => ({
-            reviews: updatedReviews
-        }))
-    })
+        .then(response => response.json())
+        .then(data => {
+            let updatedReviews = [...reviews, data]
+            setReviews(updatedReviews)
+        })
     }
 
     // render(){
