@@ -14,6 +14,12 @@ const App = (props) => {
   const [user, setUser] = useState(null)
   const [favStations, setFavStations] = useState([])
   const [currentStation, setCurrentStation] = useState([])
+  const [stationId, setStationId] = useState(0)
+  const [bikeStationObj, setBikeStationObj] = useState({})
+  const [checkIn, setCheckIn] = useState([])
+  const [timeAndDay, setTimeAndDay] = useState(new Date().toLocaleDateString([], {hour: '2-digit', minute: '2-digit'}))
+
+  const profileUrl = `http://localhost:3000/api/v1/profile`
 
   // state={
   //   user: null,
@@ -25,7 +31,11 @@ const App = (props) => {
   //   timeAndDay: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
   // }
 
-  componentDidMount(){
+  useEffect(() => {
+    fetchUserLogin(profileUrl)
+  })
+
+  const fetchUserLogin = (url) => {
     const token = localStorage.getItem("secret")
     if (token){
       fetch("http://localhost:3000/api/v1/profile", {
@@ -38,6 +48,20 @@ const App = (props) => {
       this.props.history.push("/login")
     }
   }
+
+  // componentDidMount(){
+  //   const token = localStorage.getItem("secret")
+  //   if (token){
+  //     fetch("http://localhost:3000/api/v1/profile", {
+  //       method: "GET",
+  //       headers: {Authorization: `Bearer ${token}`},
+  //     })
+  //       .then(resp => resp.json())
+  //       .then(data => this.setState({user: data.user}))
+  //   } else {
+  //     this.props.history.push("/login")
+  //   }
+  // }
 
   signUpHandler = (userObj) => {
     fetch(`http://localhost:3000/api/v1/users`, {
