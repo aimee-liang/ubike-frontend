@@ -2,16 +2,12 @@ import React from "react"
 import Select from "react-select"
 
 const FilterBoroughs = (props) => {
-    
-    // componentDidUpdate(){
-
-    // }
 
     const clickHandler = (e) => {
         props.searchBorough(e.value)
     }
 
-    const boroughs =[
+    const boroughs = [
         {value: "All", label: "All Boroughs"},
         {value: "Brooklyn", label: "Brooklyn"},
         {value: "Manhattan", label: "Manhattan"},
@@ -22,17 +18,8 @@ const FilterBoroughs = (props) => {
 
         return(
             <>
-            <p>Find Bike Parking Shelters in</p>
-
-            <Select options={boroughs} onChange={clickHandler} />
-                {/* <select name="borough" onChange={clickHandler}>
-                    <option value="All">All Boroughs</option>
-                    <option value="Brooklyn">Brooklyn</option>
-                    <option value="Manhattan">Manhattan</option>
-                    <option value="Queens">Queens</option>
-                    <option value="Staten Island">Staten Island</option>
-                    <option value="Bronx">The Bronx</option>
-                </select> */}
+                <p>Find Bike Parking Shelters in</p>
+                <Select options={boroughs} onChange={clickHandler} />
             </>
         )
 }
