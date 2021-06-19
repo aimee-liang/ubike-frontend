@@ -1,9 +1,12 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import CustomChatBot from "../Components/CustomChatbot"
 import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
 
-class Home extends React.Component{
+export default function Home(){
+// class Home extends React.Component{
+
+    const [bikesAPI, setBikesAPI] = useState([])
     state={
         bikesAPI: [],
         searchValue: "All",
@@ -19,6 +22,12 @@ class Home extends React.Component{
             }))
         .catch(errors => console.log(errors))
     }
+
+    useEffect(() => {
+        fetchBikeStations()
+    }, [])
+
+
 
     searchBorough = (boroughObj) => {
         this.setState(() => ({
@@ -44,7 +53,7 @@ class Home extends React.Component{
 
     /* TO DO: update bike racks available */
 
-    render(){
+    // render(){
         return(
             <div className="home-background">
                 <div className="home">
@@ -57,9 +66,6 @@ class Home extends React.Component{
                     {this.state.clicked ? <div className="chatbot-container"> <CustomChatBot /> </div> : null }
             </div>
         )
-    }
+    // }
 }
-
-
-export default Home
 
