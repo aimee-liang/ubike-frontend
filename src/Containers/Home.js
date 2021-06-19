@@ -4,18 +4,10 @@ import Map from "../Components/Map"
 import BikeStations from "./BikeStations"
 
 export default function Home(){
-// class Home extends React.Component{
-
     const [bikesAPI, setBikesAPI] = useState([])
     const [searchValue, setSearchValue] = useState("All")
     const [clicked, setClicked] = useState(false)
     const bikeStationsURL = `http://localhost:3000/api/v1/bike_stations`
-
-    // state={
-        // bikesAPI: [],
-        // searchValue: "All",
-        // clicked: false,
-    // }
 
     useEffect(() => {
         fetchBikeStations()
@@ -28,34 +20,21 @@ export default function Home(){
             .catch(error => console.log(error))
     }
 
-    // componentDidMount(){
-    //     fetch(`http://localhost:3000/api/v1/bike_stations`)
-    //     .then(resp => resp.json())
-    //     .then((bikesData) => 
-    //         this.setState({
-    //             bikesAPI: bikesData,
-    //         }))
-    //     .catch(errors => console.log(errors))
-    // }
-
-
-    searchBorough = (boroughObj) => {
-        this.setState(() => ({
-            searchValue: boroughObj
-        }))
+    const searchBorough = (boroughObj) => {
+        setSearchValue(`${boroughObj}`)
     }
 
-    sortByBorough = () => {
-        let arrayOfBikeStations = this.state.bikesAPI
-        if (this.state.searchValue !== "All"){
-            arrayOfBikeStations = this.state.bikesAPI.filter((bikeStation) => {
-                return bikeStation.borough === this.state.searchValue
+    const sortByBorough = () => {
+        let arrayOfBikeStations = bikesAPI
+        if (searchValue !== "All"){
+            arrayOfBikeStations = bikesAPI.filter((bikeStation) => {
+                return bikeStation.borough === searchValue
             })
-        } 
-        return arrayOfBikeStations
+            return arrayOfBikeStations
+        }
     }
 
-    clickHandler = () => {
+    const clickHandler = () => {
         this.setState(previousState => ({
             clicked: !previousState.clicked
         }))
