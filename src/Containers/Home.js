@@ -7,26 +7,36 @@ export default function Home(){
 // class Home extends React.Component{
 
     const [bikesAPI, setBikesAPI] = useState([])
-    state={
-        bikesAPI: [],
-        searchValue: "All",
-        clicked: false,
-    }
+    const [searchValue, setSearchValue] = useState("All")
+    const [clicked, setClicked] = useState(false)
+    const bikeStationsURL = `http://localhost:3000/api/v1/bike_stations`
 
-    componentDidMount(){
-        fetch(`http://localhost:3000/api/v1/bike_stations`)
-        .then(resp => resp.json())
-        .then((bikesData) => 
-            this.setState({
-                bikesAPI: bikesData,
-            }))
-        .catch(errors => console.log(errors))
-    }
+    // state={
+        // bikesAPI: [],
+        // searchValue: "All",
+        // clicked: false,
+    // }
 
     useEffect(() => {
         fetchBikeStations()
     }, [])
 
+    const fetchBikeStations = () => {
+        fetch(bikeStationsURL)
+            .then(resp => resp.json())
+            .then(bikesData => setBikesAPI([bikesAPI, ...bikesData]))
+            .catch(error => console.log(error))
+    }
+
+    // componentDidMount(){
+    //     fetch(`http://localhost:3000/api/v1/bike_stations`)
+    //     .then(resp => resp.json())
+    //     .then((bikesData) => 
+    //         this.setState({
+    //             bikesAPI: bikesData,
+    //         }))
+    //     .catch(errors => console.log(errors))
+    // }
 
 
     searchBorough = (boroughObj) => {
