@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import {NavLink} from "react-router-dom"
 
-const Login = (props) => {
+export default function Login(props){
 // class Login extends React.Component{
     
     const [user, setUser] = useState({
@@ -68,5 +68,3 @@ const Login = (props) => {
         )
     // }
 }
-
-export default Login
